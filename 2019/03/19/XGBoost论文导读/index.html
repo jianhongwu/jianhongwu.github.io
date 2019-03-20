@@ -6,14 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: machine learning | My WORD IN MY WORLD</title>
+  <title>XGBoost论文导读 | My WORD IN MY WORLD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="My WORD IN MY WORLD">
-<meta property="og:url" content="http://yoursite.com/tags/machine-learning/index.html">
+  <meta name="description" content="最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。">
+<meta name="keywords" content="machine learning,论文导读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XGBoost论文导读">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/XGBoost论文导读/index.html">
 <meta property="og:site_name" content="My WORD IN MY WORLD">
+<meta property="og:description" content="最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-2ac740b7aa041619.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/939/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-e1b26b548280dbd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-f0300a91d922e5f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-622ac3b3c9436ecf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-c5ec03830d9639b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-3442eede8d672c7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-909e89cd45a842ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-bcad2c844acad47f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1670295-90c0b9165e1474f5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/580/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-ae19454c0bc65f5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/808/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/873/format/webp">
+<meta property="og:updated_time" content="2019-03-20T14:28:59.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My WORD IN MY WORLD">
+<meta name="twitter:title" content="XGBoost论文导读">
+<meta name="twitter:description" content="最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
   
     <link rel="alternative" href="/atom.xml" title="My WORD IN MY WORLD" type="application/atom+xml">
   
@@ -171,78 +189,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-XGBoost论文导读" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/20/LightGBM论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-20T09:43:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/20/LightGBM论文导读/">LightGBM论文导读</a>
+    <h1 class="article-title" itemprop="name">
+      XGBoost论文导读
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">machine learning</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/XGBoost论文导读/" class="archive-article-date">
+        
+        <a href="/2019/03/19/XGBoost论文导读/" class="archive-article-date">
   	<time datetime="2019-03-19T07:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/XGBoost论文导读/">XGBoost论文导读</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。</p>
+<a id="more"></a>
+<p>从论文结构来讲，我觉得XGBoost相较LightGBM还是很好理解的，很符合我们平时学习模型时从模型原理推导，到细节实现，再到系统实现的这一过程，而XGBoost的主要创新与贡献也在于这三方面，接下来就从这三方面来进行总结。</p>
+<h1 id="一、模型原理推导"><a href="#一、模型原理推导" class="headerlink" title="一、模型原理推导"></a>一、模型原理推导</h1><p>在模型原理上，个人觉得XGBoost并没有太大的创新，而是在前人研究的基础上进行了融合，算是结合了不同模型的优势。按照论文，这部分的工作主要可以分成三部分：<strong>正则化的损失函数，二阶导数的梯度提升，学习率（收缩率）与列采样</strong>。</p>
+<h3 id="Regularized-Learning-Objective"><a href="#Regularized-Learning-Objective" class="headerlink" title="Regularized Learning Objective"></a>Regularized Learning Objective</h3><p>相较于传统的GBDT模型，XGBoost的第一点改进在于损失函数添加上了正则化项，类似的正则技巧在Regularized greedy forest(RGF)中已经被采用过，但是文中提出的方法会更简单且利于并行。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<p>其中T为叶子结点的个数，w为叶子结点的输出权值。</p>
+<h3 id="Gradient-Tree-Boosting"><a href="#Gradient-Tree-Boosting" class="headerlink" title="Gradient Tree Boosting"></a>Gradient Tree Boosting</h3><p>对XGBoost的损失函数进行二阶泰勒展开来代替原GBDT中的梯度是这篇论文最重要的点之一。这一方法在之前的工作中也已有人做过（Friedman）。二者之间的差别可以认为是：</p>
+<ul>
+<li><strong>GBDT在函数空间利用梯度下降法进行优化</strong></li>
+<li><strong>XGBoost在函数空间中利用牛顿法进行优化</strong></li>
+</ul>
+<p>这里又涉及到两种优化方法之间的区别，简单来讲梯度下降法用超平面去拟合当前所在局部曲面，只考虑目标函数再迭代点的局部性质；而牛顿法用的是超曲面来进行拟合，直接搜索怎样到达极值点，不仅考虑当前坡度是否足够大，还会考虑之后的情况，收敛速度会更快。这里先不总结了，等之后总结最优化方法的时候再写写算算吧。</p>
+<p>在第t次迭代时，损失函数可化为：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-2ac740b7aa041619.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/939/format/webp" alt="image"></p>
+<p>利用二阶泰勒展开近似：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-e1b26b548280dbd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<p>通过省略常数项，可得到：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-f0300a91d922e5f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<p>中间替换过程按下不表，最终损失函数可化为：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-622ac3b3c9436ecf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<p>对上式求导求极值，可解出叶子结点的权值：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-c5ec03830d9639b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<p>最优的损失函数值则可化为：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-3442eede8d672c7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<p>与传统的ID3,C4.5,CART不同，上式就是用来确定分类点的度量值，选择能够使损失函数值最小的分类点。通过父节点的值与左右两个子节点的值相减，得到损失函数的降低程度：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-909e89cd45a842ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<h3 id="Shrinkage-and-Column-Subsampling"><a href="#Shrinkage-and-Column-Subsampling" class="headerlink" title="Shrinkage and Column Subsampling"></a>Shrinkage and Column Subsampling</h3><p>模型原理上的第三点改进也就是学习率与列采样。和正则化项一样，这两项也是用于防止过拟合的策略。Skrinkage同样由Friedman提出，在GBDT中也有类似的设置，shrinkage的作用与随机最优化中的学习率相似，减弱了单颗树的权重。</p>
+<p>列采样来源于随机森林，也就是对特征进行采样。同时也实现了行采样，不过与随机森林中的自主采样法不同，这里的行采样是不放回的采样。</p>
+<p>在sklearn的GBDT的实现中，上述的方法也都进行了实现。</p>
+<h1 id="二、结点分裂算法-Split-Finding-Algorithms"><a href="#二、结点分裂算法-Split-Finding-Algorithms" class="headerlink" title="二、结点分裂算法 Split Finding Algorithms"></a>二、结点分裂算法 Split Finding Algorithms</h1><p>这一部分算法的实现与第四章的系统实现决定了XGBoost的超快运行速度。</p>
+<h3 id="Basic-Exact-Greedy-Algorithm"><a href="#Basic-Exact-Greedy-Algorithm" class="headerlink" title="Basic Exact Greedy Algorithm"></a>Basic Exact Greedy Algorithm</h3><p>在GBDT算法的计算过程中，最为耗时的过程也就是寻找最佳分割点的过程。传统的做法也就是暴力遍历所有可能的分割点，包括sklearn中的算法也就是采用这一策略, XGBoost也同样支持这一算法。</p>
+<p>这一算法的常规做法是：首先根据特征的值进行排序，再依次遍历每一个可能的分割点进行计算。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-bcad2c844acad47f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
+<p>Exact Greedy Algorithm这个算法的时间复杂度O(d <em> m + m </em> log(m)) = O(m <em> (d + log(m)))，m </em> log(m)是因为对样本特征进行约排序，d * m是对每个样本的每个特征进行分裂判断。(<a href="https://www.jianshu.com/p/5e6c5b616114" target="_blank" rel="noopener">来自这里</a>)</p>
+<h3 id="Approximate-Algorithm"><a href="#Approximate-Algorithm" class="headerlink" title="Approximate Algorithm"></a>Approximate Algorithm</h3><p>暴力算法的缺点在于当数据量很大的时候难以高效的运行，所以XGB提出了一种近似算法能加快运行,其流程如下：<br><img src="https://upload-images.jianshu.io/upload_images/1670295-90c0b9165e1474f5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/580/format/webp" alt="image"></p>
+<p>对于某个特征k，算法首先根据特征分布的分位数找到特征切割点的候选集合S,然后将特征k的值根据集合S划分成桶（bucket），接着对每个桶内的样本统计其G/H值，最后在这些累计的统计量上寻找最佳的分裂点。相当于降低分裂的精度来提升运行的速度。</p>
+<p>文中提出了两种不同的近似算法：Global和Local。Gloabl即在初始化tree的时候划分好候选分割点，并且在树的每一层都使用这些候选分割点；Local即每一次划分的时候都重新计算候选分割点。这两者各有利弊，全局算法不需要多次计算候选节点，但需要一次获取较多的候选节点供后续树生长使用，而局部算法一次获取的候选节点较少，可以在分支过程中不断改善，即适用于生长更深的树。</p>
+<h3 id="Weighted-Quantile-Sketch"><a href="#Weighted-Quantile-Sketch" class="headerlink" title="Weighted Quantile Sketch"></a>Weighted Quantile Sketch</h3><p>近似算法的核心在于候选分割点的选取，Xgboost提出了Weighted Quantile Sketch来解决这个问题。这一算法设计到大量数据情况下分位数点的计算问题，我其实理解的不是很好，在这篇博客里有很好的<a href="https://blog.csdn.net/anshuai_aw1/article/details/83025168" target="_blank" rel="noopener">描述</a>。</p>
+<p>那么为什么是加权的算法呢？10000个样本取10个的话，每1000个样本计算一次split value看似可行，其实是不可以的，我们要均分的是loss，而不是样本的数量，而每个样本对loss的贡献可能是不一样的，按样本均分会导致loss分布不均匀，取到的分位点会有偏差(<a href="https://www.jianshu.com/p/22b82127644a" target="_blank" rel="noopener">来自这里</a>)。</p>
+<p>对损失函数进行变形可以得到：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-ae19454c0bc65f5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/808/format/webp" alt="image"></p>
+<p>这个形式的loss说明了, xi的loss也可以看做是以−gi/hi作为label的均方误差，乘以大小为hi的权重，换句话说，xi对loss的贡献权重为hi。<br>那么，对loss取k分位点就是对误差的均分。</p>
+<p>这一部分感觉确实不太好理解，再贴几篇参考文章，结合其中的例子更好理解一些：</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/22b82127644a" target="_blank" rel="noopener">XGBoost之分位点算法</a></li>
+<li><a href="http://datavalley.github.io/2017/09/11/xgboost源码之分位点" target="_blank" rel="noopener">XGBoost之分位点算法</a></li>
+<li><a href="https://blog.csdn.net/anshuai_aw1/article/details/83025168" target="_blank" rel="noopener">Xgboost近似分位数算法</a></li>
+</ol>
+<h3 id="Sparsity-aware-Split-Finding"><a href="#Sparsity-aware-Split-Finding" class="headerlink" title="Sparsity-aware Split Finding"></a>Sparsity-aware Split Finding</h3><p>XGB还增加了对稀疏数据和缺失值的处理算法，XGB训练数据的时候，它使用没有缺失的数据去进行节点分支。然后我们将特征上缺失的数据尝试放左右节点上，看缺失值应当分到那个分支节点上。我们把缺失值分配到的分支称为默认分支。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/873/format/webp" alt="image"></p>
+<h1 id="三、系统设计-System-Design"><a href="#三、系统设计-System-Design" class="headerlink" title="三、系统设计 System Design"></a>三、系统设计 System Design</h1><p>文章最后一大块也就是系统设计了。工程上的精妙实现才能发挥出最好的效果。这一部分内容不少，但大多都是接触较少的内容，所以简单提炼几个要点。</p>
+<h3 id="Column-Block-for-Parallel-Learning"><a href="#Column-Block-for-Parallel-Learning" class="headerlink" title="Column Block for Parallel Learning"></a>Column Block for Parallel Learning</h3><p><strong>XGB的并行计算的粒度不在树上，而是在特征上</strong></p>
+<p>在我们训练过程中最耗时的过程也就是做分支处理，需要对每一列（特征）找出适合的分裂点。为了加快处理速度，将数据按照列存储成一个数据块方便我们在分裂的时候进行并行计算。这里XGB将所有的列数据都预先排了序，以压缩形式分别存到block里，不同的block可以分布式存储，甚至存到硬盘里。在特征选择的时候，可以并行的处理这些列数据，XGB就是在这实现的并行化，用多线程来实现加速。</p>
+<h3 id="Cache-aware-Access"><a href="#Cache-aware-Access" class="headerlink" title="Cache-aware Access"></a>Cache-aware Access</h3><h3 id="Blocks-for-Out-of-core-Computation"><a href="#Blocks-for-Out-of-core-Computation" class="headerlink" title="Blocks for Out-of-core Computation"></a>Blocks for Out-of-core Computation</h3><p>这两部的内容更偏于工程实现上的技巧，这里就不进行总结了，详见：</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/5e6c5b616114" target="_blank" rel="noopener">XGBoost论文阅读及其原理</a></li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -258,19 +300,110 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/19/XGBoost论文导读/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/03/19/Flag/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Flag
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -293,9 +426,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
