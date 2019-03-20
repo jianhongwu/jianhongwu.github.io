@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1670295-90c0b9165e1474f5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/580/format/webp">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-ae19454c0bc65f5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/808/format/webp">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/873/format/webp">
-<meta property="og:updated_time" content="2019-03-20T07:23:56.444Z">
+<meta property="og:updated_time" content="2019-03-20T07:57:12.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XGBoost论文导读">
 <meta name="twitter:description" content="最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。">
@@ -75,6 +75,10 @@
 				<li><a href="/">主页</a></li>
 	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/machine learning/">machine learning</a></li>
+	        
+				<li><a href="/tages/论文导读/">论文导读</a></li>
 	        
 			</ul>
 		</nav>
@@ -132,6 +136,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -151,12 +159,16 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/machine learning/">machine learning</a></li>
+		        
+					<li style="width: 25%"><a href="/tages/论文导读/">论文导读</a></li>
 		        
 				</ul>
 			</nav>
@@ -194,7 +206,7 @@
         <p>最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。</p>
 <a id="more"></a>
 <p>从论文结构来讲，我觉得XGBoost相较LightGBM还是很好理解的，很符合我们平时学习模型时从模型原理推导，到细节实现，再到系统实现的这一过程，而XGBoost的主要创新与贡献也在于这三方面，接下来就从这三方面来进行总结。</p>
-<h2 id="模型原理推导"><a href="#模型原理推导" class="headerlink" title="模型原理推导"></a>模型原理推导</h2><p>在模型原理上，个人觉得XGBoost并没有太大的创新，而是在前人研究的基础上进行了融合，算是结合了不同模型的优势。按照论文，这部分的工作主要可以分成三部分：<strong>正则化的损失函数，二阶导数的梯度提升，学习率（收缩率）与列采样</strong>。</p>
+<h1 id="一、模型原理推导"><a href="#一、模型原理推导" class="headerlink" title="一、模型原理推导"></a>一、模型原理推导</h1><p>在模型原理上，个人觉得XGBoost并没有太大的创新，而是在前人研究的基础上进行了融合，算是结合了不同模型的优势。按照论文，这部分的工作主要可以分成三部分：<strong>正则化的损失函数，二阶导数的梯度提升，学习率（收缩率）与列采样</strong>。</p>
 <h3 id="Regularized-Learning-Objective"><a href="#Regularized-Learning-Objective" class="headerlink" title="Regularized Learning Objective"></a>Regularized Learning Objective</h3><p>相较于传统的GBDT模型，XGBoost的第一点改进在于损失函数添加上了正则化项，类似的正则技巧在Regularized greedy forest(RGF)中已经被采用过，但是文中提出的方法会更简单且利于并行。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
 <p>其中T为叶子结点的个数，w为叶子结点的输出权值。</p>
 <h3 id="Gradient-Tree-Boosting"><a href="#Gradient-Tree-Boosting" class="headerlink" title="Gradient Tree Boosting"></a>Gradient Tree Boosting</h3><p>对XGBoost的损失函数进行二阶泰勒展开来代替原GBDT中的梯度是这篇论文最重要的点之一。这一方法在之前的工作中也已有人做过（Friedman）。二者之间的差别可以认为是：</p>
@@ -213,7 +225,7 @@
 <h3 id="Shrinkage-and-Column-Subsampling"><a href="#Shrinkage-and-Column-Subsampling" class="headerlink" title="Shrinkage and Column Subsampling"></a>Shrinkage and Column Subsampling</h3><p>模型原理上的第三点改进也就是学习率与列采样。和正则化项一样，这两项也是用于防止过拟合的策略。Skrinkage同样由Friedman提出，在GBDT中也有类似的设置，shrinkage的作用与随机最优化中的学习率相似，减弱了单颗树的权重。</p>
 <p>列采样来源于随机森林，也就是对特征进行采样。同时也实现了行采样，不过与随机森林中的自主采样法不同，这里的行采样是不放回的采样。</p>
 <p>在sklearn的GBDT的实现中，上述的方法也都进行了实现。</p>
-<h2 id="结点分裂算法-Split-Finding-Algorithms"><a href="#结点分裂算法-Split-Finding-Algorithms" class="headerlink" title="结点分裂算法 Split Finding Algorithms"></a>结点分裂算法 Split Finding Algorithms</h2><p>这一部分算法的实现与第四章的系统实现决定了XGBoost的超快运行速度。</p>
+<h1 id="二、结点分裂算法-Split-Finding-Algorithms"><a href="#二、结点分裂算法-Split-Finding-Algorithms" class="headerlink" title="二、结点分裂算法 Split Finding Algorithms"></a>二、结点分裂算法 Split Finding Algorithms</h1><p>这一部分算法的实现与第四章的系统实现决定了XGBoost的超快运行速度。</p>
 <h3 id="Basic-Exact-Greedy-Algorithm"><a href="#Basic-Exact-Greedy-Algorithm" class="headerlink" title="Basic Exact Greedy Algorithm"></a>Basic Exact Greedy Algorithm</h3><p>在GBDT算法的计算过程中，最为耗时的过程也就是寻找最佳分割点的过程。传统的做法也就是暴力遍历所有可能的分割点，包括sklearn中的算法也就是采用这一策略, XGBoost也同样支持这一算法。</p>
 <p>这一算法的常规做法是：首先根据特征的值进行排序，再依次遍历每一个可能的分割点进行计算。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-bcad2c844acad47f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
 <p>Exact Greedy Algorithm这个算法的时间复杂度O(d <em> m + m </em> log(m)) = O(m <em> (d + log(m)))，m </em> log(m)是因为对样本特征进行约排序，d * m是对每个样本的每个特征进行分裂判断。(<a href="https://www.jianshu.com/p/5e6c5b616114" target="_blank" rel="noopener">来自这里</a>)</p>
@@ -231,7 +243,7 @@
 <li><a href="https://blog.csdn.net/anshuai_aw1/article/details/83025168" target="_blank" rel="noopener">Xgboost近似分位数算法</a></li>
 </ol>
 <h3 id="Sparsity-aware-Split-Finding"><a href="#Sparsity-aware-Split-Finding" class="headerlink" title="Sparsity-aware Split Finding"></a>Sparsity-aware Split Finding</h3><p>XGB还增加了对稀疏数据和缺失值的处理算法，XGB训练数据的时候，它使用没有缺失的数据去进行节点分支。然后我们将特征上缺失的数据尝试放左右节点上，看缺失值应当分到那个分支节点上。我们把缺失值分配到的分支称为默认分支。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/873/format/webp" alt="image"></p>
-<h2 id="System-Design"><a href="#System-Design" class="headerlink" title="System Design"></a>System Design</h2><p>文章最后一大块也就是系统设计了。工程上的精妙实现才能发挥出最好的效果。这一部分内容不少，但大多都是接触较少的内容，所以简单提炼几个要点。</p>
+<h1 id="三、系统设计-System-Design"><a href="#三、系统设计-System-Design" class="headerlink" title="三、系统设计 System Design"></a>三、系统设计 System Design</h1><p>文章最后一大块也就是系统设计了。工程上的精妙实现才能发挥出最好的效果。这一部分内容不少，但大多都是接触较少的内容，所以简单提炼几个要点。</p>
 <h3 id="Column-Block-for-Parallel-Learning"><a href="#Column-Block-for-Parallel-Learning" class="headerlink" title="Column Block for Parallel Learning"></a>Column Block for Parallel Learning</h3><p><strong>XGB的并行计算的粒度不在树上，而是在特征上</strong></p>
 <p>在我们训练过程中最耗时的过程也就是做分支处理，需要对每一列（特征）找出适合的分裂点。为了加快处理速度，将数据按照列存储成一个数据块方便我们在分裂的时候进行并行计算。这里XGB将所有的列数据都预先排了序，以压缩形式分别存到block里，不同的block可以分布式存储，甚至存到硬盘里。在特征选择的时候，可以并行的处理这些列数据，XGB就是在这实现的并行化，用多线程来实现加速。</p>
 <h3 id="Cache-aware-Access"><a href="#Cache-aware-Access" class="headerlink" title="Cache-aware Access"></a>Cache-aware Access</h3><h3 id="Blocks-for-Out-of-core-Computation"><a href="#Blocks-for-Out-of-core-Computation" class="headerlink" title="Blocks for Out-of-core Computation"></a>Blocks for Out-of-core Computation</h3><p>这两部的内容更偏于工程实现上的技巧，这里就不进行总结了，详见：</p>
@@ -345,6 +357,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/03/20/LightGBM论文导读/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          LightGBM论文导读
+        
+      </div>
+    </a>
   
   
     <a href="/2019/03/19/Flag/" id="article-nav-older" class="article-nav-link-wrap">
@@ -466,15 +487,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">machine learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">论文导读</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
