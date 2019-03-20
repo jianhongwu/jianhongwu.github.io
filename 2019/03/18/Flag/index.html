@@ -12,10 +12,10 @@
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flag">
-<meta property="og:url" content="http://yoursite.com/2019/03/19/Flag/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/18/Flag/index.html">
 <meta property="og:site_name" content="My WORD IN MY WORLD">
 <meta property="og:description" content="现在回想，第一次在github上搭博客已经是17年初的时候了，当时还被jelly反复折磨来着。期间若干次反反复复，日常心血来潮与嫌麻烦，最终还是没坚持下来。平日也就用有道笔记做做总结与记录（实名点赞有道笔记，真心好用），算着也有百多篇了，若是当初坚持下来写在博客上，应该也是一件有成就感的事吧。">
-<meta property="og:updated_time" content="2019-03-20T02:53:13.633Z">
+<meta property="og:updated_time" content="2019-03-20T14:30:05.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flag">
 <meta name="twitter:description" content="现在回想，第一次在github上搭博客已经是17年初的时候了，当时还被jelly反复折磨来着。期间若干次反反复复，日常心血来潮与嫌麻烦，最终还是没坚持下来。平日也就用有道笔记做做总结与记录（实名点赞有道笔记，真心好用），算着也有百多篇了，若是当初坚持下来写在博客上，应该也是一件有成就感的事吧。">
@@ -75,6 +75,10 @@
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -188,8 +192,8 @@
   
 
         
-        <a href="/2019/03/19/Flag/" class="archive-article-date">
-  	<time datetime="2019-03-19T14:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+        <a href="/2019/03/18/Flag/" class="archive-article-date">
+  	<time datetime="2019-03-18T14:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
 </a>
         
       </header>
@@ -290,7 +294,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/19/Flag/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/18/Flag/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,20 +308,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/20/LightGBM论文导读/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/19/XGBoost论文导读/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          LightGBM论文导读
+          XGBoost论文导读
         
       </div>
     </a>
   
-  
-    <a href="/2019/03/19/XGBoost论文导读/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">XGBoost论文导读</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -402,17 +401,25 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
       
     
+      
+      
+      
+    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -495,6 +502,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
 
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+    	</section>
     
 
     
