@@ -6,32 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>XGBoost论文导读 | My WORD IN MY WORLD</title>
+  <title>Unix Linux, gcc g++, make cmake, 傻傻分不清 | My WORD IN MY WORLD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。">
-<meta name="keywords" content="论文导读,机器学习">
+  <meta name="description" content="经常被各种名词搞得头昏脑涨，虽然也没有什么大的影响，但有不清楚不了解的地方总觉得十分烦躁，干脆简单总结一下好了.">
+<meta name="keywords" content="计算机原理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XGBoost论文导读">
-<meta property="og:url" content="http://yoursite.com/2019/03/19/XGBoost论文导读/index.html">
+<meta property="og:title" content="Unix Linux, gcc g++, make cmake, 傻傻分不清">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/Unix/index.html">
 <meta property="og:site_name" content="My WORD IN MY WORLD">
-<meta property="og:description" content="最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-2ac740b7aa041619.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/939/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-e1b26b548280dbd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-f0300a91d922e5f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-622ac3b3c9436ecf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-c5ec03830d9639b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-3442eede8d672c7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-909e89cd45a842ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-bcad2c844acad47f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1670295-90c0b9165e1474f5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/580/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-ae19454c0bc65f5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/808/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/873/format/webp">
-<meta property="og:updated_time" content="2019-03-22T08:18:44.901Z">
+<meta property="og:description" content="经常被各种名词搞得头昏脑涨，虽然也没有什么大的影响，但有不清楚不了解的地方总觉得十分烦躁，干脆简单总结一下好了.">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g1bn1rulbbj30to07ita0.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/80/f57298cefba18fca5f31b8762f01d933_hd.jpg">
+<meta property="og:updated_time" content="2019-03-22T08:17:07.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XGBoost论文导读">
-<meta name="twitter:description" content="最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta name="twitter:title" content="Unix Linux, gcc g++, make cmake, 傻傻分不清">
+<meta name="twitter:description" content="经常被各种名词搞得头昏脑涨，虽然也没有什么大的影响，但有不清楚不了解的地方总觉得十分烦躁，干脆简单总结一下好了.">
+<meta name="twitter:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g1bn1rulbbj30to07ita0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="My WORD IN MY WORLD" type="application/atom+xml">
   
@@ -199,73 +189,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-XGBoost论文导读" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Unix" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      XGBoost论文导读
+      Unix Linux, gcc g++, make cmake, 傻傻分不清
     </h1>
   
 
         
-        <a href="/2019/03/19/XGBoost论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-19T07:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
+        <a href="/2019/03/22/Unix/" class="archive-article-date">
+  	<time datetime="2019-03-22T08:14:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近打比赛又用上了XGBoost和LightGBM, 但是对二者实现细节上的差异特别是LightGBM的细节一直有些模糊，最近重新读了一次两篇论文，记录一下细节，毕竟调参也得科学调参不是。</p>
+        <p>经常被各种名词搞得头昏脑涨，虽然也没有什么大的影响，但有不清楚不了解的地方总觉得十分烦躁，干脆简单总结一下好了.</p>
 <a id="more"></a>
-<p>从论文结构来讲，我觉得XGBoost相较LightGBM还是很好理解的，很符合我们平时学习模型时从模型原理推导，到细节实现，再到系统实现的这一过程，而XGBoost的主要创新与贡献也在于这三方面，接下来就从这三方面来进行总结。</p>
-<h1 id="一、模型原理推导"><a href="#一、模型原理推导" class="headerlink" title="一、模型原理推导"></a>一、模型原理推导</h1><p>在模型原理上，个人觉得XGBoost并没有太大的创新，而是在前人研究的基础上进行了融合，算是结合了不同模型的优势。按照论文，这部分的工作主要可以分成三部分：<strong>正则化的损失函数，二阶导数的梯度提升，学习率（收缩率）与列采样</strong>。</p>
-<h3 id="Regularized-Learning-Objective"><a href="#Regularized-Learning-Objective" class="headerlink" title="Regularized Learning Objective"></a>Regularized Learning Objective</h3><p>相较于传统的GBDT模型，XGBoost的第一点改进在于损失函数添加上了正则化项，类似的正则技巧在Regularized greedy forest(RGF)中已经被采用过，但是文中提出的方法会更简单且利于并行。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<p>其中T为叶子结点的个数，w为叶子结点的输出权值。</p>
-<h3 id="Gradient-Tree-Boosting"><a href="#Gradient-Tree-Boosting" class="headerlink" title="Gradient Tree Boosting"></a>Gradient Tree Boosting</h3><p>对XGBoost的损失函数进行二阶泰勒展开来代替原GBDT中的梯度是这篇论文最重要的点之一。这一方法在之前的工作中也已有人做过（Friedman）。二者之间的差别可以认为是：</p>
+<h1 id="1-Unix、Linux、GNU、FSF的历史"><a href="#1-Unix、Linux、GNU、FSF的历史" class="headerlink" title="1. Unix、Linux、GNU、FSF的历史"></a>1. Unix、Linux、GNU、FSF的历史</h1><ol>
+<li>1965年，Bell、MIT和GE共同发起Multics项目，想要开发一个强大的分时操作系统，但最终失败，Bell退出项目。</li>
+<li>之后，贝尔实验室的Ken Thompson受multics的启发，希望开发一个小的操作系统供自己使用，于是以汇编语言写出一套内核程序，Unics</li>
+<li>虽然Unics很好用，但由于是根据汇编语言写成的，安装到不同架构的机器都需要重构，于是后来Thompson和Ritchie合作，以C语言重写Unics内核，从而诞生了Unix,是的Unix容易被移植到不用的机器上。（其中x就是cross的略写，跨平台的意思）</li>
+<li>Unix具有高度可移植性和强大的性能，但几年后版权意识渐强，逐步商业化，并不可对学生提供源码。为了教授操作系统，，1984年Andrew Stuart Tanenbaum教授便自己写了一个叫Minix的Unix-like系统。</li>
+<li>1984年，Stallman发起了GNU项目，这个项目的目的是创建一个自由开放的UNIX操作系统，之后又创立的自由软件基金会FSF。著名的C语言编译程序GNU C Compiler(GCC)也在这里诞生。此外还编写了可以被调用的C函数库GNU C Library,以及可以被用来操作操作系统的基本接口bash shell.</li>
+<li>为避免GNU所开发的自由软件被他人利用而成为专利软件，诞生了有名的通用公共许可证GPL，General public license. 但此时这些自由软件仍然只能工作在被授权的UNIX系统上。</li>
+<li>到1991年，芬兰赫尔辛基大学的学生Linus基于Minix、GCC、Bash等工具写了一个小小的内核程序，也就是Linux。但不同于Minix系统就是为当做教学用具而生的，Linux则是向一个实用的操作系统发展。很多人一起为Linux写了无数行的代码，最终让它成为了一个使用很广泛的系统。</li>
+</ol>
+<p>总的来说，Linux兼容Unix系统的很多东西，但二者的不同之处也一点不少。Unix其实在很多程度上就是一个商标，现在经过认证了的真·Unix系统大概也只有Solaris了，像FreeBSD、Linux、Darwin（MacOS的底层系统）都只是类Unix，即类似Unix的系统（<a href="https://www.zhihu.com/question/306912373/answer/568558987" target="_blank" rel="noopener">参考</a>）。</p>
+<h1 id="2-gcc-g"><a href="#2-gcc-g" class="headerlink" title="2. gcc,g++"></a>2. gcc,g++</h1><p>首先看一下程序的编译过程</p>
+<p>在Unix系统上,从源文件到目标文件的转化是由编译器驱动程序完成的:</p>
+<pre><code>unix&gt;gcc -o hello hello.c
+</code></pre><p>执行这四个阶段的程序(<strong>预处理器、编译器、汇编器、链接器</strong>)一起构成了<strong>编译系统</strong>(compilation system).</p>
+<p><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g1bn1rulbbj30to07ita0.jpg" alt="image"></p>
 <ul>
-<li><strong>GBDT在函数空间利用梯度下降法进行优化</strong></li>
-<li><strong>XGBoost在函数空间中利用牛顿法进行优化</strong></li>
+<li>预处理阶段：在C语言的语法中，就是将#include所指向的一些文件，包那些写入到程序文本中，然后形成一个.i为后缀的文件；</li>
+<li>编译阶段：编译器(ccl)将文本文件hello.i翻译成文本文件hello.s,它包含一个汇编语言程序.</li>
+<li>汇编阶段：汇编器as将hello.s翻译成机器语言指令，并将指令打包成为一种叫做<strong>可重定位目标程序</strong>（relocatable object program）的格式，并将结果保存在hello.o中。 hello.o是一个二进制文件，它的字节编码是机器语言指令而不是字符。</li>
+<li>链接阶段：printf函数存在于一个名为printf.o的单独的预编译好了的目标文件中，链接器ld负责合并printf.o和hello.o文件。结果就得到了hello文件，他是一个可执行目标文件，可以被加载到内存中由系统执行.</li>
 </ul>
-<p>这里又涉及到两种优化方法之间的区别，简单来讲梯度下降法用超平面去拟合当前所在局部曲面，只考虑目标函数再迭代点的局部性质；而牛顿法用的是超曲面来进行拟合，直接搜索怎样到达极值点，不仅考虑当前坡度是否足够大，还会考虑之后的情况，收敛速度会更快。这里先不总结了，等之后总结最优化方法的时候再写写算算吧。</p>
-<p>在第t次迭代时，损失函数可化为：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-2ac740b7aa041619.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/939/format/webp" alt="image"></p>
-<p>利用二阶泰勒展开近似：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-e1b26b548280dbd6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<p>通过省略常数项，可得到：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-f0300a91d922e5f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<p>中间替换过程按下不表，最终损失函数可化为：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-622ac3b3c9436ecf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<p>对上式求导求极值，可解出叶子结点的权值：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-c5ec03830d9639b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<p>最优的损失函数值则可化为：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-3442eede8d672c7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<p>与传统的ID3,C4.5,CART不同，上式就是用来确定分类点的度量值，选择能够使损失函数值最小的分类点。通过父节点的值与左右两个子节点的值相减，得到损失函数的降低程度：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-909e89cd45a842ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<h3 id="Shrinkage-and-Column-Subsampling"><a href="#Shrinkage-and-Column-Subsampling" class="headerlink" title="Shrinkage and Column Subsampling"></a>Shrinkage and Column Subsampling</h3><p>模型原理上的第三点改进也就是学习率与列采样。和正则化项一样，这两项也是用于防止过拟合的策略。Skrinkage同样由Friedman提出，在GBDT中也有类似的设置，shrinkage的作用与随机最优化中的学习率相似，减弱了单颗树的权重。</p>
-<p>列采样来源于随机森林，也就是对特征进行采样。同时也实现了行采样，不过与随机森林中的自主采样法不同，这里的行采样是不放回的采样。</p>
-<p>在sklearn的GBDT的实现中，上述的方法也都进行了实现。</p>
-<h1 id="二、结点分裂算法-Split-Finding-Algorithms"><a href="#二、结点分裂算法-Split-Finding-Algorithms" class="headerlink" title="二、结点分裂算法 Split Finding Algorithms"></a>二、结点分裂算法 Split Finding Algorithms</h1><p>这一部分算法的实现与第四章的系统实现决定了XGBoost的超快运行速度。</p>
-<h3 id="Basic-Exact-Greedy-Algorithm"><a href="#Basic-Exact-Greedy-Algorithm" class="headerlink" title="Basic Exact Greedy Algorithm"></a>Basic Exact Greedy Algorithm</h3><p>在GBDT算法的计算过程中，最为耗时的过程也就是寻找最佳分割点的过程。传统的做法也就是暴力遍历所有可能的分割点，包括sklearn中的算法也就是采用这一策略, XGBoost也同样支持这一算法。</p>
-<p>这一算法的常规做法是：首先根据特征的值进行排序，再依次遍历每一个可能的分割点进行计算。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-bcad2c844acad47f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt="image"></p>
-<p>Exact Greedy Algorithm这个算法的时间复杂度O(d <em> m + m </em> log(m)) = O(m <em> (d + log(m)))，m </em> log(m)是因为对样本特征进行约排序，d * m是对每个样本的每个特征进行分裂判断。(<a href="https://www.jianshu.com/p/5e6c5b616114" target="_blank" rel="noopener">来自这里</a>)</p>
-<h3 id="Approximate-Algorithm"><a href="#Approximate-Algorithm" class="headerlink" title="Approximate Algorithm"></a>Approximate Algorithm</h3><p>暴力算法的缺点在于当数据量很大的时候难以高效的运行，所以XGB提出了一种近似算法能加快运行,其流程如下：<br><img src="https://upload-images.jianshu.io/upload_images/1670295-90c0b9165e1474f5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/580/format/webp" alt="image"></p>
-<p>对于某个特征k，算法首先根据特征分布的分位数找到特征切割点的候选集合S,然后将特征k的值根据集合S划分成桶（bucket），接着对每个桶内的样本统计其G/H值，最后在这些累计的统计量上寻找最佳的分裂点。相当于降低分裂的精度来提升运行的速度。</p>
-<p>文中提出了两种不同的近似算法：Global和Local。Gloabl即在初始化tree的时候划分好候选分割点，并且在树的每一层都使用这些候选分割点；Local即每一次划分的时候都重新计算候选分割点。这两者各有利弊，全局算法不需要多次计算候选节点，但需要一次获取较多的候选节点供后续树生长使用，而局部算法一次获取的候选节点较少，可以在分支过程中不断改善，即适用于生长更深的树。</p>
-<h3 id="Weighted-Quantile-Sketch"><a href="#Weighted-Quantile-Sketch" class="headerlink" title="Weighted Quantile Sketch"></a>Weighted Quantile Sketch</h3><p>近似算法的核心在于候选分割点的选取，Xgboost提出了Weighted Quantile Sketch来解决这个问题。这一算法设计到大量数据情况下分位数点的计算问题，我其实理解的不是很好，在这篇博客里有很好的<a href="https://blog.csdn.net/anshuai_aw1/article/details/83025168" target="_blank" rel="noopener">描述</a>。</p>
-<p>那么为什么是加权的算法呢？10000个样本取10个的话，每1000个样本计算一次split value看似可行，其实是不可以的，我们要均分的是loss，而不是样本的数量，而每个样本对loss的贡献可能是不一样的，按样本均分会导致loss分布不均匀，取到的分位点会有偏差(<a href="https://www.jianshu.com/p/22b82127644a" target="_blank" rel="noopener">来自这里</a>)。</p>
-<p>对损失函数进行变形可以得到：<br><img src="https://upload-images.jianshu.io/upload_images/6673934-ae19454c0bc65f5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/808/format/webp" alt="image"></p>
-<p>这个形式的loss说明了, xi的loss也可以看做是以−gi/hi作为label的均方误差，乘以大小为hi的权重，换句话说，xi对loss的贡献权重为hi。<br>那么，对loss取k分位点就是对误差的均分。</p>
-<p>这一部分感觉确实不太好理解，再贴几篇参考文章，结合其中的例子更好理解一些：</p>
+<p>之前提到gcc(GNU C Compiler)诞生于GNU，是一个c语言的编译程序，但如今它可以编译很多种编程语言（括C、C++、Objective-C、Fortran、Java等等）。</p>
+<p>之前一直以为gcc和g++是一样的，但在尝试用GCC编译cpp文件的时候，结果却报错了，如果按照C语言的写法是没问题的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">undefined reference to `std::cout&apos;</span><br></pre></td></tr></table></figure></p>
+<p>所以这里需要纠正一下之前的说法：</p>
+<ul>
+<li>GCC:GNU Compiler Collection(GUN 编译器集合)，它可以编译C、C++、JAV、Fortran、Pascal、Object-C、Ada等语言。</li>
+<li>gcc是GCC中的GUN C Compiler（C 编译器）</li>
+<li>g++是GCC中的GUN C++ Compiler（C++编译器）</li>
+</ul>
+<p><strong>GCC原名GNU C Compiler, 原本只能处理C语言，但由于很快的发展，变得可以处理多种语言，于是也就改名称为GNU Compiler Colletion</strong>, 同样简称GCC（哎，令人头痛）</p>
+<blockquote>
+<p>一个有趣的事实就是，就本质而言，gcc和g++并不是编译器，也不是编译器的集合，它们只是一种驱动器，根据参数中要编译的文件的类型，调用对应的GUN编译器而已，比如，用gcc编译一个c文件的话，会有以下几个步骤：</p>
+<p>Step1：Call a preprocessor, like cpp.</p>
+<p>Step2：Call an actual compiler, like cc or cc1.</p>
+<p>Step3：Call an assembler, like as.</p>
+<p>Step4：Call a linker, like ld</p>
+<p>由于编译器是可以更换的，所以gcc不仅仅可以编译C文件</p>
+<p>所以，更准确的说法是：gcc调用了C compiler，而g++调用了C++ compiler</p>
+</blockquote>
+<p>以上四步正好对应了上图中程序编译的四步。</p>
+<p><a href="http://www.cnblogs.com/wb118115/p/5969775.html" target="_blank" rel="noopener">gcc和g++的主要区别</a></p>
+<blockquote>
 <ol>
-<li><a href="https://www.jianshu.com/p/22b82127644a" target="_blank" rel="noopener">XGBoost之分位点算法</a></li>
-<li><a href="http://datavalley.github.io/2017/09/11/xgboost源码之分位点" target="_blank" rel="noopener">XGBoost之分位点算法</a></li>
-<li><a href="https://blog.csdn.net/anshuai_aw1/article/details/83025168" target="_blank" rel="noopener">Xgboost近似分位数算法</a></li>
+<li><p>对于 <em>.c和</em>.cpp文件，gcc分别当做c和cpp文件编译（c和cpp的语法强度是不一样的）</p>
+</li>
+<li><p>对于 <em>.c和</em>.cpp文件，g++则统一当做cpp文件编译</p>
+</li>
+<li><p>使用g++编译文件时，g++会自动链接标准库STL，而gcc不会自动链接STL</p>
+</li>
+<li><p>gcc在编译C文件时，可使用的预定义宏是比较少的</p>
+</li>
+<li><p>在用gcc编译c++文件时，为了能够使用STL，需要加参数 –lstdc++ ，但这并不代表 gcc –lstdc++ 和 g++等价，它们的区别不仅仅是这个.</p>
+</li>
+<li><p>gcc在编译cpp文件时/g++在编译c文件和cpp文件时（这时候gcc和g++调用的都是cpp文件的编译器），会加入一些额外的宏，这些宏如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;#define __GXX_WEAK__ 1</span><br><span class="line">&gt;#define __cplusplus 1</span><br><span class="line">&gt;#define __DEPRECATED 1</span><br><span class="line">&gt;#define __GNUG__ 4</span><br><span class="line">&gt;#define __EXCEPTIONS 1</span><br><span class="line">&gt;#define __private_extern__ extern</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="Sparsity-aware-Split-Finding"><a href="#Sparsity-aware-Split-Finding" class="headerlink" title="Sparsity-aware Split Finding"></a>Sparsity-aware Split Finding</h3><p>XGB还增加了对稀疏数据和缺失值的处理算法，XGB训练数据的时候，它使用没有缺失的数据去进行节点分支。然后我们将特征上缺失的数据尝试放左右节点上，看缺失值应当分到那个分支节点上。我们把缺失值分配到的分支称为默认分支。<br><img src="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/873/format/webp" alt="image"></p>
-<h1 id="三、系统设计-System-Design"><a href="#三、系统设计-System-Design" class="headerlink" title="三、系统设计 System Design"></a>三、系统设计 System Design</h1><p>文章最后一大块也就是系统设计了。工程上的精妙实现才能发挥出最好的效果。这一部分内容不少，但大多都是接触较少的内容，所以简单提炼几个要点。</p>
-<h3 id="Column-Block-for-Parallel-Learning"><a href="#Column-Block-for-Parallel-Learning" class="headerlink" title="Column Block for Parallel Learning"></a>Column Block for Parallel Learning</h3><p><strong>XGB的并行计算的粒度不在树上，而是在特征上</strong></p>
-<p>在我们训练过程中最耗时的过程也就是做分支处理，需要对每一列（特征）找出适合的分裂点。为了加快处理速度，将数据按照列存储成一个数据块方便我们在分裂的时候进行并行计算。这里XGB将所有的列数据都预先排了序，以压缩形式分别存到block里，不同的block可以分布式存储，甚至存到硬盘里。在特征选择的时候，可以并行的处理这些列数据，XGB就是在这实现的并行化，用多线程来实现加速。</p>
-<h3 id="Cache-aware-Access"><a href="#Cache-aware-Access" class="headerlink" title="Cache-aware Access"></a>Cache-aware Access</h3><h3 id="Blocks-for-Out-of-core-Computation"><a href="#Blocks-for-Out-of-core-Computation" class="headerlink" title="Blocks for Out-of-core Computation"></a>Blocks for Out-of-core Computation</h3><p>这两部的内容更偏于工程实现上的技巧，这里就不进行总结了，详见：</p>
+</blockquote>
+<h1 id="3-make-makefile和cmake"><a href="#3-make-makefile和cmake" class="headerlink" title="3. make,makefile和cmake"></a>3. make,makefile和cmake</h1><p>这几个的关系也一度让我头疼，好已有DL给出了不错的解答，搬运一下放在这里</p>
+<blockquote>
+<p>作者：辉常哥<br>链接：<a href="https://www.zhihu.com/question/27455963/answer/89770919" target="_blank" rel="noopener">https://www.zhihu.com/question/27455963/answer/89770919</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
 <ol>
-<li><a href="https://www.jianshu.com/p/5e6c5b616114" target="_blank" rel="noopener">XGBoost论文阅读及其原理</a></li>
+<li>gcc是GNU Compiler Collection（就是GNU编译器套件），也可以简单认为是编译器，它可以编译很多种编程语言（括C、C++、Objective-C、Fortran、Java等等）。</li>
+<li>当你的程序只有一个源文件时，直接就可以用gcc命令编译它。</li>
+<li>但是当你的程序包含很多个源文件时，用gcc命令逐个去编译时，你就很容易混乱而且工作量大</li>
+<li>所以出现了make工具make工具可以看成是一个智能的批处理工具，它本身并没有编译和链接的功能，而是用类似于批处理的方式—通过调用makefile文件中用户指定的命令来进行编译和链接的。</li>
+<li>makefile是什么？简单的说就像一首歌的乐谱，make工具就像指挥家，指挥家根据乐谱指挥整个乐团怎么样演奏，make工具就根据makefile中的命令进行编译和链接的。</li>
+<li>makefile命令中就包含了调用gcc（也可以是别的编译器）去编译某个源文件的命令。</li>
+<li>makefile在一些简单的工程完全可以人工手下，但是当工程非常大的时候，手写makefile也是非常麻烦的，如果换了个平台makefile又要重新修改。</li>
+<li>这时候就出现了Cmake这个工具，cmake就可以更加简单的生成makefile文件给上面那个make用。当然cmake还有其他功能，就是可以跨平台生成对应平台能用的makefile，你不用再自己去修改了。</li>
+<li>可是cmake根据什么生成makefile呢？它又要根据一个叫CMakeLists.txt文件（学名：组态档）去生成makefile。</li>
+<li>到最后CMakeLists.txt文件谁写啊？亲，是你自己手写的。<br>11.当然如果你用IDE，类似VS这些一般它都能帮你弄好了，你只需要按一下那个三角形</li>
 </ol>
+<p><img src="https://pic3.zhimg.com/80/f57298cefba18fca5f31b8762f01d933_hd.jpg" alt="image"></p>
 
       
 
@@ -300,11 +320,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机原理</a>
         		</li>
       		
 		</ul>
@@ -360,7 +376,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/19/XGBoost论文导读/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/22/Unix/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -374,18 +390,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/20/LightGBM论文导读/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          LightGBM论文导读
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/18/Flag/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Flag</div>
+    <a href="/2019/03/21/排序算法系列2——归并/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序算法系列2——归并</div>
       <i class="icon-circle-right"></i>
     </a>
   
