@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>shogun机器学习源码编译 | 『My word in my world』</title>
+  <title>Tag: 深度学习 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。">
-<meta name="keywords" content="计算机原理,机器学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="shogun机器学习源码编译">
-<meta property="og:url" content="http://yoursite.com/2019/03/24/shogun机器学习源码编译/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="『My word in my world』">
+<meta property="og:url" content="http://yoursite.com/tags/深度学习/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:description" content="最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。">
-<meta property="og:updated_time" content="2019-03-24T11:23:10.376Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shogun机器学习源码编译">
-<meta name="twitter:description" content="最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。">
+<meta name="twitter:title" content="『My word in my world』">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -186,261 +181,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-shogun机器学习源码编译" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      shogun机器学习源码编译
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/03/25/keras花式回调/" class="archive-article-date">
+  	<time datetime="2019-03-25T14:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/03/25/keras花式回调/">keras花式回调</a>
     </h1>
   
 
-        
-        <a href="/2019/03/24/shogun机器学习源码编译/" class="archive-article-date">
-  	<time datetime="2019-03-24T11:22:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。</p>
-<a id="more"></a>
-<h1 id="shogun介绍"><a href="#shogun介绍" class="headerlink" title="shogun介绍"></a>shogun介绍</h1><p>Shogun machine learning toolbox 是一个基于 C++ 的最古老的机器学习开源库，它创建于 1999 年。作为一个 SWIG 库，Shogun 可以轻松地嵌入 Java、Python、C# 等主流处理语言中。它的重点在于大尺度上的内核方法，特别是“支持向量机”的学习工具箱。其中，它包括了大量的线性方法，如 LDA、LPM、HMM 等等。</p>
-<p>目前其支持的接口包括：python,octave,java/scala,ruby,csharp,r,lua,perl,js.</p>
-<p>支持的平台包括：GNU/Linux, MacOSX, FreeBSD, Windows</p>
-<h1 id="shogun安装"><a href="#shogun安装" class="headerlink" title="shogun安装"></a>shogun安装</h1><h3 id="Ready-to-install-packages"><a href="#Ready-to-install-packages" class="headerlink" title="Ready-to-install packages"></a>Ready-to-install packages</h3><p>对特定的操作系统，shogun都提供了pre-built packages，可以十分方便的进行安装使用。</p>
-<p>比如，我在windows平台下，只需要通过conda进行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge shogun</span><br></pre></td></tr></table></figure></p>
-<p>便可以安装shogun库及其python接口。</p>
-<p>而在其他平台下，也有对应的解决方案，详见<a href="https://github.com/shogun-toolbox/shogun/blob/develop/doc/readme/INSTALL.md#anaconda" target="_blank" rel="noopener">shogun github</a></p>
-<h3 id="compiling-manually"><a href="#compiling-manually" class="headerlink" title="compiling manually"></a>compiling manually</h3><p>当上述方法不起作用或者需要对shogun进行修改时，还可以从源码进行编译安装。</p>
-<p>shogun的源码主要可以分为以下几部分</p>
-<ul>
-<li>src: 源码，包括实现算法的C++源码和接口源码</li>
-<li>doc: 包括readme.md, licenses等文件</li>
-<li>example: 所有接口的示例文件</li>
-<li>data: 数据集 (submodule, required for examples)</li>
-<li>tests: 单元测试</li>
-<li>applications: applications of shogun</li>
-<li>benchmarks: speed benchmarks (并没有见到?)</li>
-<li>cmake: cmake 所需文件</li>
-</ul>
-<h4 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h4><p>编译Shogun所需的最低要求：</p>
-<ul>
-<li>The standard GNU/Linux tools, python</li>
-</ul>
-<p>此外编译某种语言对应的接口还需要：</p>
-<ul>
-<li>swig，简化包与接口生成器，是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。</li>
-<li>语言对应的相关开发环境，详见<a href="https://github.com/shogun-toolbox/shogun/blob/develop/doc/readme/INSTALL.md#anaconda" target="_blank" rel="noopener">interfaces</a></li>
-</ul>
-<p>如果需要编译任何接口，需要大约4GB的空间。</p>
-<h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><p>首先介绍一下我的安装环境：ubuntu 18.04，最开始也尝试过在windows 10环境下进行手动编译，但是坑实在太多，所以暂且放弃。</p>
-<p>shogun通过cmake进行编译，关于cmake和make，可以参考我的上一篇博文。</p>
-<ol>
-<li><p>首先下载源码并更新子模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/shogun-toolbox/shogun.git</span><br><span class="line">cd shogun</span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在shogun根目录下创建build目标，进行out-of-source-build.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接下里对源码进行编译，cmake以源码目录作为参数(在build目录下用..代替即可)。注意，在这一步中有许多选项需要选择，比如如果想要生成python接口，并生成shogun的examples，写法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DINTERFACE_PYTHON=ON -DBUILD_META_EXAMPLES=0N ..</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>此外还包括一些路径参数的选择，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DPYTHON_INCLUDE_DIR=/usr/include/python3.3 -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3 -DPYTHON_PACKAGES_PATH=/usr/local/lib/python3.3/dist-packages -DINTERFACE_PYTHON=ON ..</span><br></pre></td></tr></table></figure></p>
-<p>由于cmake的可选参数实在太多，在不确定的情况下这里强烈建议用cmake的GUI进行</p>
-<p>在这一步里可能会遇到一些模块的缺失导致失败，比如我遇到的包括swig，ctags，ccache安装上就好<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install swig</span><br><span class="line">sudo apt-get install ctags</span><br><span class="line">sudo apt-get install ccache</span><br></pre></td></tr></table></figure></p>
-<p>此外还遇到了如下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at src/shogun/CMakeLists.txt:49 (MESSAGE):</span><br><span class="line">  Shogun can only be built with GPL codes if the source files are in</span><br><span class="line">  /home/wjh/Desktop/shogun/src/gpl.  Please download or disable.</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://github.com/shogun-toolbox/shogun/issues/4086" target="_blank" rel="noopener">原因参见这里</a>，因为我并不是直接从github上clone下载源码的，而是下载的6.1.3的稳定的发行版，而目前的发行版中已经不包括gpl files，需要从github上重新下载添加进行。</p>
-<ol>
-<li>上一步的cmake生成了makefile,接下来用make进行编译,时间较长</li>
-</ol>
-<ul>
-<li>make从makefile中读取指令，然后编译<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>我在这一步也卡住了，出现了如下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[ 0%] Performing download step (git clone) for &apos;variant&apos;</span><br><span class="line">error: RPC failed; curl 56 GnuTLS recv error (-9): Error in the pull function.</span><br><span class="line">fatal: The remote end hung up unexpectedly</span><br></pre></td></tr></table></figure></p>
-<p>在这一步似乎是通过git clone某一仓库时现了错误，经查，可以通过增大git的缓存解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.postBuffer 524288000</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>接下来用make install进行安装</li>
-</ol>
-<ul>
-<li>make install, 从makefile中读取指令，安装到指定位置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>在这一步遇到如下问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">undefined reference to curl_easy_perform@curl_openssl_4&apos;</span><br></pre></td></tr></table></figure></p>
-<p>查找到的类似问题都说是curl或openssl的版本问题，但似乎在我这并不适用，最后是一通骚操作再新来一遍shogun的安装才解决，也不知道是哪个环节的问题。</p>
-<ol>
-<li>设置环境变量<br>这一步也是比较坑的一步，因为官网上的写法似乎是错的。</li>
-</ol>
-<p>所有的接口都需要shogun库对系统可见才可以正常使用，所以需要设置环境变量。</p>
-<ul>
-<li>设置libshogun.so的路径：</li>
-</ul>
-<p><code>export LD_LIBRARY_PATH = /usr/local/lib:$LD_LIBRARY_PATH</code></p>
-<p>LD_LIBRARY_PATH是Linux环境变量名，该环境变量主要用于指定查找共享库（动态链接库）时除了默认路径之外的其他路径。</p>
-<ul>
-<li>设置shogun.py的路径：</li>
-</ul>
-<p><code>export PYTHONPATH=/usr/local/lib/python3.7/site-packages:$PYTHONPATH</code></p>
-<p>PYTHONPATH是Python搜索路径，默认我们import的模块都会从PYTHONPATH里面寻找。 … 使用import xx语法时，xx只能是模块路径（一个模块一般是指一个package或者一个以.py为后缀的文件，不一般的情况包括.pth、.dll以及其他扩展形式）。</p>
-<p>官网上在这两步中带入了文件名libshogun.so和shogun.py，PATH应该是文件路径而不是特定的文件</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机原理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/24/shogun机器学习源码编译/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/25/keras花式回调/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          keras花式回调
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/22/Unix/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Unix Linux, gcc g++, make cmake, 傻傻分不清</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -463,9 +257,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
