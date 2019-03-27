@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 论文导读 | 『My word in my world』</title>
+  <title>C-RNN文字识别论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="『My word in my world』">
-<meta property="og:url" content="http://yoursite.com/tags/论文导读/index.html">
+  <meta name="description" content="An End-to-End Trainable Neural Network for Image-based Sequence RecognitionC-RNN结构文章之二，一篇OCR领域非常经典的文章，解决图像中的文字识别问题">
+<meta name="keywords" content="深度学习,论文导读,CV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C-RNN文字识别论文导读">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/C-RNN文字识别论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
+<meta property="og:description" content="An End-to-End Trainable Neural Network for Image-based Sequence RecognitionC-RNN结构文章之二，一篇OCR领域非常经典的文章，解决图像中的文字识别问题">
+<meta property="og:image" content="http://wx3.sinaimg.cn/large/007b7yGbly1g1hd6s2iktj30gi0m8gn6.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g1hd6sas7aj30m80crq3c.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/007b7yGbly1g1hd6sju2nj30ky0h3ac0.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw690/007b7yGbly1g1hd6stpgmj30pr0n7wnz.jpg">
+<meta property="og:updated_time" content="2019-03-27T07:09:35.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="『My word in my world』">
+<meta name="twitter:title" content="C-RNN文字识别论文导读">
+<meta name="twitter:description" content="An End-to-End Trainable Neural Network for Image-based Sequence RecognitionC-RNN结构文章之二，一篇OCR领域非常经典的文章，解决图像中的文字识别问题">
+<meta name="twitter:image" content="http://wx3.sinaimg.cn/large/007b7yGbly1g1hd6s2iktj30gi0m8gn6.jpg">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -181,36 +191,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-C-RNN文字识别论文导读" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/C-RNN文字识别论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-27T06:25:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/C-RNN文字识别论文导读/">C-RNN文字识别论文导读</a>
+    <h1 class="article-title" itemprop="name">
+      C-RNN文字识别论文导读
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/27/C-RNN文字识别论文导读/" class="archive-article-date">
+  	<time datetime="2019-03-27T06:25:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="An-End-to-End-Trainable-Neural-Network-for-Image-based-Sequence-Recognition"><a href="#An-End-to-End-Trainable-Neural-Network-for-Image-based-Sequence-Recognition" class="headerlink" title="An End-to-End Trainable Neural Network for Image-based Sequence Recognition"></a>An End-to-End Trainable Neural Network for Image-based Sequence Recognition</h1><p>C-RNN结构文章之二，一篇OCR领域非常经典的文章，解决图像中的文字识别问题</p>
+<a id="more"></a> 
+<p>这篇文章提出了一种端到端的文本识别算法，主要具有四个特性：</p>
+<ul>
+<li>端到端训练</li>
+<li>处理任意长度的序列，不涉及字符分割或水平尺度的归一化</li>
+<li>不局限于任何预定义的词汇，在无词典和基于词典的场景下都取得了很好的效果</li>
+<li>模型小而高效，应用潜力广泛</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>略</p>
+<h2 id="2-Network-Architecture"><a href="#2-Network-Architecture" class="headerlink" title="2. Network Architecture"></a>2. Network Architecture</h2><p>网络主要由三部分构成：</p>
+<ul>
+<li>卷积层：特征提取</li>
+<li>循环层：预测每一帧输入的label distribution</li>
+<li>转录层：将循环层的输出变为最终的标签序列</li>
+</ul>
+<p><img src="http://wx3.sinaimg.cn/large/007b7yGbly1g1hd6s2iktj30gi0m8gn6.jpg" alt="image"></p>
+<p>在网络的底部， 卷积层自动从每个输入图像中提取特征序列。在卷积网络之上，构建了一个循环网络，用于对卷积层输出的特征序列的每一帧进行预测。采用CRNN顶部的转录层将循环层的每帧预测转化为标签序列。虽然CRNN由不同类型的网络架构（如CNN和RNN）组成，但可以通过一个损失函数进行联合训练。</p>
+<h3 id="2-1-Feature-Sequence-Extraction"><a href="#2-1-Feature-Sequence-Extraction" class="headerlink" title="2.1 Feature Sequence Extraction"></a>2.1 Feature Sequence Extraction</h3><p>这部分的功能由CNN完成：由标准的CNN模型中的卷积层和最大池化层组成，自动提取出输入图像的特征序列。</p>
+<p>训练之前，先把输入图像的高度缩放到同一尺寸（宽度等比例缩放）， 论文中使用的高度是32。</p>
+<p>提取的特征序列中的向量是从特征图上从左到右按照顺序生成的，每个特征向量表示了图像上一定宽度上的特征，论文中使用的这个宽度是1,就是单个像素。</p>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g1hd6sas7aj30m80crq3c.jpg" alt="image"></p>
+<p>图像经过卷积操作之后每一列数据实际代表原始图像中的一块长方形区域，产生的特征序列将作为LSTM的输入。</p>
+<h3 id="2-2-Sequence-Labeling"><a href="#2-2-Sequence-Labeling" class="headerlink" title="2.2 Sequence Labeling"></a>2.2 Sequence Labeling</h3><p>循环层由一个双向LSTM循环神经网络构成，LSTM的每个输出后接一个softmax，输出的是一个后验概率矩阵，预测每一帧输入的标签分布，</p>
+<ul>
+<li>RNN具有捕获序列内上下文信息的能力，比独立处理某个字符更为稳定</li>
+<li>RNN可将误差反向传播到输入层，从而实现CNN与RNN的联合训练</li>
+<li>RNN能够对任意长度的序列进处理</li>
+</ul>
+<p><img src="http://wx1.sinaimg.cn/mw690/007b7yGbly1g1hd6sju2nj30ky0h3ac0.jpg" alt="image"></p>
+<h3 id="2-3-Transcription"><a href="#2-3-Transcription" class="headerlink" title="2.3 Transcription"></a>2.3 Transcription</h3><p>转录是将RNN所做的每帧预测转换成标签序列的过程。数学上，转录是根据每帧预测找到具有最高概率的标签序列。在实践中，存在两种转录模式，即无词典转录和基于词典的转录。词典是一组标签序列，预测受拼写检查字典约束。在无词典模式中，预测时没有任何词典。在基于词典的模式中，通过选择具有最高概率的标签序列进行预测。</p>
+<p>转录层利用了CTC模型作为损失函数，CTC提出了一种不需要对齐的Loss的计算方法，最初应用于语音识别上。</p>
+<p>CTC一般连接在RNN网络的最后一层用于序列学习和训练。对于一段长度为T的序列来说，每个样本点t（t远大于T）在RNN网络的最后一层都会输出一个softmax向量，表示该样本点的预测概率，所有样本点的这些概率传输给CTC模型后，输出最可能的标签，再经过去除空格（blank）和去重操作，就可以得到最终的序列标签。</p>
+<p>关于CTC又是一个大话题了，在这里就不进行详述了。</p>
+<h2 id="3-Experiments"><a href="#3-Experiments" class="headerlink" title="3. Experiments"></a>3. Experiments</h2><p>网络结构：</p>
+<p><img src="http://wx1.sinaimg.cn/mw690/007b7yGbly1g1hd6stpgmj30pr0n7wnz.jpg" alt="image"></p>
+<p>网络结构的keras定义(VGG做特征提取)：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_Model</span><span class="params">(training)</span>:</span></span><br><span class="line">    input_shape = (img_w, img_h, <span class="number">1</span>)     <span class="comment"># (128, 64, 1)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Make Networkw</span></span><br><span class="line">    inputs = Input(name=<span class="string">'the_input'</span>, shape=input_shape, dtype=<span class="string">'float32'</span>)  <span class="comment"># (None, 128, 64, 1)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Convolution layer (VGG)</span></span><br><span class="line">    inner = Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, name=<span class="string">'conv1'</span>, kernel_initializer=<span class="string">'he_normal'</span>)(inputs)  <span class="comment"># (None, 128, 64, 64)</span></span><br><span class="line">    inner = BatchNormalization()(inner)</span><br><span class="line">    inner = Activation(<span class="string">'relu'</span>)(inner)</span><br><span class="line">    inner = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>), name=<span class="string">'max1'</span>)(inner)  <span class="comment"># (None,64, 32, 64)</span></span><br><span class="line"></span><br><span class="line">    inner = Conv2D(<span class="number">128</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, name=<span class="string">'conv2'</span>, kernel_initializer=<span class="string">'he_normal'</span>)(inner)  <span class="comment"># (None, 64, 32, 128)</span></span><br><span class="line">    inner = BatchNormalization()(inner)</span><br><span class="line">    inner = Activation(<span class="string">'relu'</span>)(inner)</span><br><span class="line">    inner = MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>), name=<span class="string">'max2'</span>)(inner)  <span class="comment"># (None, 32, 16, 128)</span></span><br><span class="line"></span><br><span class="line">    inner = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, name=<span class="string">'conv3'</span>, kernel_initializer=<span class="string">'he_normal'</span>)(inner)  <span class="comment"># (None, 32, 16, 256)</span></span><br><span class="line">    inner = BatchNormalization()(inner)</span><br><span class="line">    inner = Activation(<span class="string">'relu'</span>)(inner)</span><br><span class="line">    inner = Conv2D(<span class="number">256</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, name=<span class="string">'conv4'</span>, kernel_initializer=<span class="string">'he_normal'</span>)(inner)  <span class="comment"># (None, 32, 16, 256)</span></span><br><span class="line">    inner = BatchNormalization()(inner)</span><br><span class="line">    inner = Activation(<span class="string">'relu'</span>)(inner)</span><br><span class="line">    inner = MaxPooling2D(pool_size=(<span class="number">1</span>, <span class="number">2</span>), name=<span class="string">'max3'</span>)(inner)  <span class="comment"># (None, 32, 8, 256)</span></span><br><span class="line"></span><br><span class="line">    inner = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, name=<span class="string">'conv5'</span>, kernel_initializer=<span class="string">'he_normal'</span>)(inner)  <span class="comment"># (None, 32, 8, 512)</span></span><br><span class="line">    inner = BatchNormalization()(inner)</span><br><span class="line">    inner = Activation(<span class="string">'relu'</span>)(inner)</span><br><span class="line">    inner = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, name=<span class="string">'conv6'</span>)(inner)  <span class="comment"># (None, 32, 8, 512)</span></span><br><span class="line">    inner = BatchNormalization()(inner)</span><br><span class="line">    inner = Activation(<span class="string">'relu'</span>)(inner)</span><br><span class="line">    inner = MaxPooling2D(pool_size=(<span class="number">1</span>, <span class="number">2</span>), name=<span class="string">'max4'</span>)(inner)  <span class="comment"># (None, 32, 4, 512)</span></span><br><span class="line"></span><br><span class="line">    inner = Conv2D(<span class="number">512</span>, (<span class="number">2</span>, <span class="number">2</span>), padding=<span class="string">'same'</span>, kernel_initializer=<span class="string">'he_normal'</span>, name=<span class="string">'con7'</span>)(inner)  <span class="comment"># (None, 32, 4, 512)</span></span><br><span class="line">    inner = BatchNormalization()(inner)</span><br><span class="line">    inner = Activation(<span class="string">'relu'</span>)(inner)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># CNN to RNN</span></span><br><span class="line">    inner = Reshape(target_shape=((<span class="number">64</span>, <span class="number">1024</span>)), name=<span class="string">'reshape'</span>)(inner)  <span class="comment"># (None, 32, 2048)</span></span><br><span class="line">    inner = Dense(<span class="number">64</span>, activation=<span class="string">'relu'</span>, kernel_initializer=<span class="string">'he_normal'</span>, name=<span class="string">'dense1'</span>)(inner)  <span class="comment"># (None, 32, 64)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># RNN layer</span></span><br><span class="line">    lstm_1 = LSTM(<span class="number">256</span>, return_sequences=<span class="keyword">True</span>, kernel_initializer=<span class="string">'he_normal'</span>, name=<span class="string">'lstm1'</span>)(inner)  <span class="comment"># (None, 32, 512)</span></span><br><span class="line">    lstm_1b = LSTM(<span class="number">256</span>, return_sequences=<span class="keyword">True</span>, go_backwards=<span class="keyword">True</span>, kernel_initializer=<span class="string">'he_normal'</span>, name=<span class="string">'lstm1_b'</span>)(inner)</span><br><span class="line">    lstm1_merged = add([lstm_1, lstm_1b])  <span class="comment"># (None, 32, 512)</span></span><br><span class="line">    lstm1_merged = BatchNormalization()(lstm1_merged)</span><br><span class="line">    lstm_2 = LSTM(<span class="number">256</span>, return_sequences=<span class="keyword">True</span>, kernel_initializer=<span class="string">'he_normal'</span>, name=<span class="string">'lstm2'</span>)(lstm1_merged)</span><br><span class="line">    lstm_2b = LSTM(<span class="number">256</span>, return_sequences=<span class="keyword">True</span>, go_backwards=<span class="keyword">True</span>, kernel_initializer=<span class="string">'he_normal'</span>, name=<span class="string">'lstm2_b'</span>)(lstm1_merged)</span><br><span class="line">    lstm2_merged = concatenate([lstm_2, lstm_2b])  <span class="comment"># (None, 32, 1024)</span></span><br><span class="line">    lstm_merged = BatchNormalization()(lstm2_merged)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># transforms RNN output to character activations:</span></span><br><span class="line">    inner = Dense(num_classes, kernel_initializer=<span class="string">'he_normal'</span>,name=<span class="string">'dense2'</span>)(lstm_merged) <span class="comment">#(None, 32, 63)</span></span><br><span class="line">    y_pred = Activation(<span class="string">'softmax'</span>, name=<span class="string">'softmax'</span>)(inner)</span><br><span class="line"></span><br><span class="line">    labels = Input(name=<span class="string">'the_labels'</span>, shape=[max_text_len], dtype=<span class="string">'float32'</span>) <span class="comment"># (None ,8)</span></span><br><span class="line">    input_length = Input(name=<span class="string">'input_length'</span>, shape=[<span class="number">1</span>], dtype=<span class="string">'int64'</span>)     <span class="comment"># (None, 1)</span></span><br><span class="line">    label_length = Input(name=<span class="string">'label_length'</span>, shape=[<span class="number">1</span>], dtype=<span class="string">'int64'</span>)     <span class="comment"># (None, 1)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Keras doesn't currently support loss funcs with extra parameters</span></span><br><span class="line">    <span class="comment"># so CTC loss is implemented in a lambda layer</span></span><br><span class="line">    loss_out = Lambda(ctc_lambda_func, output_shape=(<span class="number">1</span>,), name=<span class="string">'ctc'</span>)([y_pred, labels, input_length, label_length]) <span class="comment">#(None, 1)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> training:</span><br><span class="line">        <span class="keyword">return</span> Model(inputs=[inputs, labels, input_length, label_length], outputs=loss_out)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> Model(inputs=[inputs], outputs=y_pred)</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -230,149 +296,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/27/C-RNN文字识别论文导读/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/C-LSTM文本分类论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-27T03:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/27/C-LSTM文本分类论文导读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C-LSTM文本分类论文导读</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/C-LSTM文本分类论文导读/">C-LSTM文本分类论文导读</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/20/LightGBM论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-20T09:43:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/20/LightGBM论文导读/">LightGBM论文导读</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/XGBoost论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-19T07:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/XGBoost论文导读/">XGBoost论文导读</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -395,9 +418,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
