@@ -6,14 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 『My word in my world』</title>
+  <title>Batch Normalization论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="『My word in my world』">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift关于Batch Normalization的作用和原理，感觉一百篇博文有一百种说法，看得越多怀疑越多，还是自己翻出原文看看吧。">
+<meta name="keywords" content="深度学习,论文导读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Batch Normalization论文导读">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/Batch-Normalization论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
+<meta property="og:description" content="Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift关于Batch Normalization的作用和原理，感觉一百篇博文有一百种说法，看得越多怀疑越多，还是自己翻出原文看看吧。">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g1odlbu0hxj30c502gwec.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlbzpsvj307n02e744.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlce4m0j30gd03ujrf.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlciy74j309q03dwed.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g1odlco5gij3091023744.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlcwlktj30jo0frjsj.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g1odld47llj30ir0adjs5.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g1odlda66lj308g03v0so.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g1odldnqrxj30bl03rq2v.jpg">
+<meta property="og:updated_time" content="2019-04-02T08:43:12.804Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="『My word in my world』">
+<meta name="twitter:title" content="Batch Normalization论文导读">
+<meta name="twitter:description" content="Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift关于Batch Normalization的作用和原理，感觉一百篇博文有一百种说法，看得越多怀疑越多，还是自己翻出原文看看吧。">
+<meta name="twitter:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g1odlbu0hxj30c502gwec.jpg">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -199,447 +214,246 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Batch-Normalization论文导读" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Batch Normalization论文导读
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/02/Batch-Normalization论文导读/" class="archive-article-date">
+
+        
+        <a href="/2019/04/02/Batch-Normalization论文导读/" class="archive-article-date">
   	<time datetime="2019-04-02T08:40:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/Batch-Normalization论文导读/">Batch Normalization论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/C-RNN文字识别论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-27T06:25:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/C-RNN文字识别论文导读/">C-RNN文字识别论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/C-LSTM文本分类论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-27T03:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/C-LSTM文本分类论文导读/">C-LSTM文本分类论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/25/keras花式回调/" class="archive-article-date">
-  	<time datetime="2019-03-25T14:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/25/keras花式回调/">keras花式回调</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/24/shogun机器学习源码编译/" class="archive-article-date">
-  	<time datetime="2019-03-24T11:22:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/24/shogun机器学习源码编译/">shogun机器学习源码编译</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机原理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/22/Unix/" class="archive-article-date">
-  	<time datetime="2019-03-22T08:14:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/22/Unix/">Unix Linux, gcc g++, make cmake, 傻傻分不清</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/20/LightGBM论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-20T09:43:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/20/LightGBM论文导读/">LightGBM论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/19/XGBoost论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-19T07:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/19/XGBoost论文导读/">XGBoost论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/18/Flag/" class="archive-article-date">
-  	<time datetime="2019-03-18T14:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/18/Flag/">Flag</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
+        <h1 id="Batch-Normalization-Accelerating-Deep-Network-Training-by-Reducing-Internal-Covariate-Shift"><a href="#Batch-Normalization-Accelerating-Deep-Network-Training-by-Reducing-Internal-Covariate-Shift" class="headerlink" title="Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift"></a>Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</h1><p>关于Batch Normalization的作用和原理，感觉一百篇博文有一百种说法，看得越多怀疑越多，还是自己翻出原文看看吧。<br><a id="more"></a></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>训练深度神经网络的困难之处在于：每一层输入的分布会因为前一层参数的变化而不断的发生变化，这一点使得训练网络时需要采用更小的学习率，而且对参数的初始化要求也更高，很难训练具有饱和非线性特性模型(sigmoid)。这一现象作者称之为“internal covariate shift”。</p>
+<p>为了解决这一问题，文章采用的方法是：对每一个mini-batch的输入，将网络中每一层的输入做归一化，即Batch normalization, 其优势在于：</p>
+<ul>
+<li><strong>加速网络训练： 可以使用更大的学习率,缓解梯度消失</strong></li>
+<li><strong>对参数初始化的要求降低</strong></li>
+<li><strong>防止过拟合：起到正则化的作用，在某些情况下可以不再使用dropout.</strong></li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>mini-batches SGD的优点：</p>
+<ul>
+<li>损失函数的梯度可作为所以训练数据梯度的近似值，batch越大近似效果越好</li>
+<li>由于计算平台的平行能力，计算mini-batches比计算m次单个样本的效率更高。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>大量参数的调整：学习率、初始化权重</li>
+<li>每一层的输入都受到前面层的参数变化的影响，参数很小的变动带来的影响会随着网络层数的加深而被放大。</li>
+</ul>
+<p>每一层输入的分布变化带来的问题在于：每一层都需要不断的拟合新的分布。当一个学习系统的输入分布是变化的时，即训练集的样本分布和测试集的样本分布不一致，训练的模型就很难有较好的泛化能力，这叫做 covariate shift (Shimodaira, 2000)，解决办法是domain adaptation (Jiang, 2008)。这一概念和可以拓展但系统内部，比如：</p>
+<p><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g1odlbu0hxj30c502gwec.jpg" alt="image"></p>
+<p>其中F1/F2是某一种变化，θ1和θ2是需要学习的参数用来最小化损失L。对θ2的学习可以看做是将F1作为输入的子网络：</p>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlbzpsvj307n02e744.jpg" alt="image"></p>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlce4m0j30gd03ujrf.jpg" alt="image"></p>
+<p>当训练一个网络时，良好的输入分布会使得训练更为有效，这一点对子网络也是同样适用的。所以如果输入X的分布保持恒顶，θ2就不需要重新调整以补偿x1分布的变化。</p>
+<p>另一方面，固定某一子网络的输入分布也会给其他子网络带来正面效果。考虑sigmoid的特性，当其输入x没有集中在0附近是，梯度会变得特别小，训练缓慢甚至带来梯度消失。而输入x会受到前面其他层的参数的影响，这些参数的改变可能会使得x变化到sigmoid的饱和区域，从而减缓收敛速度，这一效应会随着网络的加深而加剧。</p>
+<p>在实际应用中，梯度消失和饱和的问题可以通过使用ReLU、好的初始值和较小的学习率来缓解。但如果我们能够让输入变得稳定，训练也会加快。</p>
+<p>为了解决这一问题，提出了BN：</p>
+<ul>
+<li>通过保持每层输入的均值和方差的稳定，来减弱internal covariate shift和加速训练。</li>
+<li>通过减弱梯度收到参数即其初值的影响，有利于梯度的反向流动，并能使用更高的学习率。</li>
+<li>起到正则化的作用，减少了对Dropout的依赖</li>
+<li>BN使得使用饱和非线性时被卡在饱和区域的概率降低。</li>
+</ul>
+<h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h4><ol>
+<li><strong>训练的本质是学习数据分布。如果训练数据与测试数据的分布不同会降低模型的泛化能力。对于子网络而言，因为每个隐层的参数不同，会使下一层的输入发生变化，从而导致每一批数据的分布也发生改变；致使网络在每次迭代中都需要拟合不同的数据分布，增大了网络的训练难度与过拟合的风险。因此，应该在开始训练前对所有输入数据做归一化处理。</strong></li>
+<li><strong>由于饱和激活函数的特性，参数的变化可能会使得输入变化到激活函数的饱和区， 导致梯度消失。</strong></li>
+</ol>
+<h3 id="Towards-Reducing-Internal-Covariate-Shift"><a href="#Towards-Reducing-Internal-Covariate-Shift" class="headerlink" title="Towards Reducing Internal Covariate Shift"></a>Towards Reducing Internal Covariate Shift</h3><p>我们将 Internal Covariate Shift 定义为：在神经网络的训练过程中，由于参数改变，而引起的神经网络激活值分布的改变。通过保持神经网络层输入的分布不变，来提高训练的速度。根据前人的研究（(LeCun et al., 1998b; Wiesler &amp; Ney,2011)，们已经知道，在训练的过程中加入白化处理能，如0均值1方差化和去相关化，能够加速模型的收敛。通过对每一层的输入进行白化处理，我们能够保持输入的分布，从而消除 Internal Covariate Shift 的病态影响。 </p>
+<p>通过白化对数据进行变换，可以达到以下两个目的：</p>
+<ol>
+<li>使得输入特征分布具有相同的均值与方差。其中PCA白化保证了所有特征分布均值为0，方差为1；而ZCA白化则保证了所有特征分布均值为0，方差相同；</li>
+<li>去除特征之间的相关性。</li>
+</ol>
+<p>但是白化操作也具有以下问题：</p>
+<ol>
+<li>白化过程计算成本太高，并且在每一轮训练中的每一层我们都需要做如此高成本计算的白化操作；</li>
+<li>白化过程由于改变了网络每一层的分布，因而改变了网络层中本身数据的表达能力。底层网络学习到的参数信息会被白化操作丢失掉。</li>
+</ol>
+<h3 id="Normalization-via-Mini-Batch-Statistics"><a href="#Normalization-via-Mini-Batch-Statistics" class="headerlink" title="Normalization via Mini-Batch Statistics"></a>Normalization via Mini-Batch Statistics</h3><p>因为对于每一层的输入进行白化花费较高，并且也不是处处可微，所有我们做了两个必要的简化。，一方面，我们提出的normalization方法要能够简化计算过程；另一方面又需要经过规范化处理后让数据尽可能保留原始的表达能力。于是就有了简化+改进版的白化——Batch Normalization。</p>
+<p><strong>第一是</strong>，<strong>我们对特征进行单独的进行零均值一方差归一化，来代替白化同时对层的输入和输出同时进行归一化</strong>。于有 d 维输入 x=(x(1)…x(d))，可通过下式进行归一化:</p>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlciy74j309q03dwed.jpg" alt="image"></p>
+<p>式子中的期望和方差由训练数据集计算得到。此过程可以加速收敛，甚至当特征之间没有相关性的时候也是如此(LeCun et al., 1998b)。</p>
+<p><strong>简单的归一化神经网络层的输入，可能会改变该层的表征能力</strong>。例如，对 sigmoid 函数的输入进行归一化，会使归一化后的输入趋向 s 型函数的线性端。为了避免这样的情况出现，我们确保穿插在网络内部的变换能够表示同样的变换。为了达到这样的目的，我们对每一个激活值 x(k)都引入一对参数 γ(k)和 β(k) ，这两个参数能够缩放和平移归一化后的输入：</p>
+<p><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g1odlco5gij3091023744.jpg" alt="image"></p>
+<p>这两个参数与模型原始的参数一起学习，并恢复了模型的表征能力。当γ和β分别等于数据的方差和均值时，就能恢复原来的激活值。</p>
+<p><strong>第二是</strong>，考虑到在batch的设置中，我们可以用整个训练数据集来归一化激活值。但是，当我们使用随机梯度下降法的时候这一选择是不实际的，在随机梯度下降中我们采用mini-batch的方式，这样我们就能够通过每个mini-batch为每个激活值计算出对应的均值和方差。通过这样的方式，归一化所需统计信息就能够完全被考虑到梯度下降中去。利用mini-batch就能计算每一维激活值的方差，而不是计算所有激活值的协方差矩阵。如果是计算协方差矩阵的话，batch的数量可能比激活值向量的大小还要小，这样就会产生奇异协方差矩阵。 </p>
+<p>假设有一个mini-batch B，其大小为 m 。因为是对激活值的每一维进行归一化，所有我们只考虑其中的一个激活值 x(k) ,同时在下文中忽略 k。BN的算法结构为：</p>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g1odlcwlktj30jo0frjsj.jpg" alt="image"></p>
+<p>进行反向传播是，通过链式法则，有：<br><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g1odld47llj30ir0adjs5.jpg" alt="image"></p>
+<p>因此BN变换是将归一化激活值引入神经网络的一种可微变换。这确保了网络可训练性，以及神经网络层能够持续学习输入数据分布。从而能够减少Internal Covariate Shift发生，同时加速网络的训练。进一步的，将学习好的仿射变换应用到归一化激活值中，能够允许BN变换比表示同样的变换，进而保存神经网络的表征能力。</p>
+<h4 id="小结：-1"><a href="#小结：-1" class="headerlink" title="小结："></a>小结：</h4><ul>
+<li>BN 方法会针对每一批数据，在网络的每一层输入之前增加归一化处理，使输入的均值为 0，标准差为 1。目的是将数据限制在统一的分布下。</li>
+<li>具体来说，针对每层的第 k 个神经元，计算这一批数据在第 k 个神经元的均值与标准差，然后将归一化后的值作为该神经元的激活值。</li>
+<li>BN 可以看作在各层之间加入了一个新的计算层，对数据分布进行额外的约束，从而增强模型的泛化能力</li>
+<li>但同时 BN 也降低了模型的拟合能力，破坏了之前学到的特征分布，为了恢复数据的原始分布，BN 引入了一个重构变换来还原最优的输入数据分布</li>
+</ul>
+<h3 id="测试阶段的BN"><a href="#测试阶段的BN" class="headerlink" title="测试阶段的BN"></a>测试阶段的BN</h3><p>我们知道BN在每一层计算的均值方差 都是基于当前batch中的训练数据，但是这就带来了一个问题：我们在预测阶段，有可能只需要预测一个样本或很少的样本，没有像训练样本中那么多的数据，此时的均值和方差的计算一定是有偏估计，这个时候我们该如何进行计算呢？</p>
+<p>当测试或预测时，每次可能只会传入单个数据，此时我们使用整个样本的统计量来对Test数据进行归一化，具体来说使用均值与方差的无偏估计：</p>
+<p><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g1odlda66lj308g03v0so.jpg" alt="image"></p>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g1odldnqrxj30bl03rq2v.jpg" alt="image"></p>
+<p>参考：</p>
+<ol>
+<li><a href="https://arxiv.org/abs/1502.03167" target="_blank" rel="noopener">原始论文</a></li>
+<li><a href="https://blog.csdn.net/linmingan/article/details/50780761" target="_blank" rel="noopener">深度学习【2】Batch Normalization</a></li>
+<li><a href="https://github.com/imhuay/Algorithm_Interview_Notes-Chinese/blob/master/A-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/A-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80.md#batch-normalization%E6%89%B9%E6%A0%87%E5%87%86%E5%8C%96" target="_blank" rel="noopener">深度学习基础</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/34879333" target="_blank" rel="noopener">BN原理与实战</a></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/09/排序算法系列2——归并/" class="archive-article-date">
-  	<time datetime="2018-10-09T08:47:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/09/排序算法系列2——归并/">排序算法系列2——归并</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/02/Batch-Normalization论文导读/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/27/C-RNN文字识别论文导读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C-RNN文字识别论文导读</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -663,8 +477,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
