@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>LightGBM论文导读 | 『My word in my world』</title>
+  <title>马拉车算法 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="比起XGBoost的那篇论文的层层递进，LightGBM讲得更为单刀直入，要是没有GBDT、XGBoost的理论作为基础，还真的挺难看懂的。在我的理解中，这篇论文的主要贡献还是在于对训练数据的处理上，新的方法使得算法能够更快、更准。">
-<meta name="keywords" content="论文导读,机器学习">
+  <meta name="description" content="查找字符串的最长回文子串的线性方法">
+<meta name="keywords" content="数据结构与算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LightGBM论文导读">
-<meta property="og:url" content="http://yoursite.com/2019/03/20/LightGBM论文导读/index.html">
+<meta property="og:title" content="马拉车算法">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/马拉车算法/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:description" content="比起XGBoost的那篇论文的层层递进，LightGBM讲得更为单刀直入，要是没有GBDT、XGBoost的理论作为基础，还真的挺难看懂的。在我的理解中，这篇论文的主要贡献还是在于对训练数据的处理上，新的方法使得算法能够更快、更准。">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9743044-5352b9235ff8e2cf.png">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9743044-1d2cdd94f0fa1173.png">
-<meta property="og:updated_time" content="2019-03-22T08:18:33.083Z">
+<meta property="og:description" content="查找字符串的最长回文子串的线性方法">
+<meta property="og:image" content="http://yoursite.com/2019/04/08/马拉车算法/D1F67A752F00464C823896915C8EF199">
+<meta property="og:image" content="http://yoursite.com/2019/04/08/马拉车算法/959B455A1AAE481D95723A523DFAB97B">
+<meta property="og:updated_time" content="2019-04-08T14:44:06.039Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LightGBM论文导读">
-<meta name="twitter:description" content="比起XGBoost的那篇论文的层层递进，LightGBM讲得更为单刀直入，要是没有GBDT、XGBoost的理论作为基础，还真的挺难看懂的。在我的理解中，这篇论文的主要贡献还是在于对训练数据的处理上，新的方法使得算法能够更快、更准。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9743044-5352b9235ff8e2cf.png">
+<meta name="twitter:title" content="马拉车算法">
+<meta name="twitter:description" content="查找字符串的最长回文子串的线性方法">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/08/马拉车算法/D1F67A752F00464C823896915C8EF199">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -207,85 +207,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LightGBM论文导读" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-马拉车算法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      LightGBM论文导读
+      马拉车算法
     </h1>
   
 
         
-        <a href="/2019/03/20/LightGBM论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-20T09:43:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-20</time>
+        <a href="/2019/04/08/马拉车算法/" class="archive-article-date">
+  	<time datetime="2019-04-08T14:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>比起XGBoost的那篇论文的层层递进，LightGBM讲得更为单刀直入，要是没有GBDT、XGBoost的理论作为基础，还真的挺难看懂的。在我的理解中，这篇论文的主要贡献还是在于对训练数据的处理上，新的方法使得算法能够更快、更准。</p>
-<a id="more"></a>
-<p>LightGBM作为GBDT的一种高效实现，直接针对已有方法“<strong>对于每一个特征的每一个分裂点，都需要遍历全部数据计算信息增益，这一过程非常耗时</strong>”的缺点进行改进，主要叙述了两种新方法：<strong>Gradient-based one-side sampling</strong>(GOSS,基于梯度的one-side采样)和<strong>Exclusive feature bundling</strong>(EFB,互斥的特征捆绑)</p>
-<p>对于GOSS, 我们排除了一部分梯度值小的数据实例，仅仅使用剩下来评估信息增益。这样做可行性的原因，拥有梯度值大的数据集在信息增益计算时扮演更重要的角色。在小数据集上GOSS可以获得更加准确的信息增益的评估结果。</p>
-<p>对于EFB，捆绑互斥的特征，来减少特征的数量。但是我们发现最优的互斥特征是一个NP难问题，贪心算法可以取得近似的分数（在不损害分割点方向准确率的情况下，有效减少特征值）。</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在GBDT的传统实现方案中，主要的时间花销在于建立决策树过程中找到最佳分割点。被广泛采用的方法是通过预排序再遍历找到分割点，算法简单精确，但是效率低下；其次便是直方图算法（xgb的近似算法），通过将连续特征映射到离散的桶中，统计这些值找到对应的分割点。</p>
-<p>在这一过程中，如果可以减少数据量或者减少需要计算的特征，算法便可以得到加速。</p>
-<p><strong>为了减少数据量</strong>，传统的方法是下采样，比如过滤到权重小于阈值的数据（这里提到的随机梯度提升SGB, Adaboost)。GBDT没有初始权重，难以采用这种方法。</p>
-<p><strong>为了减少特征量</strong>，需要对特征进行过滤，常用的方法比如PCA和投影法。但这种方法的前提假设是特征中有冗余信息，在实际应用过程中往往不成立。</p>
-<p><strong>再者就是稀疏数据</strong>，现实应用中的大规模数据通常是稀疏的，使用预排序的GBDT算法可以通过忽略0值来降低训练开销，而使用直方图法的GBDT没有针对稀疏数据的优化方案，因为histogram-based algorithm无论特征值是否为0，都需要检索特征的bin值。如果基于直方图的算法能解决这一问题，将会更受欢迎。</p>
-<p>为了解决上述问题，变提出了GOSS和EFB。</p>
-<h1 id="一、GOSS，基于梯度的One-side采样"><a href="#一、GOSS，基于梯度的One-side采样" class="headerlink" title="一、GOSS，基于梯度的One-side采样"></a>一、GOSS，基于梯度的One-side采样</h1><p>GOSS是一种在减少数据量与保持算法进度上平衡的算法</p>
-<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>Adaboost中，样本权重是样本的重要属性，而在GBDT中却没有这一属性。但是GBDT中每个数据都有不同的梯度值，对采样十分有用，即实例的梯度小，实例训练误差也就较小，已经被学习得很好了，而梯度大的样本在计算信息增益的过程中起着更大的作用。直接想法就是丢掉这部分梯度小的数据，但是这样会改变数据分布，从而损害训练模型的精度，于是提出了GOSS:</p>
-<ol>
-<li>对所有样本按照梯度大小排序，选择top a * 100% 的样本</li>
-<li>在剩余样本中随机采样 b * 100% 的样本</li>
-<li>对于随机抽样的样本，计算信息增益时 * （1 - a）/ b</li>
-</ol>
-<p>这样做既可以减少训练数据，还可以尽可能符合数据的原始分布。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9743044-5352b9235ff8e2cf.png" alt="image"></p>
-<p>理论分析暂且略过，markdown对公式和图片的支持还真是挺麻烦的。</p>
-<h1 id="二、EFB-互斥的特征捆绑"><a href="#二、EFB-互斥的特征捆绑" class="headerlink" title="二、EFB 互斥的特征捆绑"></a>二、EFB 互斥的特征捆绑</h1><p>GOSS的作用是减少数据量，而EFB的主要作用在于有效减少特征的数量。</p>
-<p>高维的数据往往是稀疏的，稀疏的数据提供给了我们减少特征数量而较小误差损失的可能。特别是在稀疏数据中，许多特征是互斥的，例如他们从不会同时为非零值。我们绑定互斥的特征为单一特征（排他特征绑定）。通过仔细设计特征扫描算法，我们从特征绑定中建立相同的特征直方图作为单一特征。通过这种方式，构建直方图的复杂度从O（data <em> feature ） 到O（data </em> bundle），bundle &lt;&lt; feature。然后我们在无损精度的情况下加速GBDT的训练。</p>
-<p>接下来的问题是：</p>
-<ol>
-<li>如何判断应该把哪些特征进行绑定）？</li>
-<li>怎么把特征绑定为一个（如何建立Bundle）？</li>
-</ol>
-<h3 id="如何选定互斥特征"><a href="#如何选定互斥特征" class="headerlink" title="如何选定互斥特征"></a>如何选定互斥特征</h3><p><strong>The problem of partitioning features into a smallest number of exclusive bundles is<br>NP-hard.</strong></p>
-<p>具体算法为：</p>
-<ol>
-<li>建立权重图，边的权重和特征之前的冲突程度有关系。</li>
-<li>将特征按照图中的度数进行降序排序。</li>
-<li>检查排序后的每个特征，要么将其绑定到一个已经存在的冲突较小的Bundle中，要么新建一个Bundle.</li>
-</ol>
-<p>这一算法的时间复杂度为（O(feature^2)）,在训练之前便可一次完成。当特征不是很多时，这一复杂度是可接受的。</p>
-<p>为了进一步提高效率，文章又提出了一种更高效的无图算法，即：</p>
-<ol>
-<li>将特征按照非零值个数进行排序，因为非0值越多越容易导致冲突</li>
-</ol>
-<p><img src="https://upload-images.jianshu.io/upload_images/9743044-1d2cdd94f0fa1173.png" alt="image"></p>
-<h3 id="Merging-features-特征合并"><a href="#Merging-features-特征合并" class="headerlink" title="Merging features 特征合并"></a>Merging features 特征合并</h3><p>特征合并的关键在于要保证原始特征的值可以从绑定后的特征中识别出来，因为基于直方图的算法需要存储离散的值，而不希望合并后的特征互相重叠。</p>
-<p>解决这一问题的方法就是将偏移量添加到特征原始值中实现，例如，假设bundle中有两个特征，原始特征A取值[0, 10]，B取值[0, 20]。我们添加偏移量10到B中，因此B取值[10, 30]。通过这种做法，就可以安全地将A、B特征合并，使用一个取值[0, 30]的特征取代AB</p>
-<p>EFB算法能够将许多互斥的特征变为低维稠密的特征，就能够有效的避免不必要0值特征的计算。</p>
-<p>文中还提到可以对原始的直方图算法进行优化，通过用一张表来记录特征的非零值来忽略0值的计算，这样直方图算法的复杂度就可以从O(#data)降低到O(#noe_zero_data)。但是这一方法还是需要额外的存储空间和计算代价。但这一方法和EFB并不冲突，在LightGBM中也实现了这一方法。</p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>以上就是LightGBM这篇文章的主要内容，但是LightGBM还有许多其他的特征，总结如下：</p>
-<ol>
-<li>level-wise的生长方式。这应该是问的比较多的知识点了，xgboost采用的是level-wise的分裂策略，而lightGBM采用了leaf-wise的策略，区别是xgboost对每一层所有节点做无差别分裂，可能有些节点的增益非常小，对结果影响不大，但是xgboost也进行了分裂，带来了务必要的开销。 leaft-wise的做法是在当前所有叶子节点中选择分裂收益最大的节点进行分裂，如此递归进行，很明显leaf-wise这种做法容易过拟合，因为容易陷入比较高的深度中，因此需要对最大深度做限制，从而避免过拟合。</li>
-<li>直方图做差加速。一个子节点的直方图可以通过父节点的直方图减去兄弟节点的直方图得到，从而加速计算。</li>
-<li>XGBoost的近似直方图算法与LightGBM直方图算法的区别：xgboost在每一层都动态构建直方图， 因为xgboost的直方图算法不是针对某个特定的feature，而是所有feature共享一个直方图(每个样本的权重是二阶导),所以每一层都要重新构建直方图，而lightgbm中对每个特征都有一个直方图，所以构建一次直方图就够了。</li>
-<li>lightGBM支持直接输入categorical的feature。在对离散特征分裂时，每个取值都当作一个桶，分裂时的增益算的是”是否属于某个category“的gain。类似于one-hot编码。</li>
-<li>并行优化。一是特征层面的并行，对特征进行分割，在汇总得到全局最优分割点；二是数据层面的并行，对数据进行分割，汇总合并全局的直方图。</li>
-</ol>
-<p>参考：</p>
-<ol>
-<li><a href="https://www.cnblogs.com/mata123/p/7440774.html" target="_blank" rel="noopener">lightgbm,xgboost,gbdt的区别与联系</a></li>
-<li><a href="https://blog.csdn.net/shine19930820/article/details/79123216" target="_blank" rel="noopener">LightGBM原理</a></li>
-</ol>
-
+        <p>查找字符串的最长回文子串的线性方法<br><a id="more"></a></p>
+<p>leetcode第5题， 寻找字符串的最长回文子串，之前一直都是用O(n*n)的方法做的，虽然能通过OJ，但时间也在50%左右。偶然知道了马拉车算法，可以在O(n)的时间复杂度内解决这个问题。</p>
+<h2 id="解法一：分奇偶，搜索以每个字符串为中心的最长回文子串"><a href="#解法一：分奇偶，搜索以每个字符串为中心的最长回文子串" class="headerlink" title="解法一：分奇偶，搜索以每个字符串为中心的最长回文子串"></a>解法一：分奇偶，搜索以每个字符串为中心的最长回文子串</h2><p><img src="D1F67A752F00464C823896915C8EF199" alt="image"><br>遍历字符串，枚举对称中心, 向两边扩展,遇边界,或不同,停止扩展,继续下一个对称中心,之后找最大</p>
+<p>时间O(n^2), 空间O(1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	string longestPalindrome(string s) &#123;</span><br><span class="line">		if (s.size() &lt;= 1)</span><br><span class="line">			return s;</span><br><span class="line"></span><br><span class="line">		string res;</span><br><span class="line">		for (int i = 0; i &lt; s.size() - 1; i++)&#123;</span><br><span class="line">			string odd = search(s, i, i);</span><br><span class="line">			string even = &quot;&quot;;</span><br><span class="line">			if (s[i] == s[i + 1])</span><br><span class="line">				even = search(s, i, i + 1);</span><br><span class="line">			if (odd.size() &gt;= even.size())&#123;</span><br><span class="line">				if (res.size() &lt; odd.size())</span><br><span class="line">					res = odd;</span><br><span class="line">			&#125;</span><br><span class="line">			else&#123;</span><br><span class="line">				if (res.size() &lt; even.size())</span><br><span class="line">					res = even;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return res;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	string search(string s, int left, int right)&#123;</span><br><span class="line">		while (left &gt;= 0 &amp;&amp; right &lt; s.size() &amp;&amp; s[left] == s[right])&#123;</span><br><span class="line">			left--;</span><br><span class="line">			right++;</span><br><span class="line">		&#125;</span><br><span class="line">		return s.substr(left + 1, right-left-1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="解法二：DP"><a href="#解法二：DP" class="headerlink" title="解法二：DP"></a>解法二：DP</h2><p>用二维数组dp[i][j]表示从i到j是否是回文串</p>
+<p><img src="959B455A1AAE481D95723A523DFAB97B" alt="image"></p>
+<p>递推式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dp[i, j]   = 1                                             if i == j</span><br><span class="line"></span><br><span class="line">           = s[i] == s[j]                                if j = i + 1</span><br><span class="line"></span><br><span class="line">           = s[i] == s[j] &amp;&amp; dp[i + 1][j - 1]            if j &gt; i + 1</span><br></pre></td></tr></table></figure></p>
+<p>时间O(n^2), 空间O(n^2)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string longestPalindrome(string s) &#123;</span><br><span class="line">        if (s.empty()) return &quot;&quot;;</span><br><span class="line">        int dp[s.size()][s.size()] = &#123;0&#125;, left = 0, right = 0, len = 0;</span><br><span class="line">        for (int i = 0; i &lt; s.size(); ++i) &#123;</span><br><span class="line">            dp[i][i] = 1;</span><br><span class="line">            for (int j = 0; j &lt; i; ++j) &#123;</span><br><span class="line">                dp[j][i] = (s[i] == s[j] &amp;&amp; (i - j &lt; 2 || dp[j + 1][i - 1]));</span><br><span class="line">                if (dp[j][i] &amp;&amp; len &lt; i - j + 1) &#123;</span><br><span class="line">                    len = i - j + 1;</span><br><span class="line">                    left = j;</span><br><span class="line">                    right = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return s.substr(left, right - left + 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="解法三：马拉车算法"><a href="#解法三：马拉车算法" class="headerlink" title="解法三：马拉车算法"></a>解法三：马拉车算法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string longestPalindrome(string s) &#123;</span><br><span class="line">        string t =&quot;$#&quot;;</span><br><span class="line">        for (int i = 0; i &lt; s.size(); ++i) &#123;</span><br><span class="line">            t += s[i];</span><br><span class="line">            t += &apos;#&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        int p[t.size()] = &#123;0&#125;, id = 0, mx = 0, resId = 0, resMx = 0;</span><br><span class="line">        for (int i = 1; i &lt; t.size(); ++i) &#123;</span><br><span class="line">            p[i] = mx &gt; i ? min(p[2 * id - i], mx - i) : 1;</span><br><span class="line">            while (t[i + p[i]] == t[i - p[i]]) ++p[i];</span><br><span class="line">            if (mx &lt; i + p[i]) &#123;</span><br><span class="line">                mx = i + p[i];</span><br><span class="line">                id = i;</span><br><span class="line">            &#125;</span><br><span class="line">            if (resMx &lt; p[i]) &#123;</span><br><span class="line">                resMx = p[i];</span><br><span class="line">                resId = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return s.substr((resId - resMx) / 2, resMx - 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -319,11 +269,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
         		</li>
       		
 		</ul>
@@ -379,7 +325,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/20/LightGBM论文导读/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/08/马拉车算法/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -393,18 +339,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/22/Unix/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Unix Linux, gcc g++, make cmake, 傻傻分不清
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/19/XGBoost论文导读/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">XGBoost论文导读</div>
+    <a href="/2019/04/03/EAST文本检测论文导读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EAST文本检测论文导读</div>
       <i class="icon-circle-right"></i>
     </a>
   
