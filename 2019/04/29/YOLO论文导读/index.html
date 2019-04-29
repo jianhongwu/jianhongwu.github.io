@@ -6,14 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 『My word in my world』</title>
+  <title>YOLO论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="『My word in my world』">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="You Only Look Once: Unified, Real-Time Object Detection (CVPR 2016)Joseph Redmon, Santosh Divvala, Ross Girshic, Ali Farhadi YOLO是继RCNN，fast-RCNN 和 faster-RCNN之后全新的one-stage目标检测框架">
+<meta name="keywords" content="深度学习,论文导读,CV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLO论文导读">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/YOLO论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
+<meta property="og:description" content="You Only Look Once: Unified, Real-Time Object Detection (CVPR 2016)Joseph Redmon, Santosh Divvala, Ross Girshic, Ali Farhadi YOLO是继RCNN，fast-RCNN 和 faster-RCNN之后全新的one-stage目标检测框架">
+<meta property="og:image" content="http://wx3.sinaimg.cn/large/007b7yGbly1g2jvph1xmej30sz0ehdti.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g2jvphaqpij30d602amxe.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvphii9jj30sq01zgme.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvphy0q5j30xp0py7tg.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvpic5rmj31070esdk7.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g2jvpikis1j30y10kldk3.jpg">
+<meta property="og:updated_time" content="2019-04-29T14:39:09.066Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="『My word in my world』">
+<meta name="twitter:title" content="YOLO论文导读">
+<meta name="twitter:description" content="You Only Look Once: Unified, Real-Time Object Detection (CVPR 2016)Joseph Redmon, Santosh Divvala, Ross Girshic, Ali Farhadi YOLO是继RCNN，fast-RCNN 和 faster-RCNN之后全新的one-stage目标检测框架">
+<meta name="twitter:image" content="http://wx3.sinaimg.cn/large/007b7yGbly1g2jvph1xmej30sz0ehdti.jpg">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -199,98 +211,266 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-YOLO论文导读" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/09/排序算法系列2——归并/" class="archive-article-date">
-  	<time datetime="2018-10-09T08:47:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/09/排序算法系列2——归并/">排序算法系列2——归并</a>
+    <h1 class="article-title" itemprop="name">
+      YOLO论文导读
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/29/YOLO论文导读/" class="archive-article-date">
+  	<time datetime="2019-04-29T14:38:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="You-Only-Look-Once-Unified-Real-Time-Object-Detection-CVPR-2016"><a href="#You-Only-Look-Once-Unified-Real-Time-Object-Detection-CVPR-2016" class="headerlink" title="You Only Look Once: Unified, Real-Time Object Detection (CVPR 2016)"></a>You Only Look Once: Unified, Real-Time Object Detection (CVPR 2016)</h1><p>Joseph Redmon, Santosh Divvala, Ross Girshic, Ali Farhadi</p>
+<p>YOLO是继RCNN，fast-RCNN 和 faster-RCNN之后全新的one-stage目标检测框架</p>
+<a id="more"></a>
+<ul>
+<li>Joseph Redmon: University of Washington, yolo + yolo9000 + yolov3</li>
+<li>Ross Girshick: Facebook, rbg大神，rcnn + fast-rcnn + faster-rcnn</li>
+</ul>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>以前的目标检测工作重新利用分类器来执行检测。相反，我们将目标检测框架看作回归问题从空间上分割边界框和相关的类别概率。单个神经网络在一次评估中直接从完整图像上预测边界框和类别概率,可以实现端到端的训练和优化</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>作者在YOLO算法中把物体检测（object detection）问题处理成回归问题，用一个卷积神经网络结构就可以从输入图像直接预测bounding box和类别概率。</p>
+<p><img src="http://wx3.sinaimg.cn/large/007b7yGbly1g2jvph1xmej30sz0ehdti.jpg" alt="image"></p>
+<ul>
+<li>速度快，将检测视为回归问题，可以达到45fps，Fast YOLO可以到达155fps</li>
+<li>YOLO是基于图像的全局信息进行预测的。这一点和基于sliding window以及region proposal等检测算法不一样。与Fast R-CNN相比，YOLO在误检测（将背景检测为物体）方面的错误率能降低一半多。</li>
+<li>YOLO可以学到物体的generalizable representations。可以理解为泛化能力强。</li>
+</ul>
+<p>YOLO在精度上仍然落后于最先进的检测系统。虽然它可以快速识别图像中的目标，但一些目标的定位还不够精确，尤其是小的目标。</p>
+<h2 id="2-Unified-Detection"><a href="#2-Unified-Detection" class="headerlink" title="2. Unified Detection"></a>2. Unified Detection</h2><p>YOLO结构上主要的特点就是 unified detection，不再是原来许多步骤组成的物体检测，这使得模型的运行速度快，<strong>可以直接学习图像的全局信息，且可以end-to-end训练</strong>。</p>
+<ul>
+<li><p>将一幅图像分成SxS个网格(grid cell)，如果某个object的中心 落在这个网格中，则这个网格就负责预测这个object。 </p>
+</li>
+<li><p>每个网格要预测B个bounding box，每个bounding box除了要回归自身的位置之外，还要附带预测一个confidence值。<br>这个<strong>confidence代表了所预测的box中含有object的置信度和这个box预测的有多准两重信息</strong>，定义为：</p>
+</li>
+</ul>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g2jvphaqpij30d602amxe.jpg" alt="image"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果没有object存在，那么confidence score应当是0，否则我们希望confidence score应该等于该box的IOU值</p>
+<ul>
+<li><p>每个bounding box要预测(x, y, w, h)和confidence共5个值，x,y就是bounding box的中心坐标，与grid cell对齐（即相对于当前grid cell的偏移值），使得范围变成0到1；w和h进行归一化（分别除以图像的w和h，这样最后的w和h就在0到1范围）.</p>
+</li>
+<li><p>每个网格还要预测一个类别信息，记为C类。则SxS个网格，每个网格要预测B个bounding box还要预测C个categories。<strong>输出就是S x S x (5*B+C)的一个tensor</strong>。<br>注意：class信息是针对每个网格的，confidence信息是针对每个bounding box的。</p>
+</li>
+<li><p>在test的时候，每个网格预测的class信息和bounding box预测的confidence信息相乘，就得到每个bounding box的class-specific confidence score:<br><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvphii9jj30sq01zgme.jpg" alt="image"></p>
+</li>
+<li><p>等式左边第一项就是每个网格预测的类别信息，第二三项就是每个bounding box预测的confidence。这个乘积即encode了预测的box属于某一类的概率，也有该box准确度的信息。<br><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvphy0q5j30xp0py7tg.jpg" alt="image"></p>
+</li>
+</ul>
+<p>得到每个box的class-specific<br>confidence score以后，设置阈值，滤掉得分低的boxes，<strong>对保留的boxes进行NMS处理，就得到最终的检测结果</strong>。</p>
+<p>文章采用了PASCAL VOC数据集， 图像输入为448x448，取S=7，B=2，一共有20个类别(C=20)。则输出就是7x7x30的一个tensor。 </p>
+<h3 id="2-1-Network-Design"><a href="#2-1-Network-Design" class="headerlink" title="2.1 Network Design"></a>2.1 Network Design</h3><p>YOLO的卷积层结构借鉴于GoogLeNet,下图即 YOLO神经网络结构。</p>
+<ul>
+<li>前面是24层卷积神经网络，如下图，最终输出为7*7*1024的特征图。</li>
+<li>后面是2层全连接网络。</li>
+<li>第一层全连接输入7*7*1024，输出4096。</li>
+<li>第二层全连接输入4096，输出7*7*30。</li>
+</ul>
+<p><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvpic5rmj31070esdk7.jpg" alt="image"></p>
+<h3 id="2-2-Training"><a href="#2-2-Training" class="headerlink" title="2.2 Training"></a>2.2 Training</h3><p>YOLO 在 ImageNet<br>1000-class 的分类任务数据集 上进行 pretraining。预训练的网络是 Figure 3 中网络的前 20 层卷积层，加上一个 average-pooling layer，最后是一个 fully connected layer。</p>
+<p>最后的输出中，包含了类别预测、box坐标预测，box confidence预测，需要设计损失函数，让三方面得到很好的平衡。</p>
+<p>第一，8维的localization error和20维的classification error同等重要显然是不合理的； </p>
+<ul>
+<li>更重视8维的坐标预测，给这些损失前面赋予更大的loss weight, 记为在pascal VOC训练中取5。</li>
+</ul>
+<p>第二，如果一个网格中没有object（一幅图中这种网格很多），那么就会将这些网格中的box的confidence push到0，相比于较少的有object的网格，这种做法是overpowering的，这会导致网络不稳定甚至发散。 </p>
+<ul>
+<li>对没有object的box的confidence loss，赋予小的loss weight，记为在pascal VOC训练中取0.5。</li>
+</ul>
+<p>第三， 对不同大小的box预测中，相比于大box预测偏一点，小box预测偏一点肯定更不能被忍受的。而sum-square error loss中对同样的偏移loss是一样。</p>
+<ul>
+<li>将box的width和height取平方根代替原本的height和width，可缓解这一问题。</li>
+</ul>
+<p>第四，一个网格预测多个bounding box，在训练时我们希望每个object（ground true box）只有一个bounding box专门负责（一个object 一个bbox）。具体做法是与ground true box（object）的IOU最大的bounding box 负责该ground true box(object)的预测。这种做法称作bounding box predictor的specialization(专职化)。每个预测器会对特定（sizes,aspect ratio or classed of object）的ground true box预测的越来越好。<br><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g2jvpikis1j30y10kldk3.jpg" alt="image"></p>
+<p>训练的时候：输入N个图像，每个图像包含M个objec，每个object包含4个坐标（x，y，w，h）和1个label。然后通过网络得到7<em>7</em>30大小的三维矩阵。每个1*30的向量前5个元素表示第一个bounding box的4个坐标和1个confidence，第6到10元素表示第二个bounding box的4个坐标和1个confidence。最后20个表示这个grid cell所属类别。注意这30个都是预测的结果。然后就可以计算损失函数的第一、二 、五行。至于第二三行，confidence可以根据ground truth和预测的bounding box计算出的IOU和是否有object的0,1值相乘得到。真实的confidence是0或1值，即有object则为1，没有object则为0。 这样就能计算出loss function的值了。</p>
+<p>测试的时候：输入一张图像，跑到网络的末端得到7<em>7</em>30的三维矩阵，这里虽然没有计算IOU，但是由训练好的权重已经直接计算出了bounding box的confidence。然后再跟预测的类别概率相乘就得到每个bounding box属于哪一类的概率。</p>
+<h3 id="2-4-Limitations-of-YOLO"><a href="#2-4-Limitations-of-YOLO" class="headerlink" title="2.4 Limitations of YOLO"></a>2.4 Limitations of YOLO</h3><ul>
+<li><p>YOLO对相互靠的很近的物体，还有很小的群体检测效果不好，这是因为一个网格中只预测了两个框，并且只属于一类。</p>
+</li>
+<li><p>对测试图像中，同一类物体出现的新的不常见的长宽比和其他情况是。泛化能力偏弱。</p>
+</li>
+<li><p>由于损失函数的问题，定位误差是影响检测效果的主要原因。尤其是大小物体的处理上，还有待加强。</p>
+</li>
+</ul>
+<p>论文给出了YOLO与Fast RCNN的对比图，YOLO的定位准确率相对于fast rcnn比较差。但是YOLO对背景的误判率比Fast RCNN的误判率低很多。这说明了YOLO中把物体检测的思路转成回归问题的思路有较好的准确率，但是bounding box的定位不是很好。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>要解决什么问题？</p>
+<ul>
+<li>对于物体检测任务，快速算法的性能低；性能高的算法（如R-CNN系）不能达到实时性的要求。</li>
+<li>之前物体检测任务主要分为两个步骤，第一步获取候选区域，第二步队每个分区进行分类。这种方法的性能不能达到实时性要求。</li>
+</ul>
+<p>用了什么方法解决？</p>
+<ul>
+<li>提出了一种使用回归方式获取候选区域的方法，将所有物体检测任务都结合到一个神经网络中。</li>
+</ul>
+<p>效果如何？</p>
+<ul>
+<li>运行速度大大提高，可以达到45fps。</li>
+<li>相比于其他快速物体检测模型，检测结果的准确率有了很大提高。</li>
+<li>相比于R-CNN，对于背景的分类结果好了很多。</li>
+</ul>
+<p>还存在什么问题？</p>
+<ul>
+<li>模型准确率距离其他模型（如Fast R-CNN）还有一定的距离。</li>
+<li>在候选边框预测方面（与R-CNN系方法相比），误差较大且对于新数据集的泛化能力较弱。</li>
+<li>对于空间聚集较密的数据的预测结果不好。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/09/排序算法系列1——选择插入冒泡希尔/" class="archive-article-date">
-  	<time datetime="2018-10-09T02:03:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/09/排序算法系列1——选择插入冒泡希尔/">排序算法系列1——选择/插入/冒泡/希尔</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/29/YOLO论文导读/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/04/29/Faster-RCNN-论文导读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Faster RCNN 论文导读</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -313,8 +493,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
