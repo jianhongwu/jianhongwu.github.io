@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>shogun机器学习源码编译 | 『My word in my world』</title>
+  <title>Faster RCNN 论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。">
-<meta name="keywords" content="机器学习,计算机原理">
+  <meta name="description" content="Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks推荐阅读：  一文读懂Faster RCNN Faster RCNN 学习笔记">
+<meta name="keywords" content="深度学习,论文导读,CV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shogun机器学习源码编译">
-<meta property="og:url" content="http://yoursite.com/2019/03/24/shogun机器学习源码编译/index.html">
+<meta property="og:title" content="Faster RCNN 论文导读">
+<meta property="og:url" content="http://yoursite.com/2019/04/29/Faster-RCNN-论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:description" content="最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。">
-<meta property="og:updated_time" content="2019-03-24T11:23:10.376Z">
+<meta property="og:description" content="Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks推荐阅读：  一文读懂Faster RCNN Faster RCNN 学习笔记">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk7j53wj30ns0mnwlw.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk7u30xj310h0hnjxt.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk8bompj30y10dhh16.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/large/007b7yGbly1g2jvk8p87kj30as095gn9.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk8wwejj30ml05t3zc.jpg">
+<meta property="og:updated_time" content="2019-04-29T14:33:27.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shogun机器学习源码编译">
-<meta name="twitter:description" content="最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。">
+<meta name="twitter:title" content="Faster RCNN 论文导读">
+<meta name="twitter:description" content="Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks推荐阅读：  一文读懂Faster RCNN Faster RCNN 学习笔记">
+<meta name="twitter:image" content="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk7j53wj30ns0mnwlw.jpg">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -204,108 +210,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-shogun机器学习源码编译" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Faster-RCNN-论文导读" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      shogun机器学习源码编译
+      Faster RCNN 论文导读
     </h1>
   
 
         
-        <a href="/2019/03/24/shogun机器学习源码编译/" class="archive-article-date">
-  	<time datetime="2019-03-24T11:22:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
+        <a href="/2019/04/29/Faster-RCNN-论文导读/" class="archive-article-date">
+  	<time datetime="2019-04-29T14:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近一直在尝试从源码编译安装shogun，第一次接触源码编译，官网教程对新手太不友好，屡屡遇坑，遇到不少问题，而shogun的中文资料几乎没有，故记录于此。</p>
+        <h1 id="Faster-R-CNN-Towards-Real-Time-Object-Detection-with-Region-Proposal-Networks"><a href="#Faster-R-CNN-Towards-Real-Time-Object-Detection-with-Region-Proposal-Networks" class="headerlink" title="Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks"></a>Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</h1><p>推荐阅读：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31426458" target="_blank" rel="noopener">一文读懂Faster RCNN</a></li>
+<li><a href="https://www.cnblogs.com/wangyong/p/8513563.html" target="_blank" rel="noopener">Faster RCNN 学习笔记</a></li>
+</ul>
 <a id="more"></a>
-<h1 id="shogun介绍"><a href="#shogun介绍" class="headerlink" title="shogun介绍"></a>shogun介绍</h1><p>Shogun machine learning toolbox 是一个基于 C++ 的最古老的机器学习开源库，它创建于 1999 年。作为一个 SWIG 库，Shogun 可以轻松地嵌入 Java、Python、C# 等主流处理语言中。它的重点在于大尺度上的内核方法，特别是“支持向量机”的学习工具箱。其中，它包括了大量的线性方法，如 LDA、LPM、HMM 等等。</p>
-<p>目前其支持的接口包括：python,octave,java/scala,ruby,csharp,r,lua,perl,js.</p>
-<p>支持的平台包括：GNU/Linux, MacOSX, FreeBSD, Windows</p>
-<h1 id="shogun安装"><a href="#shogun安装" class="headerlink" title="shogun安装"></a>shogun安装</h1><h3 id="Ready-to-install-packages"><a href="#Ready-to-install-packages" class="headerlink" title="Ready-to-install packages"></a>Ready-to-install packages</h3><p>对特定的操作系统，shogun都提供了pre-built packages，可以十分方便的进行安装使用。</p>
-<p>比如，我在windows平台下，只需要通过conda进行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge shogun</span><br></pre></td></tr></table></figure></p>
-<p>便可以安装shogun库及其python接口。</p>
-<p>而在其他平台下，也有对应的解决方案，详见<a href="https://github.com/shogun-toolbox/shogun/blob/develop/doc/readme/INSTALL.md#anaconda" target="_blank" rel="noopener">shogun github</a></p>
-<h3 id="compiling-manually"><a href="#compiling-manually" class="headerlink" title="compiling manually"></a>compiling manually</h3><p>当上述方法不起作用或者需要对shogun进行修改时，还可以从源码进行编译安装。</p>
-<p>shogun的源码主要可以分为以下几部分</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>目标检测网络基本上可以分成两部分：候选区域生成(Region proposals) + 对候选区域进行分类以及bound boxes回归。</p>
+<p>Region proposal的方法有多种，但是总的来说，region proposal 部分相比于 detection network 多花了很多时间，因此region proposal algorithms成为了一个计算瓶颈。</p>
+<p>本文提出了Region Proposal Network用来进行候选区域提取，这样可以大大缩短候选区域的提取时间。</p>
+<p><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk7j53wj30ns0mnwlw.jpg" alt="image"></p>
+<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><p>两部分：</p>
 <ul>
-<li>src: 源码，包括实现算法的C++源码和接口源码</li>
-<li>doc: 包括readme.md, licenses等文件</li>
-<li>example: 所有接口的示例文件</li>
-<li>data: 数据集 (submodule, required for examples)</li>
-<li>tests: 单元测试</li>
-<li>applications: applications of shogun</li>
-<li>benchmarks: speed benchmarks (并没有见到?)</li>
-<li>cmake: cmake 所需文件</li>
+<li>深度全卷积网络 for region proposal —— RPN</li>
+<li>Fast RCNN detector</li>
+<li>使用了attention机制</li>
 </ul>
-<h4 id="安装要求"><a href="#安装要求" class="headerlink" title="安装要求"></a>安装要求</h4><p>编译Shogun所需的最低要求：</p>
+<p>不同部分的主要功能：</p>
 <ul>
-<li>The standard GNU/Linux tools, python</li>
+<li>Conv layers提取特征图<ul>
+<li>作为一种CNN网络目标检测方法，Faster RCNN首先使用一组基础的conv+relu+pooling层提取input image的feature maps,该feature maps会用于后续的RPN层和全连接层</li>
 </ul>
-<p>此外编译某种语言对应的接口还需要：</p>
-<ul>
-<li>swig，简化包与接口生成器，是个帮助使用C或者C++编写的软件能与其它各种高级编程语言进行嵌入联接的开发工具。</li>
-<li>语言对应的相关开发环境，详见<a href="https://github.com/shogun-toolbox/shogun/blob/develop/doc/readme/INSTALL.md#anaconda" target="_blank" rel="noopener">interfaces</a></li>
+</li>
+<li>RPN(Region Proposal Networks):<ul>
+<li>RPN网络主要用于生成region proposals，首先生成一堆Anchor box，对其进行裁剪过滤后通过softmax判断anchors属于前景(foreground)或者后景(background)，即是物体or不是物体，所以这是一个二分类；同时，另一分支bounding box regression修正anchor box，形成较精确的proposal（注：这里的较精确是相对于后面全连接层的再一次box regression而言）</li>
 </ul>
-<p>如果需要编译任何接口，需要大约4GB的空间。</p>
-<h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><p>首先介绍一下我的安装环境：ubuntu 18.04，最开始也尝试过在windows 10环境下进行手动编译，但是坑实在太多，所以暂且放弃。</p>
-<p>shogun通过cmake进行编译，关于cmake和make，可以参考我的上一篇博文。</p>
-<ol>
-<li><p>首先下载源码并更新子模块</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/shogun-toolbox/shogun.git</span><br><span class="line">cd shogun</span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>在shogun根目录下创建build目标，进行out-of-source-build.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
+<li>Roi Pooling：<ul>
+<li>该层利用RPN生成的proposals和VGG16最后一层得到的feature map，得到固定大小的proposal feature map,进入到后面可利用全连接操作来进行目标识别和定位</li>
+</ul>
 </li>
-<li><p>接下里对源码进行编译，cmake以源码目录作为参数(在build目录下用..代替即可)。注意，在这一步中有许多选项需要选择，比如如果想要生成python接口，并生成shogun的examples，写法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DINTERFACE_PYTHON=ON -DBUILD_META_EXAMPLES=0N ..</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>此外还包括一些路径参数的选择，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake -DPYTHON_INCLUDE_DIR=/usr/include/python3.3 -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3 -DPYTHON_PACKAGES_PATH=/usr/local/lib/python3.3/dist-packages -DINTERFACE_PYTHON=ON ..</span><br></pre></td></tr></table></figure></p>
-<p>由于cmake的可选参数实在太多，在不确定的情况下这里强烈建议用cmake的GUI进行</p>
-<p>在这一步里可能会遇到一些模块的缺失导致失败，比如我遇到的包括swig，ctags，ccache安装上就好<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install swig</span><br><span class="line">sudo apt-get install ctags</span><br><span class="line">sudo apt-get install ccache</span><br></pre></td></tr></table></figure></p>
-<p>此外还遇到了如下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CMake Error at src/shogun/CMakeLists.txt:49 (MESSAGE):</span><br><span class="line">  Shogun can only be built with GPL codes if the source files are in</span><br><span class="line">  /home/wjh/Desktop/shogun/src/gpl.  Please download or disable.</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://github.com/shogun-toolbox/shogun/issues/4086" target="_blank" rel="noopener">原因参见这里</a>，因为我并不是直接从github上clone下载源码的，而是下载的6.1.3的稳定的发行版，而目前的发行版中已经不包括gpl files，需要从github上重新下载添加进行。</p>
-<ol>
-<li>上一步的cmake生成了makefile,接下来用make进行编译,时间较长</li>
-</ol>
-<ul>
-<li>make从makefile中读取指令，然后编译<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+<li>Classifier：<ul>
+<li>会将Roi Pooling层形成固定大小的feature map进行全连接操作，利用Softmax进行具体类别的分类，同时，利用L1 Loss完成bounding box regression回归操作获得物体的精确位置.</li>
+</ul>
 </li>
 </ul>
-<p>我在这一步也卡住了，出现了如下错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[ 0%] Performing download step (git clone) for &apos;variant&apos;</span><br><span class="line">error: RPC failed; curl 56 GnuTLS recv error (-9): Error in the pull function.</span><br><span class="line">fatal: The remote end hung up unexpectedly</span><br></pre></td></tr></table></figure></p>
-<p>在这一步似乎是通过git clone某一仓库时现了错误，经查，可以通过增大git的缓存解决<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.postBuffer 524288000</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>接下来用make install进行安装</li>
-</ol>
-<ul>
-<li>make install, 从makefile中读取指令，安装到指定位置<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-</li>
+<p><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk7u30xj310h0hnjxt.jpg" alt="image"></p>
+<h3 id="Region-Proposal-Networks"><a href="#Region-Proposal-Networks" class="headerlink" title="Region Proposal Networks"></a>Region Proposal Networks</h3><h4 id="Anchors"><a href="#Anchors" class="headerlink" title="Anchors"></a>Anchors</h4><ul>
+<li>输入：任意尺寸的图片</li>
+<li>输出: a set of rectangular object proposals , each with an objectness score</li>
 </ul>
-<p>在这一步遇到如下问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">undefined reference to curl_easy_perform@curl_openssl_4&apos;</span><br></pre></td></tr></table></figure></p>
-<p>查找到的类似问题都说是curl或openssl的版本问题，但似乎在我这并不适用，最后是一通骚操作再新来一遍shogun的安装才解决，也不知道是哪个环节的问题。</p>
-<ol>
-<li>设置环境变量<br>这一步也是比较坑的一步，因为官网上的写法似乎是错的。</li>
-</ol>
-<p>所有的接口都需要shogun库对系统可见才可以正常使用，所以需要设置环境变量。</p>
+<p><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk8bompj30y10dhh16.jpg" alt="image"></p>
+<p>对于任意一副输入图像，将其送入CNN之后，就可以得到相应的feature maps。RPN在CNN的最后一层feature map上滑动。假如最后一个feature map的大小是40 x 60 x channels，那么对于feature map中的每一个像素，用channels x 3 x 3 x 512的卷积核进行卷积，这样可以输出一个512维的特征向量。然后在接上一个1x1x18的卷积核，就可以输出18 = 2x9个评分（9个anchor，每个anchor有两个评分，代表前景，背景的confidence）。在256维特征后面接1x1x36的卷积核就可以得到36个值（9个anchor，每个anchor是4个值，分别代表中心点坐标，宽，高值）。</p>
+<p>对于每一个像素都进行预测9个anchor，如果最后一层feature map是40x60大小的话，就要预测40x60x9个anchor，选出前300个得分高的作为候选区域，这样相比于Selective search得到的2000个区域少了很多，而且作者还进行了实验，发现用RPN得到的候选区域比selective search得到的Recall高很多。</p>
+<p>出处：<a href="http://wx3.sinaimg.cn/large/007b7yGbly1g2jvk8p87kj30as095gn9.jpg" target="_blank" rel="noopener">Mordekaiser</a></p>
+<p>9个矩形共有3种形状，长宽比为大约为 {width:height} = {1:1, 1:2, 2:1} 三种，实际上通过anchors就引入了检测中常用到的多尺度方法。</p>
+<p><img src="http://wx3.sinaimg.cn/large/007b7yGbly1g2jvk8p87kj30as095gn9.jpg" alt="image"></p>
+<h4 id="RPN-Loss-Function"><a href="#RPN-Loss-Function" class="headerlink" title="RPN Loss Function"></a>RPN Loss Function</h4><p>为特征图60*40上的每个像素生成9个Anchor box，并且对生成的Anchor box进行过滤和标记：</p>
 <ul>
-<li>设置libshogun.so的路径：</li>
+<li>去除掉超过1000*600这原图的边界的anchor box</li>
+<li>如果anchor box与ground truth的IoU值最大，标记为正样本，label=1</li>
+<li>如果anchor box与ground truth的IoU&gt;0.7，标记为正样本，label=1</li>
+<li>如果anchor box与ground truth的IoU&lt;0.3，标记为负样本，label=0</li>
+<li>剩下的既不是正样本也不是负样本，不用于最终训练，label=-1</li>
 </ul>
-<p><code>export LD_LIBRARY_PATH = /usr/local/lib:$LD_LIBRARY_PATH</code></p>
-<p>LD_LIBRARY_PATH是Linux环境变量名，该环境变量主要用于指定查找共享库（动态链接库）时除了默认路径之外的其他路径。</p>
-<ul>
-<li>设置shogun.py的路径：</li>
-</ul>
-<p><code>export PYTHONPATH=/usr/local/lib/python3.7/site-packages:$PYTHONPATH</code></p>
-<p>PYTHONPATH是Python搜索路径，默认我们import的模块都会从PYTHONPATH里面寻找。 … 使用import xx语法时，xx只能是模块路径（一个模块一般是指一个package或者一个以.py为后缀的文件，不一般的情况包括.pth、.dll以及其他扩展形式）。</p>
-<p>官网上在这两步中带入了文件名libshogun.so和shogun.py，PATH应该是文件路径而不是特定的文件</p>
+<p><img src="http://wx1.sinaimg.cn/large/007b7yGbly1g2jvk8wwejj30ml05t3zc.jpg" alt="image"></p>
+<p>第一项表示分类损失，第二项表示回归损失，lambda是权重因子。RPN网络和CNN结合在一起可以实现端到端的训练。</p>
+<p><strong>生成anchors -&gt; softmax分类器提取fg anchors -&gt; bbox reg回归fg anchors -&gt; Proposal Layer生成proposals</strong></p>
 
       
 
@@ -340,11 +321,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机原理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
         		</li>
       		
 		</ul>
@@ -400,7 +385,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/24/shogun机器学习源码编译/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/29/Faster-RCNN-论文导读/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -414,18 +399,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/25/keras花式回调/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          keras花式回调
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/22/Unix/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Unix Linux, gcc g++, make cmake, 傻傻分不清</div>
+    <a href="/2019/04/29/Fast-RCNN-论文导读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fast RCNN 论文导读</div>
       <i class="icon-circle-right"></i>
     </a>
   
