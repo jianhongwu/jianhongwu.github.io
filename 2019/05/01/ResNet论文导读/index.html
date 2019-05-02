@@ -8,13 +8,24 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>ResNet论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Deep Residual Learning for Image Recognition (CVPR2016)这篇文章提出了一种残差学习框架来解决深度网络难于训练的问题，并且可以通过增加深度来提高准确性。这一方案在ImageNet/COCO等比赛上都取得了第一名。">
+<meta name="keywords" content="深度学习,论文导读,CV">
+<meta property="og:type" content="article">
 <meta property="og:title" content="ResNet论文导读">
 <meta property="og:url" content="http://yoursite.com/2019/05/01/ResNet论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:updated_time" content="2019-05-01T10:01:39.449Z">
+<meta property="og:description" content="Deep Residual Learning for Image Recognition (CVPR2016)这篇文章提出了一种残差学习框架来解决深度网络难于训练的问题，并且可以通过增加深度来提高准确性。这一方案在ImageNet/COCO等比赛上都取得了第一名。">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z143kej30ta0gbaiu.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z1itl4j30s30f10zv.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z1s97gj30yd0c2k19.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007b7yGbly1g2n0z1z0mnj30f903kjro.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z24ercj30hl03h74p.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/large/007b7yGbly1g2n0z29vz2j30vx0b70up.jpg">
+<meta property="og:updated_time" content="2019-05-02T07:58:11.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ResNet论文导读">
+<meta name="twitter:description" content="Deep Residual Learning for Image Recognition (CVPR2016)这篇文章提出了一种残差学习框架来解决深度网络难于训练的问题，并且可以通过增加深度来提高准确性。这一方案在ImageNet/COCO等比赛上都取得了第一名。">
+<meta name="twitter:image" content="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z143kej30ta0gbaiu.jpg">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -220,7 +231,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Deep-Residual-Learning-for-Image-Recognition-CVPR2016"><a href="#Deep-Residual-Learning-for-Image-Recognition-CVPR2016" class="headerlink" title="Deep Residual Learning for Image Recognition (CVPR2016)"></a>Deep Residual Learning for Image Recognition (CVPR2016)</h1><p>这篇文章提出了一种残差学习框架来解决深度网络难于训练的问题，并且可以通过增加深度来提高准确性。这一方案在ImageNet/COCO等比赛上都取得了第一名。</p>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>网络的深度越深，往往意味着特征的层次更加丰富，最近的许多研究也揭示了网络深度的重要性，随之而来的问题是：is learning better networks as easy as stacking more layers?</p>
+<p>随着网络的加深，训练时会遇到梯度发散和消失(exploding/vanishing) 的问题. 目前已有不少方法可以极大缓解这一问题，包括初始化归一化(normalized initialization) 和 网络中间归一化网络层(intermediate normalization layers，BN 层).</p>
+<p>网络深度加深，并训练收敛后，会遇到精度衰退(degradation) 的问题： 随着网络的加深，精度开始饱和(saturated)，然后快速的衰退. 而衰退的原因并不是过拟合造成的，二是没有拟合好。</p>
+<p><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z143kej30ta0gbaiu.jpg" alt="image"></p>
+<p><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z1itl4j30s30f10zv.jpg" alt="image"></p>
+<p>训练精度的衰退说明了不是所有的系统都是一样容易优化的. 但从理论上来讲，在一个浅模型上继续堆叠层，如果这些层只是恒等映射的话，那么这个深的模型不应该会比浅层模型具有更大的训练误差。</p>
+<p>ResNet 提出利用深度残差学习框架来处理由于网络加深而造成的精度衰退(degradation)问题.</p>
+<p><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z1s97gj30yd0c2k19.jpg" alt="image"></p>
+<ul>
+<li>H(x)是期望拟合的特征图,这里叫做desired underlying mapping。一个building block要拟合的就是这个潜在的特征图。</li>
+<li>当没有使用残差网络结构时,building block的映射F(x)需要做的就是拟合H(x)。</li>
+<li>当使用了残差网络时,就是加入了skip connection 结构,这时候由一个building block 的任务由: F(x) := H(x)，变成了F(x) := H(x)-x</li>
+</ul>
+<p>对比这两个待拟合的函数,文中说假设拟合残差图更容易优化,也就是说:F(x) := H(x)-x比F(x) := H(x)更容易优化,接下来举了一个例子,极端情况下:desired underlying mapping要拟合的是identity mapping，这时候残差网络的任务就是拟合F(x): 0,而原本的plain结构的话就是F(x) : x,而F(x): 0任务会更容易。其解释可能是；</p>
+<ul>
+<li>F是求和前网络映射，H是从输入到求和后的网络映射。比如把5映射到5.1，那么引入残差前是F’(5)=5.1，引入残差后是H(5)=5.1, H(5)=F(5)+5, F(5)=0.1。这里的F’和F都表示网络参数映射，引入残差后的映射对输出的变化更敏感。比如s输出从5.1变到5.2，映射F’的输出增加了1/51=2%，而对于残差结构输出从5.1到5.2，映射F是从0.1到0.2，增加了100%。明显后者输出变化对权重的调整作用更大，所以效果更好。残差的思想都是去掉相同的主体部分，从而突出微小的变化，看到残差网络我第一反应就是差分放大器。<a href="https://www.zhihu.com/question/64494691/answer/271335912" target="_blank" rel="noopener">作者：灰灰</a></li>
+</ul>
+<h2 id="Deep-Residual-Learning"><a href="#Deep-Residual-Learning" class="headerlink" title="Deep Residual Learning"></a>Deep Residual Learning</h2><h3 id="3-1-Residual-Learning"><a href="#3-1-Residual-Learning" class="headerlink" title="3.1 Residual Learning"></a>3.1 Residual Learning</h3><p>记 H(x) 为采用多个堆叠网络层拟合的映射(不必是整个网络，可以是网络的一部分层)，x 为堆叠网络层的第一层的输入.</p>
+<p>假设，多个非线性层能够逼近任何复杂函数，那么可以假设，这些网络层可以拟合残差函数，如 H(x)−x. (假设输入和输出维度相同.)</p>
+<p>故，采用多个非线性网络层来逼近残差函数 F(x):=H(x)−x. 则，原来的映射 H(x)变为 F(x)+x.</p>
+<p>正如前面讨论过的，如果新增的网络层能够构建为恒等映射形式，那么，更深层的网络模型应该比其对应浅层网络模型的训练错误率更小. 衰退问题说明了 solvers 采用多个非线性层难以逼近恒等映射.</p>
+<p>基于变形后的表示，如果恒等映射是最优的，则 solvers 可以将多个非线性层的网络权重趋向于 0 来逼近恒等映射.</p>
+<p>虽然实际情况中，恒等映射不可能是最优的，但这种表示形式对于衰退问题的预处理是有益的. 如果最优函数逼近于恒等映射，而不是逼近于 0 映射，则相比较于学习新的函数,solver 能够更容易找到关于恒等映射的扰动.</p>
+<h3 id="3-2-Identity-Mapping-by-Shortcuts"><a href="#3-2-Identity-Mapping-by-Shortcuts" class="headerlink" title="3.2 Identity Mapping by Shortcuts"></a>3.2 Identity Mapping by Shortcuts</h3><p>对每几个堆积网络层进行残差学习,定义为：</p>
+<p><img src="http://wx4.sinaimg.cn/large/007b7yGbly1g2n0z1z0mnj30f903kjro.jpg" alt="image"></p>
+<ul>
+<li>操作 F+x 是通过 shortcut 连接和 element-wise addition 来实现. 在 addition 后，再执行一次非线性操作(如 ReLU).</li>
+<li>残差模块的 shortcut 连接既不会增加额外的参数，也不会增加计算复杂度.</li>
+<li>x 和 F 的维度必须一致. 如果不一致时(如，改变输入或输出通道channel)，可以通过 shortcut 连接执行线性投影 Ws(方阵)，以匹配维度：</li>
+</ul>
+<p><img src="http://wx2.sinaimg.cn/large/007b7yGbly1g2n0z24ercj30hl03h74p.jpg" alt="image"></p>
+<ul>
+<li>残差函数 F 的形式是灵活的. 可以是包含两层或三层的函数(如 Figure 5)，也可以是更多的曾. 但如果 F 仅只有一层，则类似于线性层： y=W1x+x，不具有优势.</li>
+</ul>
+<p><img src="http://wx3.sinaimg.cn/large/007b7yGbly1g2n0z29vz2j30vx0b70up.jpg" alt="image"></p>
+
       
 
       
@@ -249,6 +297,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
