@@ -8,13 +8,34 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>SSD论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="SSD：Single Shot MultiBox Detector (ECCV 16)Abstract提出了一种端到端的目标检测模型SSD，主要过程包括:  将原本的bounding box输出空间预设为一组具有不同横纵比和大小的default box 预测时，为每一个deafult box输出每一个类别的得分，并调整box更好的适应目标形状 模型结合了不同尺度的特征进行预测，可以处理各种大小的目">
+<meta name="keywords" content="深度学习,论文导读,CV">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SSD论文导读">
 <meta property="og:url" content="http://yoursite.com/2019/05/01/SSD论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:updated_time" content="2019-05-01T10:00:15.430Z">
+<meta property="og:description" content="SSD：Single Shot MultiBox Detector (ECCV 16)Abstract提出了一种端到端的目标检测模型SSD，主要过程包括:  将原本的bounding box输出空间预设为一组具有不同横纵比和大小的default box 预测时，为每一个deafult box输出每一个类别的得分，并调整box更好的适应目标形状 模型结合了不同尺度的特征进行预测，可以处理各种大小的目">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/7EAC469D0DD346078986B6C623238626">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/64C4EE76F49E41FFA93AA1A1C44FD10D">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/D20149456E83458BBA8EC64400B6BFD6">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/4975160189FF4C4C9A5D9805AE028655">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/C8B09B6CE1EB4A7B890565882EF88156">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/AEF195896614407AA7471B6D37AA1C7E">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/DB67655888FE450A8387A4802D1CE0CC">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/E7EB567F235949559DF7168272160D1B">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/E5BFD70E88364FF786A608EB3F0348BC">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/01FAE997CDAA4DE49CF2BA6CA46EDD2C">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/8DED1AB52FBF4B5CAC83A319593FACE4">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/2296F6A97D2F43968C3DDE8B0966EBDB">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/75A39C68E27F41D0A2CFFC20D55F3749">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/EBBBCABBB45141E7A0C1CB757097E7EB">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/79A93DB212FA4076BEF331F8D46E4454">
+<meta property="og:image" content="http://yoursite.com/2019/05/01/SSD论文导读/AE1D24CF26D747FBBA270A7E766A7EF9">
+<meta property="og:updated_time" content="2019-05-05T15:46:58.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSD论文导读">
+<meta name="twitter:description" content="SSD：Single Shot MultiBox Detector (ECCV 16)Abstract提出了一种端到端的目标检测模型SSD，主要过程包括:  将原本的bounding box输出空间预设为一组具有不同横纵比和大小的default box 预测时，为每一个deafult box输出每一个类别的得分，并调整box更好的适应目标形状 模型结合了不同尺度的特征进行预测，可以处理各种大小的目">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/01/SSD论文导读/7EAC469D0DD346078986B6C623238626">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -220,7 +241,132 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="SSD：Single-Shot-MultiBox-Detector-ECCV-16"><a href="#SSD：Single-Shot-MultiBox-Detector-ECCV-16" class="headerlink" title="SSD：Single Shot MultiBox Detector (ECCV 16)"></a>SSD：Single Shot MultiBox Detector (ECCV 16)</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>提出了一种端到端的目标检测模型SSD，主要过程包括:</p>
+<ul>
+<li>将原本的bounding box输出空间预设为一组具有不同横纵比和大小的default box</li>
+<li>预测时，为每一个deafult box输出每一个类别的得分，并调整box更好的适应目标形状</li>
+<li>模型结合了不同尺度的特征进行预测，可以处理各种大小的目标</li>
+</ul>
+<p>相对于那些需要 object proposals 的检测模型，本文的 SSD 方法完全取消了 proposals generation、pixel resampling 或者 feature resampling 这些阶段。这样使得 SSD 更容易去优化训练，也更容易地将检测模型融合进系统之中。</p>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>目前流行的目标检测系统架构：</p>
+<ul>
+<li>假设一些bounding boxes -&gt; 在box中提取特征 -&gt; 利用分类器进行分类</li>
+</ul>
+<p>这类系统对于嵌入式系统来说，计算复杂度太高，无法实时进行。而速度快的实时系统，目前为止都是牺牲精度来换取时间。</p>
+<p>本文的deep network 不需要bounding boxes和pixel or feature resampling的过程，但是却取得了更好的效果，在VOC2007 test数据集上：</p>
+<ul>
+<li>SSD: 59fps with mAP 74.3%</li>
+<li>Faster RCNN: 7fps with mAP 73.2%</li>
+<li>YOLO: 45fps wiht mAP 63.4%</li>
+</ul>
+<p>本文的主要贡献包括：</p>
+<ul>
+<li>提出的SSD方法，比YOLO更快，其结果可以与Faster RCNN相媲美</li>
+<li>SSD的核心在于利用小的卷积核在feature maps上基于固定的default bounding boxes去预测物体类别的得分核box offsets</li>
+<li>在不同尺度的feature map上进行预测，同时separate predictions by aspect ratio</li>
+<li>high accuracy + end to end training</li>
+<li>在不同的数据集上，如 PASCAL VOC、MS COCO、ILSVRC， 都进行了测试。在检测时间（timing）、检测精度（accuracy）上，均与目前物体检测领域 state-of-art 的检测方法进行了比较。</li>
+</ul>
+<h2 id="The-Single-Shot-Detector"><a href="#The-Single-Shot-Detector" class="headerlink" title="The Single Shot Detector"></a>The Single Shot Detector</h2><p><img src="7EAC469D0DD346078986B6C623238626" alt="image"></p>
+<ul>
+<li>feature map cell 就是将 feature map 切分成8*8或者4*4之后的一个个 格子</li>
+<li>default box 就是每一个格子上，一系列固定大小的 box，即图中虚线所形成的一系列 boxes</li>
+<li>准备训练数据时，需要先将ground true与最佳的default box配对，当作正例，其余的为负例</li>
+<li>模型损失是localization loss(Smooth L1)与confidence loss(Softmax)加权和</li>
+</ul>
+<h3 id="2-1-Model"><a href="#2-1-Model" class="headerlink" title="2.1 Model"></a>2.1 Model</h3><p>SSD 是基于一个前向传播 CNN 网络，产生一系列 固定大小（fixed-size） 的 bounding boxes，以及每一个 box 中包含物体实例的可能性，即 score。之后，进行一个 非极大值抑制（Non-maximum suppression） 得到最终的 predictions。</p>
+<p>SSD 模型的最开始部分，本文称作 base network，是用于图像分类的标准架构。在 base network 之后，本文添加了额外辅助的网络结构：</p>
+<ul>
+<li><p>Multi-scale feature maps for detection</p>
+<ul>
+<li>在基础网络结构后，添加了额外的卷积层，这些卷积层的大小是逐层递减的，可以在多尺度下进行 predictions。</li>
+</ul>
+</li>
+<li><p>Convolutional predictors for detection</p>
+<ul>
+<li>每一个添加的特征层（或者在基础网络结构中的特征层），可以使用一系列 convolutional filters，去产生一系列固定大小的 predictions，具体见 Fig.2。对于一个大小为 m×n，具有 p 通道的特征层，使用的 convolutional filters 就是 3×3×p 的 kernels。产生的 predictions，那么就是归属类别的一个得分，要么就是相对于 default box coordinate 的 shape offsets。<br>在每一个 m×nm×n 的特征图位置上，使用上面的 3×3的 kernel，会产生一个输出值。bounding box offset 值是输出的 default box 与此时 feature map location 之间的相对距离（YOLO 架构则是用一个全连接层来代替这里的卷积层）。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Default boxes and aspect ratios<ul>
+<li>每一个 box 相对于与其对应的 feature map cell 的位置是固定的。 在每一个 feature map cell 中，我们要 predict 得到的 box 与 default box 之间的 offsets，以及每一个 box 中包含物体的 score（每一个类别概率都要计算出）。<br>因此，对于一个位置上的 kk 个boxes 中的每一个 box，我们需要计算出 cc 个类，每一个类的 score，还有这个 box 相对于 它的默认 box 的 4 个偏移值（offsets）。于是，在 feature map 中的每一个 feature map cell 上，就需要有 (c+4)×k(c+4)×k 个 filters。对于一张 m×nm×n 大小的 feature map，即会产生 (c+4)×k×m×n(c+4)×k×m×n 个输出结果。</li>
+</ul>
+</li>
+</ul>
+<p><img src="64C4EE76F49E41FFA93AA1A1C44FD10D" alt="image"><br><img src="D20149456E83458BBA8EC64400B6BFD6" alt="image"></p>
+<h3 id="2-2-Training"><a href="#2-2-Training" class="headerlink" title="2.2 Training"></a>2.2 Training</h3><p>在训练时，本文的 SSD 与那些用 region proposals + pooling 方法的区别是，SSD 训练图像中的 groundtruth 需要赋予到那些固定输出的 boxes 上。在前面也已经提到了，SSD 输出的是事先定义好的，一系列固定大小的 bounding boxes。</p>
+<p>如下图中，狗狗的 groundtruth 是红色的 bounding boxes，但进行 label 标注的时候，要将红色的 groundtruth box 赋予 图（c）中一系列固定输出的 boxes 中的一个，即 图（c）中的红色虚线框。 </p>
+<p><img src="4975160189FF4C4C9A5D9805AE028655" alt="image"></p>
+<p>当这种将训练图像中的 groundtruth 与固定输出的 boxes 对应之后，就可以 end-to-end 的进行 loss function 的计算以及 back-propagation 的计算更新了。</p>
+<p>训练中涉及到的问题包括：</p>
+<ul>
+<li>选择一系列的default boxes和scales</li>
+<li>hard negative mining</li>
+<li>augmentation strategies</li>
+</ul>
+<h3 id="Matching-strategy"><a href="#Matching-strategy" class="headerlink" title="Matching strategy"></a>Matching strategy</h3><p>如何将 groundtruth boxes 与 default boxes 进行配对，以组成 label 呢？</p>
+<p>SSD对于真实GT物体框的分配策略是：</p>
+<ul>
+<li>首先将GT分配给best jaccard overlap的defult box</li>
+<li>之后将GT分配给所有jaccard overlap大于0.5的default box</li>
+</ul>
+<p>即同一个GT会分配给不同的default box，不同的default box对应的GT可能是同一个，这样做可以简化学习的过程。</p>
+<p><img src="C8B09B6CE1EB4A7B890565882EF88156" alt="image"></p>
+<p>如上图，红色框是dog的真实位置，那么绿色箭指向的两个default box的GT都是红色框，其他两个default box的GT是背景即没有物体。</p>
+<h3 id="Training-objective"><a href="#Training-objective" class="headerlink" title="Training objective"></a>Training objective</h3><p>对于正例，即default box有GT框的，loss分为类别损失和位置损失。</p>
+<p>对于反例，即default box没有GT框的，loss只有类别损失（类别是背景）。</p>
+<p>总的目标损失函数（objective loss function）由 localization loss（loc） 与 confidence loss（conf） 的加权求和组成， 其中N是与GT配对的default boxes的个数：</p>
+<p><img src="AEF195896614407AA7471B6D37AA1C7E" alt="image"></p>
+<p>location loss的计算如下：</p>
+<p><img src="DB67655888FE450A8387A4802D1CE0CC" alt="image"></p>
+<p>其中，l是预测值，g^是真值，对于真值中的(cx,cy,w,h)采用下式计算：</p>
+<p><img src="E7EB567F235949559DF7168272160D1B" alt="image"></p>
+<p>g是ground truth值，d是default box的先验值。可以看出，中心点坐标就是ground truth值与default box先验值得相对差，w和h是ground truth值与default box先验值比值的对数。</p>
+<p><strong>其实这样处理都是尽量减小g^hat值变化幅度，减少学习难度</strong>。</p>
+<p>confidence loss计算如下：</p>
+<p><img src="E5BFD70E88364FF786A608EB3F0348BC" alt="image"></p>
+<p>通过交叉验证设定权重α为1。</p>
+<h3 id="Choosing-scales-and-aspect-ratios-for-default-boxes"><a href="#Choosing-scales-and-aspect-ratios-for-default-boxes" class="headerlink" title="Choosing scales and aspect ratios for default boxes"></a>Choosing scales and aspect ratios for default boxes</h3><p>为了解决不同目标大小不同这一问题，一些方法提出将输入图片缩放到不同的尺寸进行处理，最后在将所有结果合并起来。但是，通过在同一网络中利用不同尺度的feature maps可以取得相同的效果，同时也可以共享参数和运算。因此，本文同时使用 lower feature maps、upper feature maps 来 predict detections。</p>
+<p>一般来说，一个 CNN 网络中不同的 layers 有着不同尺寸的 感受野（receptive fields），越底层的feature map保留的细节更多。假设我们使用m个feature maps用于预测，那么每个feature map的默认defualt boxes的scale计算如下：</p>
+<p><img src="01FAE997CDAA4DE49CF2BA6CA46EDD2C" alt="image"></p>
+<p>其中，smin 取值 0.2，smax 取值 0.95，意味着最低层的尺度是 0.2，最高层的尺度是 0.95。</p>
+<p>再用上不同的横纵臂aspect ratios, 用 ar 来表示：ar={1,2,3,1/2,1/3}，则每一个 default boxes 的 width、height 就可以计算出来：</p>
+<p><img src="8DED1AB52FBF4B5CAC83A319593FACE4" alt="image"></p>
+<p>对于 aspect ratio 为 1 时，本文还增加了一个 default box，这个 box 的 scale 是 <img src="2296F6A97D2F43968C3DDE8B0966EBDB" alt="image">。所以最终，在每个 feature map location 上，有 6 个 default boxes。</p>
+<h3 id="Hard-negative-mining"><a href="#Hard-negative-mining" class="headerlink" title="Hard negative mining"></a>Hard negative mining</h3><p>在生成一系列的 predictions 之后，会产生很多个符合 ground truth box 的 predictions boxes，但同时，不符合 ground truth boxes 也很多，而且这个 negative boxes，远多于 positive boxes。这会造成 negative boxes、positive boxes 之间的不均衡。训练时难以收敛。</p>
+<p>因此，本文采取，先将每一个物体位置上对应 predictions（default boxes）是 negative 的 boxes 进行排序，按照 default boxes 的 confidence 的大小。 选择最高的几个，保证最后 negatives、positives 的比例在 3:13:1。</p>
+<p>本文通过实验发现，这样的比例可以更快的优化，训练也更稳定。 </p>
+<h3 id="Data-augmentation"><a href="#Data-augmentation" class="headerlink" title="Data augmentation"></a>Data augmentation</h3><p>数据扩增可以提高SSD的性能，本文所采取的措施包括:</p>
+<ul>
+<li>使用原始图像</li>
+<li>采样一个 patch，与物体之间最小的 jaccard overlap 为：0.1，0.3，0.5，0.7 与 0.9</li>
+<li>随机的采样一个 patch</li>
+</ul>
+<p>在这些采样步骤之后，每一个采样的 patch 被 resize 到固定的大小，并且以 0.5 的概率随机的 水平翻转（horizontally flipped）</p>
+<p><img src="75A39C68E27F41D0A2CFFC20D55F3749" alt="image"></p>
+<h2 id="3-Experimental-Results"><a href="#3-Experimental-Results" class="headerlink" title="3. Experimental Results"></a>3. Experimental Results</h2><p>本文的Base network基于VGG 16, ，在 ILSVRC CLS-LOC 数据集上进行了预训练。将 VGG 中的 FC6 layer、FC7 layer 转成为 卷积层，移除所有的 dropout layers和fc8 layer。</p>
+<h3 id="PASCAL-VOC2007"><a href="#PASCAL-VOC2007" class="headerlink" title="PASCAL VOC2007"></a>PASCAL VOC2007</h3><p>在这个数据集中，与 Fast R-CNN、Faster R-CNN 进行了比较，几种检测网络都用相同的训练数据集，以及预训练模型（VGG16）。</p>
+<p>下图展示了 SSD300 model 的结构： </p>
+<p><img src="EBBBCABBB45141E7A0C1CB757097E7EB" alt="image"></p>
+<p>我们用 conv4_3，conv7（原先的 FC7），conv8_2，conv9_2，conv10_2，以及 pool11，这些 layer 来 predict location、 confidence。</p>
+<p>在 VGG16 上新加的 convolutional layers，其参数初始化都用 JMLR 2010, Understanding the difficulty of training deep feedforward neural networks 提出的 xavier 方法。</p>
+<p>对conv4_3,conv10_2,conv11_2,只采用了4种default boxs（删掉了aspect ratio 3和1/3），其余层均有6种default boxes.</p>
+<p>下面 Table 1 显示了，我们的 SSD300 model 的精度已经超过了 Fast R-CNN，当我们用 SSD 在更大的图像尺寸上，500×500 训练得到的 model，甚至要比 Faster R-CNN 还要高出 1.7% 的 mAP。 </p>
+<p><img src="79A93DB212FA4076BEF331F8D46E4454" alt="image"></p>
+<h3 id="Model-analysis"><a href="#Model-analysis" class="headerlink" title="Model analysis"></a>Model analysis</h3><p>为了更好的理解 SSD，本文还使用控制变量法来验证 SSD 中的每一部分对最终结果性能的影响。测试如下表 Table 2 所示： </p>
+<p><img src="AE1D24CF26D747FBBA270A7E766A7EF9" alt="image"></p>
+<p>可以得出一下几点结论：</p>
+<ul>
+<li>数据增广（Data augmentation）对于结果的提升非常明显</li>
+<li>使用更多的 feature maps 对结果提升更大 </li>
+<li>使用更多的 default boxes，结果也越好 </li>
+<li>Atrous 使得 SSD 又好又快 </li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://arxiv.org/abs/1512.02325" target="_blank" rel="noopener">原文</a></p>
+<p><a href="https://blog.csdn.net/u010167269/article/details/52563573" target="_blank" rel="noopener">论文阅读：SSD: Single Shot MultiBox Detector</a></p>
+
       
 
       
@@ -249,6 +395,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       

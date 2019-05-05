@@ -367,6 +367,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="SSD：Single-Shot-MultiBox-Detector-ECCV-16"><a href="#SSD：Single-Shot-MultiBox-Detector-ECCV-16" class="headerlink" title="SSD：Single Shot MultiBox Detector (ECCV 16)"></a>SSD：Single Shot MultiBox Detector (ECCV 16)</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>提出了一种端到端的目标检测模型SSD，主要过程包括:</p>
+<ul>
+<li>将原本的bounding box输出空间预设为一组具有不同横纵比和大小的default box</li>
+<li>预测时，为每一个deafult box输出每一个类别的得分，并调整box更好的适应目标形状</li>
+<li>模型结合了不同尺度的特征进行预测，可以处理各种大小的目标</li>
+</ul>
+<p>相对于那些需要 object proposals 的检测模型，本文的 SSD 方法完全取消了 proposals generation、pixel resampling 或者 feature resampling 这些阶段。这样使得 SSD 更容易去优化训练，也更容易地将检测模型融合进系统之中。</p>
+        
+          <a class="article-more-a" href="/2019/05/01/SSD论文导读/#more">more >></a>
         
       
 
@@ -375,6 +384,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
