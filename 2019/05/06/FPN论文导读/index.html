@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Flag | 『My word in my world』</title>
+  <title>FPN论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="现在回想，第一次在github上搭博客已经是17年初的时候了，当时还被jekyll反复折磨来着。期间若干次反反复复，日常心血来潮与嫌麻烦，最终还是没坚持下来。平日也就用有道笔记做做总结与记录（实名点赞有道笔记，真心好用），算着也有百多篇了，若是当初坚持下来写在博客上，应该也是一件有成就感的事吧。">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="Feature Pyramid Networks for Object Detection (CVPR 2017)特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。 由于卷积网络的结构，只利用一层的feature map会存在一些问题：低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰">
+<meta name="keywords" content="论文导读,深度学习,CV">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flag">
-<meta property="og:url" content="http://yoursite.com/2019/03/18/Flag/index.html">
+<meta property="og:title" content="FPN论文导读">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/FPN论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:description" content="现在回想，第一次在github上搭博客已经是17年初的时候了，当时还被jekyll反复折磨来着。期间若干次反反复复，日常心血来潮与嫌麻烦，最终还是没坚持下来。平日也就用有道笔记做做总结与记录（实名点赞有道笔记，真心好用），算着也有百多篇了，若是当初坚持下来写在博客上，应该也是一件有成就感的事吧。">
-<meta property="og:updated_time" content="2019-03-21T10:24:21.591Z">
+<meta property="og:description" content="Feature Pyramid Networks for Object Detection (CVPR 2017)特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。 由于卷积网络的结构，只利用一层的feature map会存在一些问题：低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/FPN论文导读/26EE9D7FC15F4C63B5D3F15A5D3E7D98">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/FPN论文导读/C519E05BD1AF45A2A9F1E6F347111AAD">
+<meta property="og:image" content="http://yoursite.com/2019/05/06/FPN论文导读/E9B65F92BFB54617B821FED7D2E7F37B">
+<meta property="og:updated_time" content="2019-05-06T13:05:27.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flag">
-<meta name="twitter:description" content="现在回想，第一次在github上搭博客已经是17年初的时候了，当时还被jekyll反复折磨来着。期间若干次反反复复，日常心血来潮与嫌麻烦，最终还是没坚持下来。平日也就用有道笔记做做总结与记录（实名点赞有道笔记，真心好用），算着也有百多篇了，若是当初坚持下来写在博客上，应该也是一件有成就感的事吧。">
+<meta name="twitter:title" content="FPN论文导读">
+<meta name="twitter:description" content="Feature Pyramid Networks for Object Detection (CVPR 2017)特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。 由于卷积网络的结构，只利用一层的feature map会存在一些问题：低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/06/FPN论文导读/26EE9D7FC15F4C63B5D3F15A5D3E7D98">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -204,31 +208,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Flag" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-FPN论文导读" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Flag
+      FPN论文导读
     </h1>
   
 
         
-        <a href="/2019/03/18/Flag/" class="archive-article-date">
-  	<time datetime="2019-03-18T14:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+        <a href="/2019/05/06/FPN论文导读/" class="archive-article-date">
+  	<time datetime="2019-05-06T13:04:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>现在回想，第一次在github上搭博客已经是17年初的时候了，当时还被jekyll反复折磨来着。期间若干次反反复复，日常心血来潮与嫌麻烦，最终还是没坚持下来。平日也就用有道笔记做做总结与记录（实名点赞有道笔记，真心好用），算着也有百多篇了，若是当初坚持下来写在博客上，应该也是一件有成就感的事吧。</p>
+        <h1 id="Feature-Pyramid-Networks-for-Object-Detection-CVPR-2017"><a href="#Feature-Pyramid-Networks-for-Object-Detection-CVPR-2017" class="headerlink" title="Feature Pyramid Networks for Object Detection (CVPR 2017)"></a>Feature Pyramid Networks for Object Detection (CVPR 2017)</h1><p>特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。</p>
+<p>由于卷积网络的结构，只利用一层的feature map会存在一些问题：<strong>低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰富，但是目标位置比较粗略</strong>。同时，有部分的工作利用到了多层的信息，但是这些特征往往被单独的用来直接预测，单层特征的缺陷依然是存在的。</p>
+<p>在本文中，我们利用深度卷积网络内在的多尺度、金字塔分级来构造具有很少额外成本的特征金字塔，开发了一个具有横向连接的自上而下体系结构，用于构建各种尺度上的高级语义特征图，称之为FCN，并取得了SOTA的效果。</p>
 <a id="more"></a>
-<p>平日里只是一个汲取他人博客知识的一个窥屏者，今天又再次把博客搭好了，第一篇博文按照惯例立个Flag，这次一定要好好坚持打理啦，在这里记录下自己的学习成长过程，希望自己也能成为一个DaLao。</p>
-<p><em>Keep Learning, Keep Growing, Keep Succeeding</em></p>
-
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>CNN网络具有平移不变性（translation-invarient），对于位置变化的适应性还是很强的，但是对尺度变化的表现就会差一些，所以检测问题基本都要考虑尺度怎么处理。下图涵盖了目前很多检测问题在处理物体scale上的思路：</p>
+<p><img src="26EE9D7FC15F4C63B5D3F15A5D3E7D98" alt="image"></p>
+<p>图(b) —— Faster RCNN, 用CNN网络的top层来进行预测，因为top层的语义化程度是最高的。问题在于，CNN网络越top，feature map中的每个单元格的感受野就越大，相对的，就没有浅层那样精细，分辨率就会下降得比较厉害；这个问题在小目标上非常突出</p>
+<p>图(c) —— SSD， SSD已经尝试运用了不同层次上的特征，并且没有增加额外的计算量。但作者认为SSD算法中没有用到足够低层的特征（在SSD中，最低层的特征是VGG网络的conv4_3），而在作者看来足够低层的特征对于检测小物体是很有帮助的。 </p>
+<p>图(d) —— 本文使用的结构，在top层得到了语义化程度比较高的特征后，再不断升采样，然后和CNN网络中那些浅层特征融合，融合后的特征既有较高的语义性，也有较高的分辨率。</p>
+<h2 id="2-Related-work"><a href="#2-Related-work" class="headerlink" title="2. Related work"></a>2. Related work</h2><p>略</p>
+<h2 id="3-Feature-Pyramid-Networks"><a href="#3-Feature-Pyramid-Networks" class="headerlink" title="3. Feature Pyramid Networks"></a>3. Feature Pyramid Networks</h2><p>本文的网络框架如下，包含bottom-up pathway, top-down pathway, lateral connections</p>
+<p><img src="C519E05BD1AF45A2A9F1E6F347111AAD" alt="image"></p>
+<h3 id="Bottom-up-pathway"><a href="#Bottom-up-pathway" class="headerlink" title="Bottom-up pathway"></a>Bottom-up pathway</h3><p>CNN网络主干，用于计算出不同尺度上的特征,特征图的大小基本都是2倍的形式缩小，同时特征的语义表达也越来越强。对于大小相同的lays, 将其作为一整个stage, 取其中最后一个层作为后续的基础，因为这一层应当具有最强的特征。</p>
+<p>文章使用了ResNet, 由于conv1占用了大量内存，我们就不使用它，我们将每个阶段的最后输出（conv2,conv3,conv4和conv5）表示为{C2, C3, C4, C5}，并且与输入图像相比，它们的步长为{4,8,16,32}。</p>
+<p><img src="E9B65F92BFB54617B821FED7D2E7F37B" alt="image"></p>
+<h3 id="Top-down-pathway-and-lateral-connnections"><a href="#Top-down-pathway-and-lateral-connnections" class="headerlink" title="Top-down pathway and lateral connnections"></a>Top-down pathway and lateral connnections</h3><p>later connection是一个1x1 conv层，可以用来减少通道数、并进行跨通道的信息融合；而top-down则是依次进行了x2的upsample。最顶层则是直接用1x1的卷积层连接起来；另外，在叠加后，还会使用一个3x3的卷积核来消除混叠效应。</p>
+<p>对于卷积网络而言，不同的深度对应不同层次的语义特征，浅层feature map的分辨率大，学的更多是细节特征，高层feature map的分辨率小，学到的更多是语义特征，更加抽象难以解释。所以FPN在更大的特征图进行操作，这样对小目标有很好的作用。</p>
+<h2 id="4-Applications"><a href="#4-Applications" class="headerlink" title="4. Applications"></a>4. Applications</h2><p>FPN是一种通用的CNN特征提取解决方案，在本文作者将其运用到Faster-RCNN中的RPN网络进行验证。</p>
+<h3 id="4-1-Feature-Pyramid-Networks-for-RPN"><a href="#4-1-Feature-Pyramid-Networks-for-RPN" class="headerlink" title="4.1 Feature Pyramid Networks for RPN"></a>4.1 Feature Pyramid Networks for RPN</h3>
       
 
       
@@ -262,7 +280,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
         		</li>
       		
 		</ul>
@@ -318,7 +344,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/18/Flag/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/FPN论文导读/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -332,18 +358,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/19/XGBoost论文导读/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          XGBoost论文导读
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/09/排序算法系列2——归并/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">排序算法系列2——归并</div>
+    <a href="/2019/05/01/ResNet论文导读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ResNet论文导读</div>
       <i class="icon-circle-right"></i>
     </a>
   
