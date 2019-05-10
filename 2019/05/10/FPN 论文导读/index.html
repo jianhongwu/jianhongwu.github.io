@@ -6,14 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 『My word in my world』</title>
+  <title>FPN论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="『My word in my world』">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="Feature Pyramid Networks for Object Detection (CVPR 2017)特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。 由于卷积网络的结构，只利用一层的feature map会存在一些问题：低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰">
+<meta name="keywords" content="深度学习,论文导读,CV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FPN论文导读">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/FPN 论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
+<meta property="og:description" content="Feature Pyramid Networks for Object Detection (CVPR 2017)特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。 由于卷积网络的结构，只利用一层的feature map会存在一些问题：低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/c17ca24dda52f6d3acc58f1da52c481.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/6a1b358f396829ac27422e9708f24b8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/671408f7a813fe2201d2f6f4a5ce41f.png">
+<meta property="og:updated_time" content="2019-05-10T08:22:13.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="『My word in my world』">
+<meta name="twitter:title" content="FPN论文导读">
+<meta name="twitter:description" content="Feature Pyramid Networks for Object Detection (CVPR 2017)特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。 由于卷积网络的结构，只利用一层的feature map会存在一些问题：低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/c17ca24dda52f6d3acc58f1da52c481.png">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -199,36 +208,73 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-FPN 论文导读" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      FPN论文导读
+    </h1>
+  
+
+        
+        <a href="/2019/05/10/FPN 论文导读/" class="archive-article-date">
+  	<time datetime="2019-05-10T08:34:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Feature-Pyramid-Networks-for-Object-Detection-CVPR-2017"><a href="#Feature-Pyramid-Networks-for-Object-Detection-CVPR-2017" class="headerlink" title="Feature Pyramid Networks for Object Detection (CVPR 2017)"></a>Feature Pyramid Networks for Object Detection (CVPR 2017)</h1><p>特征金字塔是识别系统中用于检测不同尺度目标的基本组件, 但目前的一些目标检测模型并没有采用这一方案，部分原因是因为这样需要更多的计算资源。</p>
+<p>由于卷积网络的结构，只利用一层的feature map会存在一些问题：<strong>低层的特征虽然有着高分辨率的，但是语义信息不够完善；高层的特征语义信息比较丰富，但是目标位置比较粗略</strong>。同时，有部分的工作利用到了多层的信息，但是这些特征往往被单独的用来直接预测，单层特征的缺陷依然是存在的。</p>
+<p>在本文中，我们利用深度卷积网络内在的多尺度、金字塔分级来构造具有很少额外成本的特征金字塔，开发了一个具有横向连接的自上而下体系结构，用于构建各种尺度上的高级语义特征图，称之为FCN，并取得了SOTA的效果。</p>
+<a id="more"></a>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>CNN网络具有平移不变性（translation-invarient），对于位置变化的适应性还是很强的，但是对尺度变化的表现就会差一些，所以检测问题基本都要考虑尺度怎么处理。下图涵盖了目前很多检测问题在处理物体scale上的思路：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/c17ca24dda52f6d3acc58f1da52c481.png" alt="image"></p>
+<p>图(b) —— Faster RCNN, 用CNN网络的top层来进行预测，因为top层的语义化程度是最高的。问题在于，CNN网络越top，feature map中的每个单元格的感受野就越大，相对的，就没有浅层那样精细，分辨率就会下降得比较厉害；这个问题在小目标上非常突出</p>
+<p>图(c) —— SSD， SSD已经尝试运用了不同层次上的特征，并且没有增加额外的计算量。但作者认为SSD算法中没有用到足够低层的特征（在SSD中，最低层的特征是VGG网络的conv4_3），而在作者看来足够低层的特征对于检测小物体是很有帮助的。 </p>
+<p>图(d) —— 本文使用的结构，在top层得到了语义化程度比较高的特征后，再不断升采样，然后和CNN网络中那些浅层特征融合，融合后的特征既有较高的语义性，也有较高的分辨率。</p>
+<h2 id="2-Related-work"><a href="#2-Related-work" class="headerlink" title="2. Related work"></a>2. Related work</h2><p>略</p>
+<h2 id="3-Feature-Pyramid-Networks"><a href="#3-Feature-Pyramid-Networks" class="headerlink" title="3. Feature Pyramid Networks"></a>3. Feature Pyramid Networks</h2><p>本文的网络框架如下，包含bottom-up pathway, top-down pathway, lateral connections</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/6a1b358f396829ac27422e9708f24b8.png" alt="image"></p>
+<h3 id="Bottom-up-pathway"><a href="#Bottom-up-pathway" class="headerlink" title="Bottom-up pathway"></a>Bottom-up pathway</h3><p>CNN网络主干，用于计算出不同尺度上的特征,特征图的大小基本都是2倍的形式缩小，同时特征的语义表达也越来越强。对于大小相同的lays, 将其作为一整个stage, 取其中最后一个层作为后续的基础，因为这一层应当具有最强的特征。</p>
+<p>文章使用了ResNet, 由于conv1占用了大量内存，我们就不使用它，我们将每个阶段的最后输出（conv2,conv3,conv4和conv5）表示为{C2, C3, C4, C5}，并且与输入图像相比，它们的步长为{4,8,16,32}。</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/671408f7a813fe2201d2f6f4a5ce41f.png" alt=""></p>
+<h3 id="Top-down-pathway-and-lateral-connnections"><a href="#Top-down-pathway-and-lateral-connnections" class="headerlink" title="Top-down pathway and lateral connnections"></a>Top-down pathway and lateral connnections</h3><p>later connection是一个1x1 conv层，可以用来减少通道数、并进行跨通道的信息融合；而top-down则是依次进行了x2的upsample。最顶层则是直接用1x1的卷积层连接起来；另外，在叠加后，还会使用一个3x3的卷积核来消除混叠效应。</p>
+<p>对于卷积网络而言，不同的深度对应不同层次的语义特征，浅层feature map的分辨率大，学的更多是细节特征，高层feature map的分辨率小，学到的更多是语义特征，更加抽象难以解释。所以FPN在更大的特征图进行操作，这样对小目标有很好的作用。</p>
+<p><strong>FPN本身不是检测算法，只是一个特征提取器。它需要和其他检测算法结合才能使用。在本文作者将其运用到Faster-RCNN中的RPN网络进行验证。</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/29/RCNN论文导读/" class="archive-article-date">
-  	<time datetime="2019-04-29T14:10:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/29/RCNN论文导读/">RCNN论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -248,396 +294,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/10/FPN 论文导读/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/08/马拉车算法/" class="archive-article-date">
-  	<time datetime="2019-04-08T14:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/10/YOLOv3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">YOLOv3</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/08/马拉车算法/">马拉车算法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/03/EAST文本检测论文导读/" class="archive-article-date">
-  	<time datetime="2019-04-03T07:32:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/03/EAST文本检测论文导读/">EAST文本检测论文导读</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/02/优化算法-从SGD到Adam/" class="archive-article-date">
-  	<time datetime="2019-04-02T14:35:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/优化算法-从SGD到Adam/">优化算法-从SGD到Adam</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/02/Batch-Normalization论文导读/" class="archive-article-date">
-  	<time datetime="2019-04-02T08:40:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/02/Batch-Normalization论文导读/">Batch Normalization论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/C-RNN文字识别论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-27T06:25:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/C-RNN文字识别论文导读/">C-RNN文字识别论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/C-LSTM文本分类论文导读/" class="archive-article-date">
-  	<time datetime="2019-03-27T03:32:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/C-LSTM文本分类论文导读/">C-LSTM文本分类论文导读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NLP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/25/keras花式回调/" class="archive-article-date">
-  	<time datetime="2019-03-25T14:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/25/keras花式回调/">keras花式回调</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/24/shogun机器学习源码编译/" class="archive-article-date">
-  	<time datetime="2019-03-24T11:22:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/24/shogun机器学习源码编译/">shogun机器学习源码编译</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/22/Unix/" class="archive-article-date">
-  	<time datetime="2019-03-22T08:14:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/22/Unix/">Unix Linux, gcc g++, make cmake, 傻傻分不清</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -661,8 +416,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
