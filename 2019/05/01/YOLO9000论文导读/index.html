@@ -8,13 +8,26 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>YOLO9000论文导读 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="YOLO9000: Better, Faster, Stronger (CVPR17)YOLO9000: Better, Faster, Stronger Abstract YOLO9000使用了一种新的、多尺度的训练方法，可以对多种大小的图像进行识别，能够在速度与精确度之间进行权衡。在VOC2007数据集上，YOLOv2帧率为67FPS情况下的mPA为76.8，帧率为40FPS情况下的mPA为7">
+<meta name="keywords" content="深度学习,CV,论文导读">
+<meta property="og:type" content="article">
 <meta property="og:title" content="YOLO9000论文导读">
 <meta property="og:url" content="http://yoursite.com/2019/05/01/YOLO9000论文导读/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:updated_time" content="2019-05-01T10:00:36.157Z">
+<meta property="og:description" content="YOLO9000: Better, Faster, Stronger (CVPR17)YOLO9000: Better, Faster, Stronger Abstract YOLO9000使用了一种新的、多尺度的训练方法，可以对多种大小的图像进行识别，能够在速度与精确度之间进行权衡。在VOC2007数据集上，YOLOv2帧率为67FPS情况下的mPA为76.8，帧率为40FPS情况下的mPA为7">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510154834.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510154934.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155013.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155036.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155055.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155116.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155136.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155153.png">
+<meta property="og:updated_time" content="2019-05-10T07:53:19.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO9000论文导读">
+<meta name="twitter:description" content="YOLO9000: Better, Faster, Stronger (CVPR17)YOLO9000: Better, Faster, Stronger Abstract YOLO9000使用了一种新的、多尺度的训练方法，可以对多种大小的图像进行识别，能够在速度与精确度之间进行权衡。在VOC2007数据集上，YOLOv2帧率为67FPS情况下的mPA为76.8，帧率为40FPS情况下的mPA为7">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510154834.png">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -220,7 +233,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="YOLO9000-Better-Faster-Stronger-CVPR17"><a href="#YOLO9000-Better-Faster-Stronger-CVPR17" class="headerlink" title="YOLO9000: Better, Faster, Stronger (CVPR17)"></a>YOLO9000: Better, Faster, Stronger (CVPR17)</h1><p><a href="https://blog.csdn.net/mydear_11000/article/details/66971104" target="_blank" rel="noopener">YOLO9000: Better, Faster, Stronger</a></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>YOLO9000使用了一种<strong>新的、多尺度的训练方法</strong>，可以对多种大小的图像进行识别，能够在速度与精确度之间进行权衡。<br>在VOC2007数据集上，YOLOv2帧率为67FPS情况下的mPA为76.8，帧率为40FPS情况下的mPA为76.8，相比Faster RCNN和SSD精确度更高，速度更快。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>文章提出了一种将目标检测与分类的训练相结合的方法。使用该方法YOLO9000能够同时在COCO目标检测数据集及ImageNet分类数据集上进行训练。该种训练结合方法能够使模型对没有检测标签（detection labels）的物体类别进行检测，并使用ImageNet检测任务对该方法进行验证。</p>
+</li>
+<li><p>YOLO9000在ImageNet检测任务上，200个类中仅有40个类有检测标签的情况下，取得了19.7的mPA。在156个类别不在COCO数据集中取得了16.0的mPA。相比YOLO仅能检测200个类别，YOLO9000能够在保证实时的情况下，检测多于9000个类别的物体。</p>
+</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>与分类等任务相比，目标检测的数据集十分有限，并且短期难以增大。文章提出了一种新的方法以利用大量的分类数据来拓展检测系统的识别范围，<strong>实现差异较大的数据集的融合</strong>。</p>
+<p>文章还提出了一种<strong>将分类与检测相结合训练方法</strong>。该方法使用标记好的检测数据实现目标的精确定位，利用分类数据提高其识别范围及稳健性。</p>
+<p>文章利用该方法对YOLO9000进行了训练，使其能够检测超过9000种不同物体。首先，文章对YOLO检测系统进行改进得到YOLOv2—当前最佳的实时目标检测器。之后利用数据集融合及结合训练的方法对模型在超过9000个类的ImageNet分类数据集及COCO检测数据集进行训练</p>
+<h2 id="2-Better"><a href="#2-Better" class="headerlink" title="2. Better"></a>2. Better</h2><p>YOLO的缺陷：</p>
+<ul>
+<li>相比Fast R-CNN, YOLO <strong>localization errors</strong>较多</li>
+<li>相比 region proposal-based methods，<strong>召回率</strong>较低</li>
+</ul>
+<p>为了保证速度与精确度，与扩大网络规模相反，作者对网络进行精简，使表征更容易学习。作者根据以往工作的一些创新点，提出一种新的概念，以提升YOLO的性能。具体的改动如下图所示：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510154834.png" alt=""></p>
+<h3 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h3><p>批量归一能够显著地提升网络的收敛。在YOLO的每个卷积层之后添加BN层之后，mPA提升了2%。批量归一同样能够正则化模型，从而在不使用dropout的情况下防止过拟合。</p>
+<h3 id="High-Resolution-Classifier"><a href="#High-Resolution-Classifier" class="headerlink" title="High Resolution Classifier"></a>High Resolution Classifier</h3><p>当前所有目标检测方法均基于在ImageNet预训练的分类器。从AlexNet开始，大多数分类器的输入都小于256x256。原始的YOLO在224x224分辨率下训练网络，并在检测时将分辨率提升到448。这意味着网络必须同时学习目标检测及调整适应新的分辨率。</p>
+<p>对于YOLOv2，首先在ImageNet上以448x448的分辨率对分类器微调十次（epoch），使分类器适应高分辨率的输入。对网络微调使其适应检测任务。高分辨率的分类网络提升了4%的mPA。</p>
+<h3 id="Convolutional-with-Anchor-boxes"><a href="#Convolutional-with-Anchor-boxes" class="headerlink" title="Convolutional with Anchor boxes"></a>Convolutional with Anchor boxes</h3><p>YOLO在最后的特征图之后使用全连接层进行类别和box的预测，而Faster-RCNN则通过先验anchors和卷积核预测bounding boxes的offset。预测offset相比预测坐标而言，使问题更加简化，易于网络学习。</p>
+<p>作者将YOLO的全连接层去除，使用anchor boxes预测边框。首先，去掉一个池化层以产生高分辨率的输出。同时使网络输入减小为416而非480x480，使特征图大小为奇数，此时特征图中央只有一个单元。由于较大的物体通常在图像中心位置，因此中心的一个单元相比邻近的四个单元的预测效果更好，YOLO卷积层对输入图像的下采样比率为32，因此输出特征图大小为13x13。</p>
+<p>将预测类别和预测空间位置解耦</p>
+<p>加入anchors之后，<strong>召回率Recall上升，准确率有所下降</strong>。假设每个cell预测9个建议框，那么总共会预测13 <em> 13 </em> 9 = 1521个boxes，而之前的网络仅仅预测7 <em> 7 </em> 2 = 98个boxes。具体数据为：没有anchor boxes，模型recall为81%，mAP为69.5%；加入anchor boxes，模型recall为88%，mAP为69.2%。这样看来，准确率只有小幅度的下降，而召回率则提升了7%，说明可以通过进一步的工作来加强准确率，的确有改进空间。</p>
+<h3 id="Dimension-Clusters"><a href="#Dimension-Clusters" class="headerlink" title="Dimension Clusters"></a>Dimension Clusters</h3><p>两个问题：</p>
+<p>一、 anchor box dimensions是人为设置的，虽然网络可以去学习调整boxes, 但是使用更合适的anchor box会更容易学习和做出精确的预测</p>
+<p>解决办法就是统计学习中的K-means聚类方法，通过对数据集中的ground true box做聚类，找到ground true box的统计规律。以聚类个数k为anchor boxs个数，以k个聚类中心box的宽高维度为anchor box的维度。</p>
+<p>如果按照标准k-means使用欧式距离函数，大boxes比小boxes产生更多error。但是，我们真正想要的是产生好的IOU得分的boxes（与box的大小无关）。因此采用了如下距离度量：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510154934.png" alt=""></p>
+<p> 随着k的增大，IOU也在增大（高召回率），但是复杂度也在增加。所以平衡复杂度和IOU之后，最终得到k值为5。上面右图：5聚类的中心与手动精选的boxes是完全不同的，扁长的框较少瘦高的框较多（这就是统计规律的力量）</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155013.png" alt=""></p>
+<p>作者做了对比实验，5种boxes的Avg IOU(61.0)就和Faster R-CNN的9种Avg IOU(60.9)相当。 说明K-means方法的生成的boxes更具有代表性，使得检测任务更好学习。</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155036.png" alt=""></p>
+<h3 id="Direct-location-prediction"><a href="#Direct-location-prediction" class="headerlink" title="Direct location prediction"></a>Direct location prediction</h3><p>二、使用anchor boxes的另一个问题是模型不稳定，尤其是在早期迭代的时候。大部分的不稳定现象出现在预测box的（x,y）坐标时。</p>
+<p>在faster RCNN的RPN网络中， 预测坐标就是预测tx，ty。对应的中心点（x,y）按如下公式计算：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155055.png" alt=""></p>
+<p>见预测tx=1就会把box向右移动anchor box的宽度，预测tx=-1就会把box向左移动相同的距离。</p>
+<p>这个公式没有任何限制，无论在什么位置进行预测，任何anchor boxes可以在图像中任意一点。模型随机初始化之后将需要很长一段时间才能稳定预测敏感的物体偏移。因此作者没有采用这种方法，而是预测相对于grid cell的坐标位置，同时把ground truth限制在0到1之间（利用logistic激活函数约束网络的预测值来达到此限制）。</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155116.png" alt=""></p>
+<p>约束了位置预测的范围，参数就更容易学习，模型就更稳定。使用Dimension Clusters和Direct location prediction这两项anchor boxes改进方法，mAP获得了5%的提升。</p>
+<h3 id="Fine-Grained-Features"><a href="#Fine-Grained-Features" class="headerlink" title="Fine-Grained Features"></a>Fine-Grained Features</h3><p>修改后的网络最终在13 <em> 13的特征图上进行预测，虽然这足以胜任大尺度物体的检测，如果用上细粒度特征的话可能对小尺度的物体检测有帮助。Faser R-CNN和SSD都在不同层次的特征图上产生区域建议以获得多尺度的适应性。YOLOv2使用了一种不同的方法，简单添加一个 passthrough layer，把浅层特征图（分辨率为26 </em> 26）连接到深层特征图。</p>
+<p>passthroughlaye把高低分辨率的特征图做连结，叠加相邻特征到不同通道（而非空间位置）<br>，类似于Resnet中的identity mappings。这个方法把26 <em> 26 </em> 512的特征图叠加成13 <em> 13 </em> 2048的特征图，与原生的深层特征图相连接。</p>
+<p>YOLOv2的检测器使用的就是经过扩展后的的特征图，它可以使用细粒度特征，使得模型的性能获得了1%的提升。</p>
+<h3 id="Multi-Scale-Training"><a href="#Multi-Scale-Training" class="headerlink" title="Multi-Scale Training"></a>Multi-Scale Training</h3><p>原始YOLO网络使用固定的448 <em> 448的图片作为输入，加入anchor boxes后输入变成416 </em> 416，由于网络只用到了卷积层和池化层，就可以进行动态调整（检测任意大小图片）。为了让YOLOv2对不同尺寸图片的具有鲁棒性，在训练的时候也考虑了这一点。</p>
+<p>在低分辨率图片检测中，YOLOv2是检测速度快（计算消耗低），精度较高的检测器。输入为228 * 228的时候，帧率达到90FPS，mAP几乎和Faster R-CNN的水准相同。使得其更加适用于低性能GPU、高帧率视频和多路视频场景。</p>
+<p>在高分辨率图片检测中，YOLOv2达到了state-of-the-art，VOC2007 上mAP为78.6%，而且超过实时速度要求。</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155136.png" alt=""></p>
+<h2 id="3-Faster"><a href="#3-Faster" class="headerlink" title="3. Faster"></a>3. Faster</h2><p>从VGG换到GoogLeNet, 一次224<em>224前向传播的的运算次数由306.9亿次改善到85.2亿次，不过它的精度要略低于VGG-16。224 </em> 224图片取 single-crop, top-5 accuracy，YOLO的定制网络得到88%（VGG-16得到90%）。</p>
+<h3 id="Darknet-19"><a href="#Darknet-19" class="headerlink" title="Darknet-19"></a>Darknet-19</h3><p>YOLOv2使用了一个新的分类网络作为特征提取部分.</p>
+<p>最终得出的基础模型就是Darknet-19，包含19个卷积层、5个最大值池化层（max pooling layers ）。Darknet-19处理一张照片需要55.8亿次运算，imagenet的top-1准确率为72.9%，top-5准确率为91.2%。 \</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190510155153.png" alt=""></p>
+<h3 id="Training-for-classification"><a href="#Training-for-classification" class="headerlink" title="Training for classification"></a>Training for classification</h3><p>作者使用Darknet-19在标准1000类的ImageNet上训练了160次</p>
+<h3 id="Training-for-detection"><a href="#Training-for-detection" class="headerlink" title="Training for detection"></a>Training for detection</h3><p>为了把分类网络改成检测网络，去掉原网络最后一个卷积层，增加了三个 3 <em> 3 （1024 ﬁlters）的卷积层，并且在每一个卷积层后面跟一个1 </em> 1的卷积层，输出维度是检测所需数量。</p>
+<p>对于VOC数据集，预测5种boxes，每个box包含5个坐标值和20个类别，所以总共是5 * （5+20）= 125个输出维度。</p>
+<h2 id="4-Stronger"><a href="#4-Stronger" class="headerlink" title="4. Stronger"></a>4. Stronger</h2><p>作者提出了一种在分类数据集和检测数据集上联合训练的机制。使用检测数据集的图片去学习检测相关的信息，例如bounding box 坐标预测，是否包含物体以及属于各个物体的概率。使用仅有类别标签的分类数据集图片去扩展可以检测的种类。</p>
+<p>训练过程中把监测数据和分类数据混合在一起。当网络遇到一张属于检测数据集的图片就基于YOLOv2的全部损失函数（包含分类部分和检测部分）做反向传播。当网络遇到一张属于分类数据集的图片就仅基于分类部分的损失函数做反向传播。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/u014593748/article/details/77149773" target="_blank" rel="noopener">https://blog.csdn.net/u014593748/article/details/77149773</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/35953382" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35953382</a></p>
+
       
 
       
@@ -249,6 +324,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -450,15 +544,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">论文导读</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">论文导读</a>
               </li>
              
               <li class="article-tag-list-item">
