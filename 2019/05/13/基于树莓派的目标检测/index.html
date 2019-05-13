@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>keras花式回调 | 『My word in my world』</title>
+  <title>基于树莓派的目标检测 | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="回调函数是一组在训练的特定阶段被调用的函数集，你可以使用回调函数来观察训练过程中网络内部的状态和统计信息。通过传递回调函数列表到模型的.fit()中，即可在给定的训练阶段调用该函数集中的函数。">
-<meta name="keywords" content="深度学习">
+  <meta name="description" content="占坑，有空再来记录">
+<meta name="keywords" content="深度学习,CV,树莓派">
 <meta property="og:type" content="article">
-<meta property="og:title" content="keras花式回调">
-<meta property="og:url" content="http://yoursite.com/2019/03/25/keras花式回调/index.html">
+<meta property="og:title" content="基于树莓派的目标检测">
+<meta property="og:url" content="http://yoursite.com/2019/05/13/基于树莓派的目标检测/index.html">
 <meta property="og:site_name" content="『My word in my world』">
-<meta property="og:description" content="回调函数是一组在训练的特定阶段被调用的函数集，你可以使用回调函数来观察训练过程中网络内部的状态和统计信息。通过传递回调函数列表到模型的.fit()中，即可在给定的训练阶段调用该函数集中的函数。">
-<meta property="og:updated_time" content="2019-03-25T14:10:22.619Z">
+<meta property="og:description" content="占坑，有空再来记录">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/15.jpg">
+<meta property="og:updated_time" content="2019-05-13T13:46:22.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="keras花式回调">
-<meta name="twitter:description" content="回调函数是一组在训练的特定阶段被调用的函数集，你可以使用回调函数来观察训练过程中网络内部的状态和统计信息。通过传递回调函数列表到模型的.fit()中，即可在给定的训练阶段调用该函数集中的函数。">
+<meta name="twitter:title" content="基于树莓派的目标检测">
+<meta name="twitter:description" content="占坑，有空再来记录">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/15.jpg">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -210,80 +212,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-keras花式回调" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-基于树莓派的目标检测" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      keras花式回调
+      基于树莓派的目标检测
     </h1>
   
 
         
-        <a href="/2019/03/25/keras花式回调/" class="archive-article-date">
-  	<time datetime="2019-03-25T14:09:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+        <a href="/2019/05/13/基于树莓派的目标检测/" class="archive-article-date">
+  	<time datetime="2019-05-13T13:44:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>回调函数是一组在训练的特定阶段被调用的函数集，你可以使用回调函数来观察训练过程中网络内部的状态和统计信息。通过传递回调函数列表到模型的.fit()中，即可在给定的训练阶段调用该函数集中的函数。</p>
-</blockquote>
-<a id="more"></a>
-<p>keras中的回调函数是一个类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keras.callbacks.Callback()</span><br></pre></td></tr></table></figure></p>
-<p>定义新的回调函数必须继承自该类</p>
-<h1 id="常用回调函数"><a href="#常用回调函数" class="headerlink" title="常用回调函数"></a>常用回调函数</h1><h3 id="ModelCheckpoint"><a href="#ModelCheckpoint" class="headerlink" title="ModelCheckpoint"></a>ModelCheckpoint</h3><blockquote>
-<p>在每个epoch后将模型保存到filepath<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cb_ckpt = keras.callbacks.ModelCheckpoint(&apos;./checkpoint/weights.&#123;epoch:02d&#125;-&#123;val_loss:.2f&#125;.h5&apos;, monitor=&apos;val_loss&apos;, verbose=1,</span><br><span class="line">                                save_best_only=True, save_weights_only=False, mode=&apos;auto&apos;, period=10)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li>python格式化字符串的用法：<code>weights.{epoch:02d}-{val_loss:.2f}.h5</code></li>
-<li>mode: ‘auto’， ‘max’， ‘min’之一，在save_best_only=True时，根据monitor监视的值觉得评价best的标准是什么</li>
-<li>period: CheckPoint之间的间隔epoch数</li>
-</ul>
-<p>保存的文件中可包含：</p>
-<ul>
-<li>模型的结构，以便重构该模型</li>
-<li>模型的权重</li>
-<li>训练配置（损失函数，优化器等）</li>
-<li>优化器的状态，以便从上次训练中断的地方开始</li>
-</ul>
-<p>重新加载模型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = keras.models.load_model(FILE_PATH)</span><br></pre></td></tr></table></figure></p>
-<p>保存模型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#只保存权重</span><br><span class="line">model.save_weights(&apos;model.h5&apos;)</span><br><span class="line">model.load_weights(&apos;model.h5&apos;)</span><br><span class="line"></span><br><span class="line">#只保存结构</span><br><span class="line">json_string = model.to_json()</span><br><span class="line">model = keras.models.model_from_json(json_string)</span><br><span class="line"></span><br><span class="line">#保存模型</span><br><span class="line">model.save(&apos;model.h5&apos;)</span><br><span class="line">model.load(&apos;model.h5&apos;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="EarlyStopping"><a href="#EarlyStopping" class="headerlink" title="EarlyStopping"></a>EarlyStopping</h3><blockquote>
-<p>当监测值不再改善时，该回调函数将中止训练<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cb_es = keras.callbacks.EarlyStopping(monitor=&apos;val_loss&apos;,patience=0,verbose=0,mode=&apos;auto&apos;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li>monitor：需要监视的量</li>
-<li>patience：当early stop被激活（如发现loss相比上一个epoch训练没有下降），则经过patience个epoch后停止训练。</li>
-<li>verbose：信息展示模式</li>
-<li>mode：‘auto’，‘min’，‘max’之一，在min模式下，如果检测值停止下降则中止训练。在max模式下，当检测值不再上升则停止训练</li>
-</ul>
-<h3 id="LearningRateScheduler"><a href="#LearningRateScheduler" class="headerlink" title="LearningRateScheduler"></a>LearningRateScheduler</h3><blockquote>
-<p>可以按照epoch的次数自动调整学习率</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keras.callbacks.LearningRateScheduler(schedule)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>schedule: 函数，该函数以epoch号为参数（从0算起的整数），返回一个新学习率（浮点数）</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#学习率指数下降</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">step_decay</span><span class="params">(epoch)</span>:</span></span><br><span class="line">    initial_lrate = <span class="number">0.01</span></span><br><span class="line">    drop = <span class="number">0.5</span></span><br><span class="line">    epochs_drop = <span class="number">10.0</span></span><br><span class="line">    lrate = initial_lrate * math.pow(drop,math.floor((<span class="number">1</span>+epoch)/epochs_drop))</span><br><span class="line">    <span class="keyword">return</span> lrate</span><br><span class="line">lrate = LearningRateScheduler(step_decay)</span><br><span class="line">sgd = SGD(lr=<span class="number">0.0</span>, momentum=<span class="number">0.9</span>, decay=<span class="number">0.0</span>, nesterov=<span class="keyword">False</span>)</span><br><span class="line">model.fit(train_set_x, train_set_y, validation_split=<span class="number">0.1</span>, nb_epoch=<span class="number">200</span>, batch_size=<span class="number">256</span>, callbacks=[lrate])</span><br></pre></td></tr></table></figure>
-<p>也可以在sgd中直接修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sgd = SGD(lr=learning_rate, decay=learning_rate/nb_epoch, momentum=0.9, nesterov=True)</span><br></pre></td></tr></table></figure></p>
-<h3 id="ReduceLROnPlateau"><a href="#ReduceLROnPlateau" class="headerlink" title="ReduceLROnPlateau"></a>ReduceLROnPlateau</h3><blockquote>
-<p>当评价指标不在提升时，减少学习率</p>
-<p>当学习停滞时，减少2倍或10倍的学习率常常能获得较好的效果。该回调函数检测指标的情况，如果在patience个epoch中看不到模型性能提升，则减少学习率</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keras.callbacks.ReduceLROnPlateau(monitor=&apos;val_loss&apos;, factor=0.1, patience=10, verbose=0, mode=&apos;auto&apos;, epsilon=0.0001, cooldown=0, min_lr=0)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>factor: 每次学习率减小的因子，lr = lr*factor</li>
-<li>patience: 当patience个epoch模型性能不在提升时，触发此函数</li>
-<li>epsilon: 阈值，用来判断是否进入plateau</li>
-<li>cooldown：学习率减少后，会经过cooldown个epoch才重新进行正常操作</li>
-<li>min_lr：学习率的下限</li>
-</ul>
-<h3 id="TensorBoard"><a href="#TensorBoard" class="headerlink" title="TensorBoard"></a>TensorBoard</h3>
+        <p>占坑，有空再来记录</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/15.jpg" alt=""></p>
+
       
 
       
@@ -318,6 +269,14 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">树莓派</a>
         		</li>
       		
 		</ul>
@@ -373,7 +332,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/25/keras花式回调/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/13/基于树莓派的目标检测/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -387,18 +346,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/27/C-LSTM文本分类论文导读/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C-LSTM文本分类论文导读
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/24/shogun机器学习源码编译/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shogun机器学习源码编译</div>
+    <a href="/2019/05/10/FPN 论文导读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FPN论文导读</div>
       <i class="icon-circle-right"></i>
     </a>
   
