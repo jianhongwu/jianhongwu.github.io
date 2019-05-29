@@ -6,14 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 随笔 | 『My word in my world』</title>
+  <title>MobileNet | 『My word in my world』</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="『My word in my world』">
-<meta property="og:url" content="http://yoursite.com/tags/随笔/index.html">
+  <meta name="description" content="MobileNetMobileNets是为移动和嵌入式设备提出的高效模型，最核心的idea是depthwise separable convolution，并在此基础上引入了两个全局超参数控制模型规模和相关的latency-accuracy trade-off。">
+<meta name="keywords" content="深度学习,论文导读,CV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MobileNet">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/MobileNet/index.html">
 <meta property="og:site_name" content="『My word in my world』">
+<meta property="og:description" content="MobileNetMobileNets是为移动和嵌入式设备提出的高效模型，最核心的idea是depthwise separable convolution，并在此基础上引入了两个全局超参数控制模型规模和相关的latency-accuracy trade-off。">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104330.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104400.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104425.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104446.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104512.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104530.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104547.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104604.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104628.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104644.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104705.png">
+<meta property="og:updated_time" content="2019-05-29T02:48:00.189Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="『My word in my world』">
+<meta name="twitter:title" content="MobileNet">
+<meta name="twitter:description" content="MobileNetMobileNets是为移动和嵌入式设备提出的高效模型，最核心的idea是depthwise separable convolution，并在此基础上引入了两个全局超参数控制模型规模和相关的latency-accuracy trade-off。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104330.png">
   
     <link rel="alternative" href="/atom.xml" title="『My word in my world』" type="application/atom+xml">
   
@@ -205,60 +222,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MobileNet" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/18/Flag/" class="archive-article-date">
-  	<time datetime="2019-03-18T14:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/18/Flag/">Flag</a>
+    <h1 class="article-title" itemprop="name">
+      MobileNet
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/29/MobileNet/" class="archive-article-date">
+  	<time datetime="2019-05-29T02:42:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MobileNet"><a href="#MobileNet" class="headerlink" title="MobileNet"></a>MobileNet</h1><p>MobileNets是为移动和嵌入式设备提出的高效模型，最核心的idea是depthwise separable convolution，并在此基础上引入了两个全局超参数控制模型规模和相关的latency-accuracy trade-off。</p>
+<a id="more"></a>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><p>由于CNN的广泛应用，对设计和训练高速/小型CNN的兴趣在不断的增长中。在建立小型高效的神经网络工作中，通常可分为两类：</p>
+<ul>
+<li>一个是将训练好的大规模网络做“压缩”或者“修剪”，代表工作是DeepCompression；</li>
+<li>另外一个路径是从头开始训练一个特别设计的网络结构。相关工作包括：Flattened networks; Factorized networks; Xception network等等。另外还有一个训练小网络的方法是distillation。</li>
+</ul>
+<h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><h3 id="Depthwise-Separable-Convolution"><a href="#Depthwise-Separable-Convolution" class="headerlink" title="Depthwise Separable Convolution"></a>Depthwise Separable Convolution</h3><p>MobileNets的核心idea是depthwise separable convolution，简单的说就是把一个k*k*M*N（空间上是k*k，M是输入channel数，N是输出channel数）替换成：</p>
+<ul>
+<li><p>Filtering部分的depthwise卷积：M个k*k*1的2D卷积，输出channel数保持为M不变</p>
+</li>
+<li><p>Combining部分pointwise卷积：N个1*1*M的卷积，输出channel数为N</p>
+</li>
+</ul>
+<p>depthwise卷积层和pointwie卷积层都是有BN和ReLU。两个卷积层之间非线性变换的引入使得MobileNets不是严格的在做卷积核的factorization。</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104330.png" alt=""></p>
+<p>相比标准的k<em>k</em>M*N卷积网络，计算量的变化是：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104400.png" alt=""></p>
+<p>由于一般DK=3而N&gt;&gt;10，所以后面一项较大，我们可以得到接近9倍的提速。</p>
+<h3 id="Network-Structure-and-Training"><a href="#Network-Structure-and-Training" class="headerlink" title="Network Structure and Training"></a>Network Structure and Training</h3><p>基于depthwise separable convolution，我们可以构建MobileNets，基本单元如下图右侧:</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104425.png" alt=""></p>
+<p>降采样只发生在depthwise卷积层，而不会发生在pointwise卷积层。</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104446.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104512.png" alt=""></p>
+<p>另一个depthwise separable convolution的好处是实现的效率，1*1卷积在输入输出channel数分别为M和N的时候，等价于乘以一个M*N的矩阵，是有高度优化的GEMM实现的。另外一点是1*1卷积而不需要k*k卷积在k&gt;1时候的im2col操作，基本全部时间都在做计算。MobileNets的95%的计算量和75%的参数在1*1卷积层。</p>
+<h3 id="Width-Multiplier-Thinner-Models"><a href="#Width-Multiplier-Thinner-Models" class="headerlink" title="Width Multiplier: Thinner Models"></a>Width Multiplier: Thinner Models</h3><p>第一个控制模型大小的超参数是：宽度因子α (Width multiplier )，其实应该叫depth multiplier，是一个应用在全部卷积层深度上的一个系数, 用于控制输入和输出的通道数，即输入通道从M变为αM,输出通道从N变为αN, α∈(0,1],通常取1,0.7,0.5,0.25.</p>
+<p>计算量减少了：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104530.png" alt=""></p>
+<p>宽度因子将计算量和参数降低了约α^2倍，可很方便的控制模型大小.</p>
+<h3 id="Resolution-Multiplier-Reduced-Representation"><a href="#Resolution-Multiplier-Reduced-Representation" class="headerlink" title="Resolution Multiplier: Reduced Representation"></a>Resolution Multiplier: Reduced Representation</h3><p>我们引入的第二个控制模型大小的超参数是：分辨率因子ρ, 改变的是输入的长宽，整体计算量减少了：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104547.png" alt=""></p>
+<p>下面的示例展现了两个因子对模型的影响：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104604.png" alt=""></p>
+<h2 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h2><h3 id="Model-Choices"><a href="#Model-Choices" class="headerlink" title="Model Choices"></a>Model Choices</h3><p>使用深度分类卷积的MobileNet与使用标准卷积的MobileNet之间对比 : 在精度上损失了1%，但是的计算量和参数量上降低了一个数量级。</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104628.png" alt=""></p>
+<p>使用width multiplier控制模型大小比直接使用浅层模型效果更好：</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104644.png" alt=""></p>
+<h3 id="Model-Shrinking-Hyperparameters"><a href="#Model-Shrinking-Hyperparameters" class="headerlink" title="Model Shrinking Hyperparameters"></a>Model Shrinking Hyperparameters</h3><p>改变alpha和rho都可以调节accuracy-computation trade-off</p>
+<p><img src="https://raw.githubusercontent.com/jianhongwu/BlogPhoto/master/img/20190529104705.png" alt=""></p>
+<h2 id="Conclusions"><a href="#Conclusions" class="headerlink" title="Conclusions"></a>Conclusions</h2><ul>
+<li>MobileNet使用depthwise separable convolution有效的降低了模型的计算量和参数数量，在对等的卷积层上(1*3*3+1*1*N vs. 标准M*3*3*N)，计算量和参数数量都有8-9倍的减少，代价是训练时的内存需求上升。</li>
+<li>这篇文章并不是提出了一个新的网络结构MobileNets，而是证明了depthwise separable convolution的实用性，它可以使用在Inception结构中，也可以用在ResNet里</li>
+<li>引入的两个全局超参数alpha和rho，和MobileNets关系不大，也可以用在其他的CNN中。只是提供了简单粗暴的方法控制模型规模，并没有考虑对性能的影响</li>
+<li>这篇文章的贡献在于提供了一个训练高速网络的途径，它的意义在于：<ul>
+<li>加快模型迭代速度，研究者可以探索更多不同的网络结构，做prototyping。</li>
+<li>应用CNN在移动端和嵌入式场景，接近一个量级的提速和模型压缩，只付出很小的性能的代价</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/29/MobileNet/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/05/20/树莓派安装sklearn/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">树莓派安装sklearn</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -281,9 +461,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
