@@ -207,26 +207,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Xception" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-ifdef-和-pragma-once的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/30/Xception/">Xception</a>
+      <a class="article-title" href="/2019/07/07/ifdef-和-pragma-once的区别/">#ifdef 和 #pragma once的区别</a>
     </h1>
   
 
         
-        <a href="/2019/05/30/Xception/" class="archive-article-date">
-  	<time datetime="2019-05-30T04:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
+        <a href="/2019/07/07/ifdef-和-pragma-once的区别/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>头文件：</p>
+<ul>
+<li>一般写类的声明（包括类里面的成员和方法的声明）、函数原型、#define常数等，但一般来说不写出具体的实现。</li>
+<li>头文件应该以 .h 作为扩展名</li>
+<li>头文件本身应该可以被编译</li>
+<li><strong>头文件需要通过宏来保证不被重复包含</strong><ul>
+<li>这样做是为了防止重复编译，不这样做就有可能出错。
+        
+          <a class="article-more-a" href="/2019/07/07/ifdef-和-pragma-once的区别/#more">more >></a>
         
       
 
@@ -235,11 +244,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/30/Xception/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/ifdef-和-pragma-once的区别/">展开全文 >></a>
         </p>
       
 
@@ -269,26 +289,29 @@
 
 
   
-    <article id="post-ResNeXt" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-C-11-nullptr和NULL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/30/ResNeXt/">ResNeXt</a>
+      <a class="article-title" href="/2019/07/07/C-11-nullptr和NULL/">C++11 nullptr和NULL</a>
     </h1>
   
 
         
-        <a href="/2019/05/30/ResNeXt/" class="archive-article-date">
-  	<time datetime="2019-05-30T04:30:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
+        <a href="/2019/07/07/C-11-nullptr和NULL/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>实习时公司的C++11白名单里有一条：使用 nullptr 代替 NULL 来表示空指针，不要使用 0 来表示空指针。也没有进一步的说明，简单查了一下做个记录。</p>
+        
+          <a class="article-more-a" href="/2019/07/07/C-11-nullptr和NULL/#more">more >></a>
         
       
 
@@ -297,11 +320,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/30/ResNeXt/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/C-11-nullptr和NULL/">展开全文 >></a>
         </p>
       
 
@@ -331,26 +365,32 @@
 
 
   
-    <article id="post-一些Bash的小操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-转-C-智能指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/30/一些Bash的小操作/">一些Bash的小操作</a>
+      <a class="article-title" href="/2019/07/07/转-C-智能指针/">[转]C++智能指针</a>
     </h1>
   
 
         
-        <a href="/2019/05/30/一些Bash的小操作/" class="archive-article-date">
-  	<time datetime="2019-05-30T04:30:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
+        <a href="/2019/07/07/转-C-智能指针/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:47:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="C-智能指针简单剖析"><a href="#C-智能指针简单剖析" class="headerlink" title="C++智能指针简单剖析"></a>C++智能指针简单剖析</h1><ul>
+<li>作者：Alexia(minmin) </li>
+<li><a href="https://www.cnblogs.com/lanxuezaipiao/p/4132096.html" target="_blank" rel="noopener">https://www.cnblogs.com/lanxuezaipiao/p/4132096.html</a></li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/07/07/转-C-智能指针/#more">more >></a>
         
       
 
@@ -359,11 +399,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/30/一些Bash的小操作/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/转-C-智能指针/">展开全文 >></a>
         </p>
       
 
@@ -393,26 +444,33 @@
 
 
   
-    <article id="post-Lombok详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Google-gflags" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/30/Lombok详解/">Lombok详解</a>
+      <a class="article-title" href="/2019/07/07/Google-gflags/">Google gflags</a>
     </h1>
   
 
         
-        <a href="/2019/05/30/Lombok详解/" class="archive-article-date">
-  	<time datetime="2019-05-30T04:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
+        <a href="/2019/07/07/Google-gflags/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:46:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>对于一个binary文件，当我们想改变程序中的某些参数有不想重新编译时，通常有两种做法：</p>
+<ul>
+<li>把这些参数写进一个配置文件(config.json)，程序从配置文件中获得参数</li>
+<li>使用 gflag 将参数从命令行传入程序</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/07/07/Google-gflags/#more">more >></a>
         
       
 
@@ -421,11 +479,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/30/Lombok详解/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/Google-gflags/">展开全文 >></a>
         </p>
       
 
@@ -455,26 +524,29 @@
 
 
   
-    <article id="post-Python-logging" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-OpenMP并行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/30/Python-logging/">Python logging</a>
+      <a class="article-title" href="/2019/07/07/OpenMP并行/">OpenMP并行</a>
     </h1>
   
 
         
-        <a href="/2019/05/30/Python-logging/" class="archive-article-date">
-  	<time datetime="2019-05-30T04:29:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
+        <a href="/2019/07/07/OpenMP并行/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:44:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>今天在工作时看到一段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#pragma omp parallel for</span><br><span class="line">for(……)&#123;</span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2019/07/07/OpenMP并行/#more">more >></a>
         
       
 
@@ -483,11 +555,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/30/Python-logging/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/OpenMP并行/">展开全文 >></a>
         </p>
       
 
@@ -519,7 +602,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -614,11 +697,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -627,6 +710,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CV</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
