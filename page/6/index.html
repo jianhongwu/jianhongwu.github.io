@@ -207,29 +207,35 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-RCNN论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-SSD论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/29/RCNN论文导读/">RCNN论文导读</a>
+      <a class="article-title" href="/2019/05/01/SSD论文导读/">SSD论文导读</a>
     </h1>
   
 
         
-        <a href="/2019/04/29/RCNN论文导读/" class="archive-article-date">
-  	<time datetime="2019-04-29T14:10:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
+        <a href="/2019/05/01/SSD论文导读/" class="archive-article-date">
+  	<time datetime="2019-05-01T10:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Rich-feature-hierarchies-for-accurate-object-detection-and-semantic-segmentation"><a href="#Rich-feature-hierarchies-for-accurate-object-detection-and-semantic-segmentation" class="headerlink" title="Rich feature hierarchies for accurate object detection and semantic segmentation"></a>Rich feature hierarchies for accurate object detection and semantic segmentation</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>过去几年，在数据集PASCAL上，物体检测的效果已经达到了瓶颈，效果最好的方法是融合了多种低维图像特征和高维上下文环境的复杂融合系统。在这篇论文里，我们提出了一种简单并且可扩展的检测算法，可以将mAP在VOC2012最好结果的基础上提高30%以上——达到了53.3%。我们的方法结合了两个关键的因素：</p>
+        <h1 id="SSD：Single-Shot-MultiBox-Detector-ECCV-16"><a href="#SSD：Single-Shot-MultiBox-Detector-ECCV-16" class="headerlink" title="SSD：Single Shot MultiBox Detector (ECCV 16)"></a>SSD：Single Shot MultiBox Detector (ECCV 16)</h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>提出了一种端到端的目标检测模型SSD，主要过程包括:</p>
+<ul>
+<li>将原本的bounding box输出空间预设为一组具有不同横纵比和大小的default box</li>
+<li>预测时，为每一个deafult box输出每一个类别的得分，并调整box更好的适应目标形状</li>
+<li>模型结合了不同尺度的特征进行预测，可以处理各种大小的目标</li>
+</ul>
+<p>相对于那些需要 object proposals 的检测模型，本文的 SSD 方法完全取消了 proposals generation、pixel resampling 或者 feature resampling 这些阶段。这样使得 SSD 更容易去优化训练，也更容易地将检测模型融合进系统之中。</p>
         
-          <a class="article-more-a" href="/2019/04/29/RCNN论文导读/#more">more >></a>
+          <a class="article-more-a" href="/2019/05/01/SSD论文导读/#more">more >></a>
         
       
 
@@ -261,7 +267,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/29/RCNN论文导读/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/05/01/SSD论文导读/">展开全文 >></a>
         </p>
       
 
@@ -291,105 +297,29 @@
 
 
   
-    <article id="post-马拉车算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-VGG论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/08/马拉车算法/">马拉车算法</a>
+      <a class="article-title" href="/2019/04/30/VGG论文导读/">VGG论文导读</a>
     </h1>
   
 
         
-        <a href="/2019/04/08/马拉车算法/" class="archive-article-date">
-  	<time datetime="2019-04-08T14:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
+        <a href="/2019/04/30/VGG论文导读/" class="archive-article-date">
+  	<time datetime="2019-04-30T13:45:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>查找字符串的最长回文子串的线性方法<br>
+        <h1 id="Very-Deep-Convolutional-Networks-for-Large-Scale-Image-Recognition"><a href="#Very-Deep-Convolutional-Networks-for-Large-Scale-Image-Recognition" class="headerlink" title="Very Deep Convolutional Networks for Large Scale Image Recognition"></a>Very Deep Convolutional Networks for Large Scale Image Recognition</h1><p>VGG是由Simonyan 和Zisserman在文献《Very Deep Convolutional Networks for Large Scale Image Recognition》中提出卷积神经网络模型，其名称来源于作者所在的牛津大学视觉几何组(Visual Geometry Group)的缩写。</p>
         
-          <a class="article-more-a" href="/2019/04/08/马拉车算法/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据结构与算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/08/马拉车算法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-EAST文本检测论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/03/EAST文本检测论文导读/">EAST文本检测论文导读</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/03/EAST文本检测论文导读/" class="archive-article-date">
-  	<time datetime="2019-04-03T07:32:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="EAST-An-Efficient-and-Accurate-Scene-Text-Detector"><a href="#EAST-An-Efficient-and-Accurate-Scene-Text-Detector" class="headerlink" title="EAST: An Efficient and Accurate Scene Text Detector"></a>EAST: An Efficient and Accurate Scene Text Detector</h1><p>传统的文本检测方法，包括一些深度学习模型，往往是multi-stage的，不论是最终的效果或者是训练的难度都会受到影响。本文提出了一种在自然场景下也快速、准确的端到端文本检测模型，这一模型消除了传统方法中间的多个阶段，如候选区域选择、文本分词等，直接预测图中任意方向和四边形形状的文字或文本行。</p>
-        
-          <a class="article-more-a" href="/2019/04/03/EAST文本检测论文导读/#more">more >></a>
+          <a class="article-more-a" href="/2019/04/30/VGG论文导读/#more">more >></a>
         
       
 
@@ -421,7 +351,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/03/EAST文本检测论文导读/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/30/VGG论文导读/">展开全文 >></a>
         </p>
       
 
@@ -451,105 +381,29 @@
 
 
   
-    <article id="post-优化算法-从SGD到Adam" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-GoogLeNet论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/02/优化算法-从SGD到Adam/">优化算法-从SGD到Adam</a>
+      <a class="article-title" href="/2019/04/30/GoogLeNet论文导读/">GoogLeNet论文导读、</a>
     </h1>
   
 
         
-        <a href="/2019/04/02/优化算法-从SGD到Adam/" class="archive-article-date">
-  	<time datetime="2019-04-02T14:35:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
+        <a href="/2019/04/30/GoogLeNet论文导读/" class="archive-article-date">
+  	<time datetime="2019-04-30T13:44:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>重复造个轮子，总结一下不同优化算法的原理。<br>
+        <h1 id="Going-deeper-with-convolutions"><a href="#Going-deeper-with-convolutions" class="headerlink" title="Going deeper with convolutions"></a>Going deeper with convolutions</h1><p>GoogLeNet是由Christian Szegedy，Wei Liu(SSD), Yangqing Jia(Caffe)等人提出的深度卷积神经网络。这篇文章提出了一种新的卷积网络结构：Inception，可以在保持网络计算资源不变的前提下，通过精心设计来增加网络的宽度和深度。22层的GoogLeNet在ILSVRC2014比赛中取得了SOTA的成绩。</p>
         
-          <a class="article-more-a" href="/2019/04/02/优化算法-从SGD到Adam/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/02/优化算法-从SGD到Adam/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Batch-Normalization论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/02/Batch-Normalization论文导读/">Batch Normalization论文导读</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/02/Batch-Normalization论文导读/" class="archive-article-date">
-  	<time datetime="2019-04-02T08:40:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Batch-Normalization-Accelerating-Deep-Network-Training-by-Reducing-Internal-Covariate-Shift"><a href="#Batch-Normalization-Accelerating-Deep-Network-Training-by-Reducing-Internal-Covariate-Shift" class="headerlink" title="Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift"></a>Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</h1><p>关于Batch Normalization的作用和原理，感觉一百篇博文有一百种说法，看得越多怀疑越多，还是自己翻出原文看看吧。<br>
-        
-          <a class="article-more-a" href="/2019/04/02/Batch-Normalization论文导读/#more">more >></a>
+          <a class="article-more-a" href="/2019/04/30/GoogLeNet论文导读/#more">more >></a>
         
       
 
@@ -569,6 +423,10 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -577,7 +435,180 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/02/Batch-Normalization论文导读/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/30/GoogLeNet论文导读/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-YOLO论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/29/YOLO论文导读/">YOLO论文导读</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/29/YOLO论文导读/" class="archive-article-date">
+  	<time datetime="2019-04-29T14:38:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="You-Only-Look-Once-Unified-Real-Time-Object-Detection-CVPR-2016"><a href="#You-Only-Look-Once-Unified-Real-Time-Object-Detection-CVPR-2016" class="headerlink" title="You Only Look Once: Unified, Real-Time Object Detection (CVPR 2016)"></a>You Only Look Once: Unified, Real-Time Object Detection (CVPR 2016)</h1><p>Joseph Redmon, Santosh Divvala, Ross Girshic, Ali Farhadi</p>
+<p>YOLO是继RCNN，fast-RCNN 和 faster-RCNN之后全新的one-stage目标检测框架</p>
+        
+          <a class="article-more-a" href="/2019/04/29/YOLO论文导读/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/29/YOLO论文导读/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Faster-RCNN-论文导读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/29/Faster-RCNN-论文导读/">Faster RCNN 论文导读</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/29/Faster-RCNN-论文导读/" class="archive-article-date">
+  	<time datetime="2019-04-29T14:29:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Faster-R-CNN-Towards-Real-Time-Object-Detection-with-Region-Proposal-Networks"><a href="#Faster-R-CNN-Towards-Real-Time-Object-Detection-with-Region-Proposal-Networks" class="headerlink" title="Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks"></a>Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</h1><p>推荐阅读：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31426458" target="_blank" rel="noopener">一文读懂Faster RCNN</a></li>
+<li><a href="https://www.cnblogs.com/wangyong/p/8513563.html" target="_blank" rel="noopener">Faster RCNN 学习笔记</a></li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/04/29/Faster-RCNN-论文导读/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文导读</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CV</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/29/Faster-RCNN-论文导读/">展开全文 >></a>
         </p>
       
 
@@ -609,7 +640,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -704,10 +735,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
@@ -716,11 +743,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CV</a>
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,11 +767,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
             
             <div class="clearfix"></div>

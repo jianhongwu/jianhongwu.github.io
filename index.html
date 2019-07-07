@@ -207,190 +207,199 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-ifdef-和-pragma-once的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-转-C-11-lambda表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/07/ifdef-和-pragma-once的区别/">#ifdef 和 #pragma once的区别</a>
+      <a class="article-title" href="/2019/07/07/转-C-11-lambda表达式/">[转]C++11 lambda表达式</a>
     </h1>
   
 
         
-        <a href="/2019/07/07/ifdef-和-pragma-once的区别/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+        <a href="/2019/07/07/转-C-11-lambda表达式/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:59:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>头文件：</p>
+        <h1 id="转-C-11-lambda表达式"><a href="#转-C-11-lambda表达式" class="headerlink" title="[转]C++11 lambda表达式"></a>[转]C++11 lambda表达式</h1><ul>
+<li>作者：小白将</li>
+<li>链接：<a href="https://www.jianshu.com/p/d686ad9de817" target="_blank" rel="noopener">https://www.jianshu.com/p/d686ad9de817</a></li>
+</ul>
+<p>lambda表达式是C++11中引入的一项新技术，利用lambda表达式可以编写内嵌的匿名函数，用以替换独立函数或者函数对象，并且使代码更可读。但是从本质上来讲，lambda表达式只是一种语法糖，因为所有其能完成的工作都可以用其它稍微复杂的代码来实现。但是它简便的语法却给C++带来了深远的影响。如果从广义上说，lamdba表达式产生的是函数对象。在类中，可以重载函数调用运算符()，此时类的对象可以将具有类似函数的行为，我们称这些对象为函数对象（Function Object）或者仿函数（Functor）。相比lambda表达式，函数对象有自己独特的优势。下面我们开始具体讲解这两项黑科技。</p>
+        
+          <a class="article-more-a" href="/2019/07/07/转-C-11-lambda表达式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/转-C-11-lambda表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-auto血案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/auto血案/">auto血案</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/auto血案/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:58:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前两天在准备实验数据的时候，对一个vector写了类似这样一段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(auto item : vector)&#123;</span><br><span class="line">    item = xxx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2019/07/07/auto血案/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/07/auto血案/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-转-右值引用与转移语义" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/07/转-右值引用与转移语义/">[转]右值引用与转移语义</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/07/转-右值引用与转移语义/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:57:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="转-右值引用与转移语义"><a href="#转-右值引用与转移语义" class="headerlink" title="[转]右值引用与转移语义"></a>[转]右值引用与转移语义</h1><ul>
+<li>作者：李胜利</li>
+<li><a href="https://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/aix/library/1307_lisl_c11/index.html</a></li>
+</ul>
+<hr>
+<h3 id="新特性的目的"><a href="#新特性的目的" class="headerlink" title="新特性的目的"></a>新特性的目的</h3><p>右值引用 (Rvalue Referene) 是 C++ 新标准 (C++11, 11 代表 2011 年 ) 中引入的新特性 , 它实现了转移语义 (Move Sementics) 和精确传递 (Perfect Forwarding)。它的主要目的有两个方面：</p>
 <ul>
-<li>一般写类的声明（包括类里面的成员和方法的声明）、函数原型、#define常数等，但一般来说不写出具体的实现。</li>
-<li>头文件应该以 .h 作为扩展名</li>
-<li>头文件本身应该可以被编译</li>
-<li><strong>头文件需要通过宏来保证不被重复包含</strong><ul>
-<li>这样做是为了防止重复编译，不这样做就有可能出错。
-        
-          <a class="article-more-a" href="/2019/07/07/ifdef-和-pragma-once的区别/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/07/ifdef-和-pragma-once的区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C-11-nullptr和NULL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/07/C-11-nullptr和NULL/">C++11 nullptr和NULL</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/07/C-11-nullptr和NULL/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>实习时公司的C++11白名单里有一条：使用 nullptr 代替 NULL 来表示空指针，不要使用 0 来表示空指针。也没有进一步的说明，简单查了一下做个记录。</p>
-        
-          <a class="article-more-a" href="/2019/07/07/C-11-nullptr和NULL/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/07/C-11-nullptr和NULL/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-转-C-智能指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/07/转-C-智能指针/">[转]C++智能指针</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/07/转-C-智能指针/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:47:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="C-智能指针简单剖析"><a href="#C-智能指针简单剖析" class="headerlink" title="C++智能指针简单剖析"></a>C++智能指针简单剖析</h1><ul>
-<li>作者：Alexia(minmin) </li>
-<li><a href="https://www.cnblogs.com/lanxuezaipiao/p/4132096.html" target="_blank" rel="noopener">https://www.cnblogs.com/lanxuezaipiao/p/4132096.html</a></li>
+<li>消除两个对象交互时不必要的对象拷贝，节省运算存储资源，提高效率。</li>
+<li>能够更简洁明确地定义泛型函数。</li>
+</ul>
+<p>另一种更明确的说法，主要解决两个问题：</p>
+<ul>
+<li>第一个问题就是临时对象非必要的昂贵的拷贝操作</li>
+<li>第二个问题是在模板函数中如何按照参数的实际类型进行转发</li>
 </ul>
         
-          <a class="article-more-a" href="/2019/07/07/转-C-智能指针/#more">more >></a>
+          <a class="article-more-a" href="/2019/07/07/转-右值引用与转移语义/#more">more >></a>
         
       
 
@@ -414,7 +423,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/07/转-C-智能指针/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/转-右值引用与转移语义/">展开全文 >></a>
         </p>
       
 
@@ -444,33 +453,36 @@
 
 
   
-    <article id="post-Google-gflags" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python-collections" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/07/Google-gflags/">Google gflags</a>
+      <a class="article-title" href="/2019/07/07/python-collections/">python collections</a>
     </h1>
   
 
         
-        <a href="/2019/07/07/Google-gflags/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:46:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+        <a href="/2019/07/07/python-collections/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对于一个binary文件，当我们想改变程序中的某些参数有不想重新编译时，通常有两种做法：</p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for collections import xxx</span><br></pre></td></tr></table></figure>
+<p>collections模块在python内置数据类型的基础上，提供了几个额外的好用的数据类型：</p>
 <ul>
-<li>把这些参数写进一个配置文件(config.json)，程序从配置文件中获得参数</li>
-<li>使用 gflag 将参数从命令行传入程序</li>
-</ul>
+<li>namedtuple(): 生成可以使用名字来访问元素内容的tuple子类</li>
+<li>deque: 双端队列，可以快速的从两侧加减对象</li>
+<li>Counter: 计数器，主要用来计数</li>
+<li>OrderedDict: 有序字典</li>
+<li>defaultdict: 带有默认值的字典
         
-          <a class="article-more-a" href="/2019/07/07/Google-gflags/#more">more >></a>
+          <a class="article-more-a" href="/2019/07/07/python-collections/#more">more >></a>
         
       
 
@@ -484,7 +496,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -494,7 +506,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/07/Google-gflags/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/python-collections/">展开全文 >></a>
         </p>
       
 
@@ -524,29 +536,32 @@
 
 
   
-    <article id="post-OpenMP并行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="python-argparse" class="article article-type-python  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/07/OpenMP并行/">OpenMP并行</a>
+      <a class="article-title" href="/2019/07/07/argparse/">argparse</a>
     </h1>
   
 
         
-        <a href="/2019/07/07/OpenMP并行/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:44:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
+        <a href="/2019/07/07/argparse/" class="archive-article-date">
+  	<time datetime="2019-07-07T06:55:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天在工作时看到一段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#pragma omp parallel for</span><br><span class="line">for(……)&#123;</span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>argparse是python用于解析命令行参数和选项的标准模块</p>
+<ul>
+<li><a href="https://docs.python.org/3/howto/argparse.html" target="_blank" rel="noopener">官方文档</a></li>
+<li><a href="http://blog.xiayf.cn/2013/03/30/argparse/" target="_blank" rel="noopener">argparse - 命令行选项与参数解析（译）</a>
         
-          <a class="article-more-a" href="/2019/07/07/OpenMP并行/#more">more >></a>
+          <a class="article-more-a" href="/2019/07/07/argparse/#more">more >></a>
         
       
 
@@ -560,7 +575,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -570,7 +585,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/07/OpenMP并行/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/07/07/argparse/">展开全文 >></a>
         </p>
       
 
@@ -602,7 +617,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -697,10 +712,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
@@ -709,11 +720,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CV</a>
+                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NLP</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">CV</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,11 +744,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据结构与算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">树莓派</a>
               </li>
             
             <div class="clearfix"></div>
