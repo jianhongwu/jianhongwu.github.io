@@ -207,6 +207,62 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-[转][multiprocessing] 共享资源" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用多进程的过程中，最好不要使用共享资源，如果非得使用，则请往下看。Multiprocessing类中共享资源可以使用3种方式，分别是Queue，Array，Manager。这三个都是Multiprocessing自带的组件，使用起来也非常方便。注意：普通的全局变量是不能被子进程所共享的，只有通过Multiprocessing组件构造的数据结构可以被共享。</p>
+<h3 id="Manager类"><a href="#Manager类" class="headerlink" title="Manager类"></a>Manager类</h3><p>使用Multiprocessing.Manager类，共享资源。（可以适用Pool类）</p>
+<p>实例目的：父进程在执行子进程的过程中，同步判断一个公共资源值，如果满足条件则结束所有进程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Manager,Pool</span><br><span class="line">lists=Manager().list()    ##定义可被子进程共享的全局变量lists</span><br><span class="line">def test(i):</span><br><span class="line">     print i</span><br><span class="line">     lists.append(i)</span><br><span class="line">if __name__==&quot;__main__&quot;:</span><br><span class="line">    pool=Pool()</span><br><span class="line">    for i in xrange(10000000):</span><br><span class="line">    	&apos;&apos;&apos;</span><br><span class="line">    	判断如果lists长度大于0，则不再往进程池中添加进程。</span><br><span class="line">    	&apos;&apos;&apos;</span><br><span class="line">        if len(lists)&lt;=0:</span><br><span class="line">            pool.apply_async(test,args=(i,))</span><br><span class="line">        else:</span><br><span class="line">            break</span><br><span class="line">     pool.close()</span><br><span class="line">     pool.join()</span><br></pre></td></tr></table></figure>
+<p>优点：可以跟Pool一起用，且速度比较快。</p>
+<h3 id="Queue类"><a href="#Queue类" class="headerlink" title="Queue类"></a>Queue类</h3><p>使用Multiprocessing.Queue类，共享资源（share memory）（只适用Process类）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process, Queue  </span><br><span class="line">def test(queue):  </span><br><span class="line">    queue.put(&quot;Hello World&quot;)  </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    q = Queue()  </span><br><span class="line">    p = Process(target=test, args=(q,))  #需要将q对象传递给子进程</span><br><span class="line">    p.start()</span><br><span class="line">    print q.get()</span><br></pre></td></tr></table></figure></p>
+<p>缺点：不能再Pool进程池中使用。</p>
+<h3 id="Array、Value类"><a href="#Array、Value类" class="headerlink" title="Array、Value类"></a>Array、Value类</h3><p>使用Multiprocessing.Array类，共享资源（share memory）（只适用于Process类）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Process, Array</span><br><span class="line">def test(a):</span><br><span class="line">    for i in range(len(a)):</span><br><span class="line">        a[i] = -a[i]</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    arr = Array(&apos;i&apos;, range(10))</span><br><span class="line">    p = Process(target=test, args=(arr))  #需要将arr对象传递给子进程</span><br><span class="line">    p.start()</span><br><span class="line">    p.join()</span><br><span class="line">    print arr[:]</span><br></pre></td></tr></table></figure></p>
+<p>缺点：无法与Pool一起使用。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/29/[转][multiprocessing] 共享资源/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Multiprocessing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -531,92 +587,9 @@
 
 
   
-    <article id="post-python-collections" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/07/python-collections/">python collections</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/07/python-collections/" class="archive-article-date">
-  	<time datetime="2019-07-07T06:56:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for collections import xxx</span><br></pre></td></tr></table></figure>
-<p>collections模块在python内置数据类型的基础上，提供了几个额外的好用的数据类型：</p>
-<ul>
-<li>namedtuple(): 生成可以使用名字来访问元素内容的tuple子类</li>
-<li>deque: 双端队列，可以快速的从两侧加减对象</li>
-<li>Counter: 计数器，主要用来计数</li>
-<li>OrderedDict: 有序字典</li>
-<li>defaultdict: 带有默认值的字典
-        
-          <a class="article-more-a" href="/2019/07/07/python-collections/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/07/python-collections/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
