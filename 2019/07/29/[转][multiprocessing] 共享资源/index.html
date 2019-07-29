@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/07/29/[转][multiprocessing] 共享资源/index.html">
 <meta property="og:site_name" content="『My word in my world』">
 <meta property="og:description" content="在使用多进程的过程中，最好不要使用共享资源，如果非得使用，则请往下看。Multiprocessing类中共享资源可以使用3种方式，分别是Queue，Array，Manager。这三个都是Multiprocessing自带的组件，使用起来也非常方便。注意：普通的全局变量是不能被子进程所共享的，只有通过Multiprocessing组件构造的数据结构可以被共享。 Manager类使用Multiproc">
-<meta property="og:updated_time" content="2019-07-09T12:55:23.714Z">
+<meta property="og:updated_time" content="2019-07-29T14:55:22.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="『My word in my world』">
 <meta name="twitter:description" content="在使用多进程的过程中，最好不要使用共享资源，如果非得使用，则请往下看。Multiprocessing类中共享资源可以使用3种方式，分别是Queue，Array，Manager。这三个都是Multiprocessing自带的组件，使用起来也非常方便。注意：普通的全局变量是不能被子进程所共享的，只有通过Multiprocessing组件构造的数据结构可以被共享。 Manager类使用Multiproc">
@@ -215,7 +215,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在使用多进程的过程中，最好不要使用共享资源，如果非得使用，则请往下看。Multiprocessing类中共享资源可以使用3种方式，分别是Queue，Array，Manager。这三个都是Multiprocessing自带的组件，使用起来也非常方便。注意：普通的全局变量是不能被子进程所共享的，只有通过Multiprocessing组件构造的数据结构可以被共享。</p>
-<h3 id="Manager类"><a href="#Manager类" class="headerlink" title="Manager类"></a>Manager类</h3><p>使用Multiprocessing.Manager类，共享资源。（可以适用Pool类）</p>
+<h3 id="Manager类"><a href="#Manager类" class="headerlink" title="Manager类"></a>Manager类</h3><p>使用Multiprocessing.Manager类，共享资源。（可以适用Pool类）<br><a id="more"></a></p>
 <p>实例目的：父进程在执行子进程的过程中，同步判断一个公共资源值，如果满足条件则结束所有进程。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from multiprocessing import Manager,Pool</span><br><span class="line">lists=Manager().list()    ##定义可被子进程共享的全局变量lists</span><br><span class="line">def test(i):</span><br><span class="line">     print i</span><br><span class="line">     lists.append(i)</span><br><span class="line">if __name__==&quot;__main__&quot;:</span><br><span class="line">    pool=Pool()</span><br><span class="line">    for i in xrange(10000000):</span><br><span class="line">    	&apos;&apos;&apos;</span><br><span class="line">    	判断如果lists长度大于0，则不再往进程池中添加进程。</span><br><span class="line">    	&apos;&apos;&apos;</span><br><span class="line">        if len(lists)&lt;=0:</span><br><span class="line">            pool.apply_async(test,args=(i,))</span><br><span class="line">        else:</span><br><span class="line">            break</span><br><span class="line">     pool.close()</span><br><span class="line">     pool.join()</span><br></pre></td></tr></table></figure>
 <p>优点：可以跟Pool一起用，且速度比较快。</p>
